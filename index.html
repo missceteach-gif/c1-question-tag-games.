@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C1 Question Tags · Speaking Games</title><style>:root{font-family:system-ui,-apple-system,sans-serif;background:#fff8f1;color:#263044}*{box-sizing:border-box}body{margin:0}main{max-width:680px;margin:auto;padding:22px 18px 60px}h1{font-size:clamp(28px,7vw,43px);line-height:1.1;margin:10px 0}p{line-height:1.5}header small{letter-spacing:.15em;font-weight:800;color:#a14c70}.switch{display:flex;gap:9px;margin:24px 0}.switch button{flex:1}.panel{background:white;border:2px solid #282943;border-radius:24px;padding:23px;box-shadow:7px 8px #f0b3c4}.label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:800;color:#9a476a}.statement{font-size:clamp(24px,6vw,33px);line-height:1.26;font-weight:750;margin:22px 0}.muted{color:#617082;font-size:14px}button{border:2px solid #272a45;background:white;color:#272a45;padding:13px 15px;border-radius:13px;font:inherit;font-weight:760;cursor:pointer}button.primary,.active{background:#272a45;color:white}button:focus-visible{outline:4px solid #ed9c43}button:disabled{opacity:.55}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.answers{background:#e3f6eb;padding:13px 17px;border-radius:13px;font-weight:720;margin-top:18px}.score{display:flex;gap:14px;align-items:center;justify-content:space-between;margin:18px 0}.score b{font-size:28px;min-width:33px;display:inline-block;text-align:center}.score button{padding:8px 12px}.rule{background:#fff1bd;border-radius:15px;padding:12px 17px;margin:18px 0}.small{font-size:13px}footer{margin-top:27px;color:#627080;font-size:12px;text-align:center}</style></head><body><main><header><small>CELIA ENGLISH · C1 SPEAKING</small><h1>Question Tag Games 🎯</h1><p>48 ridiculous cards. Two speaking games. Zero printing.</p></header><nav class="switch"><button id="tagTab" class="active" onclick="switchGame(0)">⚡ Tag Attack</button><button id="opTab" onclick="switchGame(1)">🔥 Cancelled Opinions</button></nav><section class="rule" id="rule"></section><section class="panel" aria-live="polite"><div class="label" id="label"></div><div class="statement" id="statement"></div><div class="muted" id="position"></div><div class="answers" id="answer" hidden></div><div class="actions"><button class="primary" onclick="nextCard()">🎲 Draw a card</button><button onclick="reveal()">👀 Reveal tag</button><button onclick="startTimer()">⏱ 5 sec</button></div><div class="muted" id="timer" role="status"></div></section><div class="score"><div>Player A <button onclick="adjust(0,-1)">−</button><b id="s0">0</b><button onclick="adjust(0,1)">+</button></div><div>Player B <button onclick="adjust(1,-1)">−</button><b id="s1">0</b><button onclick="adjust(1,1)">+</button></div></div><div class="actions"><button onclick="resetDeck()">↻ Reshuffle deck</button><button onclick="resetScores()">Reset score</button></div><footer>Pick a card, complete the question tag aloud, then invite a genuine response. No student data is collected.</footer></main><script>
+const data=[
+[
+["You've rehearsed an argument in the shower and still lost it, ___?","haven't you"],
+["You'd rather fight a goose than phone customer service, ___?","wouldn't you"],
+["You've accidentally liked a photo from 2017 while investigating someone's Instagram, ___?","haven't you"],
+["You pretend to understand the rules of board games, ___?","don't you"],
+["Nobody genuinely enjoys being added to another WhatsApp group, ___?","do they"],
+["You haven't read the terms and conditions of anything in your life, ___?","have you"],
+["You sometimes open the fridge as though new food might have appeared, ___?","don't you"],
+["You'd panic if your phone battery fell below ten percent, ___?","wouldn't you"],
+["You've judged somebody by their supermarket trolley, ___?","haven't you"],
+["You were definitely the teacher's favourite at school, ___?","weren't you"],
+["You can't resist correcting a stranger's pronunciation in your head, ___?","can you"],
+["You have a favourite mug and everyone else needs to respect that, ___?","don't you"],
+["You've never practised an acceptance speech in front of a mirror, ___?","have you"],
+["You'd have survived the Titanic by making friends with the iceberg, ___?","wouldn't you"],
+["You didn't spend your entire Sunday watching rubbish on television, ___?","did you"],
+["You've been emotionally damaged by a self-checkout machine, ___?","haven't you"],
+["You hardly ever reply to messages immediately, ___?","do you"],
+["Your browser has at least thirty tabs open right now, ___?","doesn't it"],
+["You shouldn't be trusted to assemble IKEA furniture unsupervised, ___?","should you"],
+["You were secretly delighted when somebody cancelled your plans, ___?","weren't you"],
+["You've never snooped through a restaurant's menu before agreeing to go, ___?","have you"],
+["You would happily delete all voice notes from existence, ___?","wouldn't you"],
+["You aren't as innocent as you look in class, ___?","are you"],
+["You do sometimes pretend a phone call has dropped, ___?","don't you"]
+],
+[
+["People who send seven-minute voice notes should have to pay compensation, ___?","shouldn't they"],
+["Dating apps have turned romance into a badly organised recruitment process, ___?","haven't they"],
+["Adults who say 'I'm just brutally honest' are usually just rude, ___?","aren't they"],
+["Nobody actually wants to attend a meeting that could have been an email, ___?","do they"],
+["Weddings are becoming more about Instagram than marriage, ___?","aren't they"],
+["People who clap when planes land deserve to be gently investigated, ___?","don't they"],
+["Pineapple on pizza isn't a crime against humanity, ___?","is it"],
+["You shouldn't have to provide a reason for leaving a party early, ___?","should you"],
+["Working from home has made pyjamas acceptable business attire, ___?","hasn't it"],
+["People who talk during films should be banned from cinemas, ___?","shouldn't they"],
+["We take far too many photos of food we never look at again, ___?","don't we"],
+["A holiday without Wi-Fi might actually improve most relationships, ___?","mightn't it"],
+["No one needs to announce they're leaving social media, ___?","do they"],
+["Couples shouldn't share a single social-media account, ___?","should they"],
+["Most networking events are just awkward conversations near free snacks, ___?","aren't they"],
+["People spend more time choosing a series than watching it, ___?","don't they"],
+["If someone says 'with all due respect', an insult is about to follow, ___?","isn't it"],
+["You can tell a lot about someone by how they treat waiters, ___?","can't you"],
+["Celebrity weddings have become glorified advertising campaigns, ___?","haven't they"],
+["Nobody has ever enjoyed a mandatory team-building exercise, ___?","have they"],
+["It should be socially acceptable to cancel plans because your sofa is comfortable, ___?","shouldn't it"],
+["The world would be more peaceful without reply-all emails, ___?","wouldn't it"],
+["People who leave shopping trolleys in parking spaces shouldn't be trusted with power, ___?","should they"],
+["We'd all be happier if phones had a 'please stop sending me reels' button, ___?","wouldn't we"]
+]];
+let game=0,decks=[[],[]],seen=0,scores=[0,0],ticker;const el=id=>document.getElementById(id);
+function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function resetDeck(){decks[game]=shuffle([...data[game].keys()]);nextCard();}
+function switchGame(n){game=n;el("tagTab").classList.toggle("active",!n);el("opTab").classList.toggle("active",!!n);el("rule").textContent=n?"GROUPS OF 3–4 · Pick a card, complete the tag yourself, then challenge a classmate. They must agree, disagree or qualify their opinion WITH a reason. Continue the debate!":"PAIRS · Student A draws a card, completes the tag aloud and challenges B. B reacts, then draws the next card and challenges A. 5 seconds to complete a tag!";if(!decks[game].length)decks[game]=shuffle([...data[game].keys()]);nextCard();}
+function nextCard(){clearInterval(ticker);el("timer").textContent="";if(!decks[game].length)decks[game]=shuffle([...data[game].keys()]);const n=decks[game].pop();seen=n;el("statement").textContent=data[game][n][0];el("label").textContent=(game?"CANCELLED OPINIONS":"TAG ATTACK")+" · CARD "+(24-decks[game].length)+" / 24";el("position").textContent=game?"Give a reason. Challenge their answer!":"The person who draws the card completes the tag.";el("answer").hidden=true;}
+function reveal(){el("answer").hidden=false;el("answer").textContent="Correct tag: "+data[game][seen][1]+"?";}
+function adjust(i,d){scores[i]=Math.max(0,scores[i]+d);el("s"+i).textContent=scores[i];}
+function resetScores(){scores=[0,0];el("s0").textContent=0;el("s1").textContent=0;}
+function startTimer(){clearInterval(ticker);let n=5;el("timer").textContent=n+" seconds remaining";ticker=setInterval(()=>{n--;el("timer").textContent=n>0?n+" seconds remaining":"⏰ Time's up!";if(n<=0)clearInterval(ticker);},1000)}
+switchGame(0);
+</script></body></html>
