@@ -47,22 +47,22 @@ $('caseSelect').innerHTML=allCases().map(x=>'<option value="'+x.id+'">'+x.id.toS
 $('caseSelect').value=String(state.id);
 $('gameInstruction').textContent=state.game==='service'?'A complaint. Two sides. Can you reach a fair agreement?':'One absurd invention. One shameless seller. One extremely sceptical shopper.';
 }
-function promptHTML(item,i,answers,used){
+function promptHTML(item,i,used){
 const [code,hint]=item;const g=GRAMMAR[code]||GRAMMAR.need;
-return '<article class="prompt"><div class="prompt-head"><span class="grammar-chip">'+clean(g.label)+'</span><span class="prompt-number">0'+(i+1)+' / 04</span></div><p class="stem">'+clean(g.stem)+'</p><p class="hint"><b>YOUR CLUE</b> '+clean(hint)+'.</p><label class="sr-only" for="answer-'+i+'">Complete sentence '+(i+1)+'</label><textarea class="answer" id="answer-'+i+'" data-idx="'+i+'" spellcheck="true" placeholder="Write your own full C1 sentence here…">'+clean(answers[i]||'')+'</textarea><div class="prompt-bottom"><button type="button" class="help-link" data-help="'+i+'" aria-expanded="false">✦ Grammar SOS</button><label class="used"><input type="checkbox" data-used="'+i+'" '+(used[i]?'checked':'')+'> I used this</label></div><div class="help-box" id="help-'+i+'" aria-hidden="true"><strong>Pattern tip:</strong> '+clean(g.rule)+'<br><strong>Unrelated example:</strong> '+clean(g.example)+'</div></article>';
+return '<article class="prompt"><div class="prompt-head"><span class="grammar-chip">'+clean(g.label)+'</span><span class="prompt-number">0'+(i+1)+' / 04</span></div><p class="stem">'+clean(g.stem)+'</p><p class="hint"><b>YOUR CLUE</b> '+clean(hint)+'.</p><div class="oral-cue">🎤 Finish this structure aloud using YOUR own idea. Then bring it into the conversation.</div><div class="prompt-bottom"><button type="button" class="help-link" data-help="'+i+'" aria-expanded="false">✦ Grammar SOS</button><label class="used"><input type="checkbox" data-used="'+i+'" '+(used[i]?'checked':'')+'> I said it!</label></div><div class="help-box" id="help-'+i+'" aria-hidden="true"><strong>Pattern tip:</strong> '+clean(g.rule)+'<br><strong>Unrelated example:</strong> '+clean(g.example)+'</div></article>';
 }
 function render(){
 if(!data()){document.querySelector('main').innerHTML='<p>Could not load the case cards. Please refresh the page.</p>';return;}
 renderSelectors();saveUrl();
-const c=data(),r=role();const answers=read(key()+':answers',['','','','']);const used=read(key()+':used',[false,false,false,false]);
+const c=data(),r=role();const used=read(key()+':used',[false,false,false,false]);
 $('caseNumber').textContent=(state.game==='service'?'CASE ':'PRODUCT ')+String(c.id).padStart(2,'0')+' / 15';
 $('storyEmoji').textContent=c.emoji;$('storyTitle').textContent=c.title;$('premise').textContent=c.premise;
 $('roleFlag').textContent=roleLabel();$('roleFlag').classList.toggle('role-b',state.role==='b');
 $('roleTitle').textContent=r.name;$('mission').textContent=r.goal;$('secret').textContent=r.secret;
 $('secretHeading').textContent='🔒 YOUR PRIVATE INFORMATION — DON\'T SHOW YOUR PARTNER';
-$('sentenceArea').innerHTML=r.prompts.map((x,i)=>promptHTML(x,i,answers,used)).join('');
-$('workTitle').textContent='Build your own sentences';
-$('workSubtitle').textContent='Complete the four structures using the clues. These are YOUR ideas, not model answers.';
+$('sentenceArea').innerHTML=r.prompts.map((x,i)=>promptHTML(x,i,used)).join('');
+$('workTitle').textContent='Your speaking toolkit';
+$('workSubtitle').textContent='Four unfinished C1 structures. Make your own sentences ALOUD using the clues; speak naturally, no writing.';
 $('roleTarget').textContent=roleLabel()+' · '+r.name;
 $('speakingAction').textContent=state.game==='service'?'Explain, challenge, negotiate and reach a solution.':'Pitch, challenge, defend and try to make the sale.';
 const opts=state.game==='service'?[['resolved','🤝 Agreement reached'],['partial','🧩 Partial compromise'],['failed','💥 No agreement']]:[['bought','🛍️ Sold!'],['deal','🤝 Negotiated deal'],['walk','🚶 No sale']];
@@ -70,20 +70,14 @@ const selected=read(key()+':result','');
 $('verdictButtons').innerHTML=opts.map(([id,label])=>'<button type="button" class="verdict" data-verdict="'+id+'" aria-pressed="'+(selected===id)+'">'+label+'</button>').join('');
 $('verdictText').textContent=selected?'Decision saved on this device. Explain your result to your partner.':'Discuss your result when you are ready.';
 $('roleB').textContent=state.game==='service'?'Student B · Employee':'Student B · Buyer';$('roleA').textContent=state.game==='service'?'Student A · Customer':'Student A · Seller';
-updateProgress(answers,used);
+updateProgress(used);
 }
-function updateProgress(answers,used){
-const done=answers.filter(s=>s.trim().length>0).length;const spoken=used.filter(Boolean).length;
-$('counter').textContent=done+' of 4 written';
-$('speakingProgress').textContent=spoken?spoken+' / 4 structures marked as used. Keep going!':'Keep your sentences visible while you speak. Tick each structure as you use it.';
+function updateProgress(used){
+const spoken=used.filter(Boolean).length;
+$('counter').textContent='4 speaking cues';
+$('speakingProgress').textContent=spoken?spoken+' of 4 structures used aloud. Keep the conversation flowing!':'Use these structures as you talk. Tick them if you like — no writing and no time limit.';
 }
 async function copyLink(url){try{await navigator.clipboard.writeText(url);notify('Partner link copied!');return}catch(e){prompt('Copy this link:',url)}}
-function saveNotes(){
-const c=data(),r=role(),answers=read(key()+':answers',['','','','']);
-const text=['C1 EMPHASIS CHALLENGE',state.game==='service'?'Customer Service from Hell':'The World\'s Worst Salesperson',c.title,roleLabel()+' — '+r.name,'YOUR MISSION: '+r.goal,'YOUR PRIVATE INFORMATION: '+r.secret,'',...r.prompts.map((item,i)=>{const g=GRAMMAR[item[0]];return(i+1)+'. '+g.label+' | '+g.stem+'\nCLUE: '+item[1]+'\nYOUR SENTENCE: '+(answers[i]||'(not written yet)')+'\n'})].join('\n');
-const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='c1-emphasis-'+state.game+'-'+state.id+'-role-'+state.role+'.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),600);
-notify('Your notes are ready to save.');
-}
 function attach(){
 $('gameService').addEventListener('click',()=>choose('service',1,'a'));
 $('gameSales').addEventListener('click',()=>choose('sales',1,'a'));
@@ -95,15 +89,13 @@ $('nextBtn').addEventListener('click',()=>choose(null,state.id===15?1:state.id+1
 $('switchBtn').addEventListener('click',()=>choose(null,null,state.role==='a'?'b':'a'));
 $('copyPartnerBtn').addEventListener('click',()=>copyLink(link(state.role==='a'?'b':'a')));
 $('copyRoleBtn').addEventListener('click',()=>copyLink(link()));
-$('saveNotesBtn').addEventListener('click',saveNotes);
 $('printBtn').addEventListener('click',()=>window.print());
 $('howBtn').addEventListener('click',()=>{$('howModal').classList.add('open');$('howModal').setAttribute('aria-hidden','false');$('closeModal').focus()});
 const close=()=>{$('howModal').classList.remove('open');$('howModal').setAttribute('aria-hidden','true');$('howBtn').focus()};
 $('closeModal').addEventListener('click',close);
 $('howModal').addEventListener('click',e=>{if(e.target===$('howModal'))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('howModal').classList.contains('open'))close()});
-$('sentenceArea').addEventListener('input',e=>{if(!e.target.matches('.answer'))return;const idx=Number(e.target.dataset.idx);const answers=read(key()+':answers',['','','','']);answers[idx]=e.target.value;store(key()+':answers',answers);updateProgress(answers,read(key()+':used',[false,false,false,false]))});
-$('sentenceArea').addEventListener('change',e=>{if(!e.target.matches('[data-used]'))return;const idx=Number(e.target.dataset.used);const used=read(key()+':used',[false,false,false,false]);used[idx]=e.target.checked;store(key()+':used',used);updateProgress(read(key()+':answers',['','','','']),used)});
+$('sentenceArea').addEventListener('change',e=>{if(!e.target.matches('[data-used]'))return;const idx=Number(e.target.dataset.used);const used=read(key()+':used',[false,false,false,false]);used[idx]=e.target.checked;store(key()+':used',used);updateProgress(used)});
 $('sentenceArea').addEventListener('click',e=>{const btn=e.target.closest('[data-help]');if(!btn)return;const i=btn.dataset.help;const el=$('help-'+i),next=el.getAttribute('aria-hidden')==='true'?'false':'true';el.setAttribute('aria-hidden',next);btn.setAttribute('aria-expanded',String(next==='false'));btn.textContent=next==='false'?'✕ Hide example':'✦ Grammar SOS'});
 $('verdictButtons').addEventListener('click',e=>{const b=e.target.closest('[data-verdict]');if(!b)return;store(key()+':result',b.dataset.verdict);document.querySelectorAll('[data-verdict]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('verdictText').textContent='Decision saved on this device. Explain your result to your partner.'});
 }
