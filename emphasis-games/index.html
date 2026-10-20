@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#25233b">
+<meta name="description" content="30 playful C1 emphasis roleplays, 60 private character cards and 240 guided grammar prompts. No timer.">
+<title>C1 Emphasis Challenge | Two Speaking Games</title>
+<link rel="stylesheet" href="./styles.css">
+<script defer src="./service-1.js"></script>
+<script defer src="./service-2.js"></script>
+<script defer src="./sales-1.js"></script>
+<script defer src="./sales-2.js"></script>
+<script defer src="./app.js"></script>
+</head>
+<body>
+<div class="page">
+<header class="mast">
+  <div class="brand"><span class="brandmark">✳</span><span>C1 ENGLISH STUDIO <small>SPEAKING LAB</small></span></div>
+  <button type="button" id="howBtn" class="quiet-btn">✦ How to play</button>
+</header>
+<main>
+<section class="hero">
+  <div><span class="eyebrow">Roleplay edition · C1 emphasis</span><h1>Make a <span>scene.</span></h1>
+    <p class="lede">Two chaotic speaking games. Thirty hilarious situations. Create your own C1 sentences with guided structures, then see where the conversation takes you.</p>
+  </div><div class="hero-stamp" aria-label="No time limits">YOUR PACE.<br>YOUR WORDS.<br>YOUR RULES.</div>
+</section>
+<section class="game-row" aria-label="Choose a game">
+  <button type="button" id="gameService" class="game-pick" aria-pressed="true">
+    <span class="game-icon" aria-hidden="true">☎️</span><span><strong>Customer Service<br>from Hell</strong><small>Complaints & impossible excuses</small></span><span class="tick" aria-hidden="true">✓</span>
+  </button>
+  <button type="button" id="gameSales" class="game-pick" aria-pressed="false">
+    <span class="game-icon" aria-hidden="true">🛍️</span><span><strong>The World's<br>Worst Salesperson</strong><small>Terrible products, brilliant pitches</small></span><span class="tick" aria-hidden="true">✓</span>
+  </button>
+</section>
+<div class="toolbar">
+  <div class="case-group"><label for="caseSelect">01 · Choose your scenario</label><div class="select-wrap"><select class="case-select" id="caseSelect" aria-label="Choose scenario"></select></div></div>
+  <button type="button" class="btn btn-soft" id="randomBtn">🎲 Surprise me</button>
+  <div><label>02 · Choose your role</label><div class="role-wrap"><button type="button" id="roleA" aria-pressed="true">Student A</button><button type="button" id="roleB" aria-pressed="false">Student B</button></div></div>
+</div>
+<p id="gameInstruction" class="sr-only"></p>
+<div class="layout">
+  <div class="left-pane">
+    <article class="story-card">
+      <div class="story-hero"><div id="caseNumber" class="story-meta">CASE 01 / 15</div><span id="storyEmoji" class="story-emoji" aria-hidden="true">🎂</span><h2 id="storyTitle" class="story-title">Loading your scenario…</h2></div>
+      <div class="story-body"><p id="premise" class="premise"></p><div class="divider"></div>
+        <div class="role-flag" id="roleFlag">STUDENT A</div><h3 id="roleTitle" class="role-title"></h3>
+        <div class="tiny-label">YOUR MISSION</div><p id="mission" class="mission"></p>
+        <div class="secret-box"><div id="secretHeading" class="secret-header">🔒 PRIVATE INFORMATION</div><p id="secret"></p></div>
+      </div>
+    </article>
+    <p class="teacher-note"><span>🔐</span>Don't show your role card to your partner. Each character has different information!</p>
+  </div>
+  <div class="right-pane">
+    <section class="work-card" aria-labelledby="workTitle">
+      <div class="work-heading"><div><div id="roleTarget" class="eyebrow">STUDENT A</div><h2 id="workTitle">Build your own sentences</h2><p id="workSubtitle">Use the unfinished structures and clues.</p></div><span id="counter" class="counter" aria-live="polite">0 of 4 written</span></div>
+      <div id="sentenceArea" class="prompts" aria-label="Four guided grammar structures"></div>
+      <div class="speaking-banner"><span class="speech" aria-hidden="true">💬</span><div><strong>Now make it a conversation!</strong><p id="speakingAction">Explain, challenge, negotiate and reach a solution.</p><p id="speakingProgress" aria-live="polite">Keep your notes on screen as you speak. Tick each structure when you use it.</p></div></div>
+      <div class="tool-actions">
+        <button id="copyPartnerBtn" class="btn btn-purple" type="button">🔗 Share partner's role</button>
+        <button id="copyRoleBtn" class="btn btn-white" type="button">📎 Copy my link</button>
+        <button id="saveNotesBtn" class="btn btn-white" type="button">↓ Save my sentences</button>
+        <button id="printBtn" class="btn btn-white" type="button">⎙ Print this role</button>
+      </div>
+      <section class="round-card" aria-labelledby="verdictHeading"><h3 id="verdictHeading">🏁 How did it end?</h3><p>There's no correct ending. Agree, disagree, make a sale or walk away — you decide.</p><div id="verdictButtons" class="verdict-row"></div><p id="verdictText" class="outcome-msg"></p></section>
+      <div class="bottom-nav"><button type="button" id="switchBtn" class="btn btn-soft">⇄ Switch roles</button><button type="button" id="nextBtn" class="btn btn-purple">Next scenario →</button></div>
+    </section>
+  </div>
+</div>
+<p id="loadingError" hidden>Game files did not load. Please refresh the page or use the downloadable version.</p>
+</main>
+<footer class="footer">30 scenarios · 60 role cards · 240 guided C1 sentence prompts · No timer · Made for confident conversations ✳</footer>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div class="modal-backdrop" id="howModal" role="dialog" aria-modal="true" aria-labelledby="howHeading" aria-hidden="true">
+  <div class="modal"><div class="modal-head"><div><span class="eyebrow">Teacher's quick guide</span><h2 id="howHeading">How to play</h2></div><button id="closeModal" class="close-btn" aria-label="Close instructions" type="button">×</button></div>
+  <ol><li><strong>Choose a game and a case.</strong> Both students must choose the same case number.</li>
+    <li><strong>Open different roles.</strong> One uses Student A, the other uses Student B. Press <em>Share partner's role</em> to send their direct link.</li>
+    <li><strong>Prepare four original sentences.</strong> Finish each emphasis starter with your own idea. The clue guides the meaning; <em>Grammar SOS</em> shows a structural example from an unrelated context.</li>
+    <li><strong>Speak and react.</strong> Keep your sentences on screen. Use at least three naturally, tick them when spoken, and negotiate an ending.</li>
+    <li><strong>Swap roles or try another case.</strong> Your writing is saved on your device automatically, so you can return to it later.</li></ol>
+    <p><strong>Good to know:</strong> There is no timer, login or automatic grammar marking. The activity is designed for live pair speaking, with the teacher giving feedback. Notes are saved in this browser only and can be exported as text.</p>
+    <button type="button" class="btn btn-purple" onclick="document.getElementById('closeModal').click()">Let's play →</button>
+  </div>
+</div>
+</body></html>
