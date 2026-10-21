@@ -1,4 +1,3 @@
-
 (()=>{'use strict';
 const DATA=window.C1_CASES||[];
 const GRAMMAR={
@@ -21,83 +20,63 @@ const GRAMMAR={
  very:{label:'VERY + NOUN',stem:'The very …',example:'The very reason I came was to speak to you.',rule:'Continue with an emphasised noun such as reason, moment, detail or thing.'}
 };
 const state={game:'service',id:1,role:'a'};
-const p=new URLSearchParams(location.search);
-if(p.get('g')==='sales')state.game='sales';
-const wanted=parseInt(p.get('n'),10);if(Number.isInteger(wanted)&&wanted>=1&&wanted<=15)state.id=wanted;
-if(p.get('r')==='b')state.role='b';
+const query=new URLSearchParams(location.search);
+if(query.get('g')==='sales')state.game='sales';
+const n=Number(query.get('n'));if(Number.isInteger(n)&&n>=1&&n<=15)state.id=n;
+if(query.get('r')==='b')state.role='b';
 const $=id=>document.getElementById(id);
-const clean=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const key=()=> 'c1emphasis-v1:'+state.game+':'+state.id+':'+state.role;
-const read=(key,fallback)=>{try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback}catch(e){return fallback}};
-const store=(key,v)=>{try{localStorage.setItem(key,JSON.stringify(v))}catch(e){}};
-const data=()=>DATA.find(d=>d.game===state.game&&d.id===state.id);
-const role=()=>data()?.[state.role];
-const roleLabel=()=>state.role==='a'?'STUDENT A':'STUDENT B';
-const link=(r=state.role)=>{const url=new URL(location.href);url.searchParams.set('g',state.game);url.searchParams.set('n',state.id);url.searchParams.set('r',r);return url.href};
-const saveUrl=()=>{try{history.replaceState({},'',link())}catch(e){}};
-const notify=msg=>{let el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(notify.timer);notify.timer=setTimeout(()=>el.classList.remove('show'),3100)};
-function allCases(){return DATA.filter(d=>d.game===state.game).sort((a,b)=>a.id-b.id)}
-function choose(game,id,roleId){if(game)state.game=game;if(id)state.id=id;if(roleId)state.role=roleId;render();window.scrollTo({top:0,behavior:'smooth'})}
-function renderSelectors(){
+const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cards=()=>DATA.filter(x=>x.game===state.game).sort((a,b)=>a.id-b.id);
+const current=()=>DATA.find(x=>x.game===state.game&&x.id===state.id);
+const shareLink=()=>{const url=new URL(location.href);url.searchParams.set('g',state.game);url.searchParams.set('n',state.id);url.searchParams.set('r',state.role==='a'?'b':'a');return url.href;};
+const currentLink=()=>{const url=new URL(location.href);url.searchParams.set('g',state.game);url.searchParams.set('n',state.id);url.searchParams.set('r',state.role);return url.href;};
+let toastTimeout;
+function toast(message){const el=$('toast');el.textContent=message;el.classList.add('visible');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.classList.remove('visible'),2600)}
+function change(game,id,role){if(game)state.game=game;if(id)state.id=id;if(role)state.role=role;render();window.scrollTo({top:0,behavior:'smooth'});}
+function cueHTML(item,i){const g=GRAMMAR[item[0]],hint=item[1];if(!g)return '';
+return '<article class="cue"><div class="cue-head"><span class="cue-number">'+(i+1)+'</span><span class="cue-category">'+escape(g.label)+'</span></div>'+
+'<p class="cue-stem">'+escape(g.stem)+'</p>'+
+'<div class="cue-clue"><span>💡</span><span>'+escape(hint)+'</span></div>'+
+'<details class="grammar-details"><summary>Grammar help</summary><p>'+escape(g.rule)+'</p><p><strong>Example:</strong> '+escape(g.example)+'</p></details></article>';
+}
+function render(){
+const card=current();if(!card){$('loadError').hidden=false;return;}$('loadError').hidden=true;
+const person=card[state.role];
+document.body.dataset.game=state.game;
 $('gameService').setAttribute('aria-pressed',String(state.game==='service'));
 $('gameSales').setAttribute('aria-pressed',String(state.game==='sales'));
 $('roleA').setAttribute('aria-pressed',String(state.role==='a'));
 $('roleB').setAttribute('aria-pressed',String(state.role==='b'));
-$('caseSelect').innerHTML=allCases().map(x=>'<option value="'+x.id+'">'+x.id.toString().padStart(2,'0')+' · '+clean(x.title)+'</option>').join('');
-$('caseSelect').value=String(state.id);
-$('gameInstruction').textContent=state.game==='service'?'A complaint. Two sides. Can you reach a fair agreement?':'One absurd invention. One shameless seller. One extremely sceptical shopper.';
+$('roleA').title=state.game==='service'?'Student A — customer':'Student A — salesperson';
+$('roleB').title=state.game==='service'?'Student B — employee':'Student B — shopper';
+$('caseSelect').innerHTML=cards().map(x=>'<option value="'+x.id+'">'+String(x.id).padStart(2,'0')+' · '+escape(x.title)+'</option>').join('');
+$('caseSelect').value=String(card.id);
+$('caseNumber').textContent=(state.game==='service'?'COMPLAINT ':'PRODUCT ')+String(card.id).padStart(2,'0')+' / 15';
+$('storyEmoji').textContent=card.emoji;
+$('storyTitle').textContent=card.title;
+$('premise').textContent=card.premise;
+$('roleFlag').textContent='STUDENT '+state.role.toUpperCase();
+$('roleTitle').textContent=person.name;
+$('mission').textContent=person.goal;
+$('secret').textContent=person.secret;
+$('promptGrid').innerHTML=person.prompts.map(cueHTML).join('');
+$('speakingAction').textContent=state.game==='service'?'Complain, defend your position and try to reach an agreement.':'Sell your ridiculous product — or challenge every absurd claim!';
+$('nextBtn').textContent=state.id===15?'↻ Back to scenario 1':'Next scenario →';
+try{history.replaceState(null,'',currentLink())}catch(e){}
 }
-function promptHTML(item,i,used){
-const [code,hint]=item;const g=GRAMMAR[code]||GRAMMAR.need;
-return '<article class="prompt"><div class="prompt-head"><span class="grammar-chip">'+clean(g.label)+'</span><span class="prompt-number">0'+(i+1)+' / 04</span></div><p class="stem">'+clean(g.stem)+'</p><p class="hint"><b>YOUR CLUE</b> '+clean(hint)+'.</p><div class="oral-cue">🎤 Finish this structure aloud using YOUR own idea. Then bring it into the conversation.</div><div class="prompt-bottom"><button type="button" class="help-link" data-help="'+i+'" aria-expanded="false">✦ Grammar SOS</button><label class="used"><input type="checkbox" data-used="'+i+'" '+(used[i]?'checked':'')+'> I said it!</label></div><div class="help-box" id="help-'+i+'" aria-hidden="true"><strong>Pattern tip:</strong> '+clean(g.rule)+'<br><strong>Unrelated example:</strong> '+clean(g.example)+'</div></article>';
+async function sharePartner(){
+const url=shareLink();
+if(navigator.share){try{await navigator.share({title:'Your C1 speaking role',url});return}catch(e){if(e?.name==='AbortError')return;}}
+if(navigator.clipboard?.writeText){try{await navigator.clipboard.writeText(url);toast("Partner's card link copied!");return}catch(e){}}
+window.prompt("Copy your partner's role link:",url);
 }
-function render(){
-if(!data()){document.querySelector('main').innerHTML='<p>Could not load the case cards. Please refresh the page.</p>';return;}
-renderSelectors();saveUrl();
-const c=data(),r=role();const used=read(key()+':used',[false,false,false,false]);
-$('caseNumber').textContent=(state.game==='service'?'CASE ':'PRODUCT ')+String(c.id).padStart(2,'0')+' / 15';
-$('storyEmoji').textContent=c.emoji;$('storyTitle').textContent=c.title;$('premise').textContent=c.premise;
-$('roleFlag').textContent=roleLabel();$('roleFlag').classList.toggle('role-b',state.role==='b');
-$('roleTitle').textContent=r.name;$('mission').textContent=r.goal;$('secret').textContent=r.secret;
-$('secretHeading').textContent='🔒 YOUR PRIVATE INFORMATION — DON\'T SHOW YOUR PARTNER';
-$('sentenceArea').innerHTML=r.prompts.map((x,i)=>promptHTML(x,i,used)).join('');
-$('workTitle').textContent='Your speaking toolkit';
-$('workSubtitle').textContent='Four unfinished C1 structures. Make your own sentences ALOUD using the clues; speak naturally, no writing.';
-$('roleTarget').textContent=roleLabel()+' · '+r.name;
-$('speakingAction').textContent=state.game==='service'?'Explain, challenge, negotiate and reach a solution.':'Pitch, challenge, defend and try to make the sale.';
-const opts=state.game==='service'?[['resolved','🤝 Agreement reached'],['partial','🧩 Partial compromise'],['failed','💥 No agreement']]:[['bought','🛍️ Sold!'],['deal','🤝 Negotiated deal'],['walk','🚶 No sale']];
-const selected=read(key()+':result','');
-$('verdictButtons').innerHTML=opts.map(([id,label])=>'<button type="button" class="verdict" data-verdict="'+id+'" aria-pressed="'+(selected===id)+'">'+label+'</button>').join('');
-$('verdictText').textContent=selected?'Decision saved on this device. Explain your result to your partner.':'Discuss your result when you are ready.';
-$('roleB').textContent=state.game==='service'?'Student B · Employee':'Student B · Buyer';$('roleA').textContent=state.game==='service'?'Student A · Customer':'Student A · Seller';
-updateProgress(used);
-}
-function updateProgress(used){
-const spoken=used.filter(Boolean).length;
-$('counter').textContent='4 speaking cues';
-$('speakingProgress').textContent=spoken?spoken+' of 4 structures used aloud. Keep the conversation flowing!':'Use these structures as you talk. Tick them if you like — no writing and no time limit.';
-}
-async function copyLink(url){try{await navigator.clipboard.writeText(url);notify('Partner link copied!');return}catch(e){prompt('Copy this link:',url)}}
-function attach(){
-$('gameService').addEventListener('click',()=>choose('service',1,'a'));
-$('gameSales').addEventListener('click',()=>choose('sales',1,'a'));
-$('caseSelect').addEventListener('change',e=>choose(null,Number(e.target.value)));
-$('randomBtn').addEventListener('click',()=>{const arr=allCases().filter(c=>c.id!==state.id);const next=arr[Math.floor(Math.random()*arr.length)];if(next)choose(null,next.id)});
-$('roleA').addEventListener('click',()=>choose(null,null,'a'));
-$('roleB').addEventListener('click',()=>choose(null,null,'b'));
-$('nextBtn').addEventListener('click',()=>choose(null,state.id===15?1:state.id+1));
-$('switchBtn').addEventListener('click',()=>choose(null,null,state.role==='a'?'b':'a'));
-$('copyPartnerBtn').addEventListener('click',()=>copyLink(link(state.role==='a'?'b':'a')));
-$('copyRoleBtn').addEventListener('click',()=>copyLink(link()));
-$('printBtn').addEventListener('click',()=>window.print());
-$('howBtn').addEventListener('click',()=>{$('howModal').classList.add('open');$('howModal').setAttribute('aria-hidden','false');$('closeModal').focus()});
-const close=()=>{$('howModal').classList.remove('open');$('howModal').setAttribute('aria-hidden','true');$('howBtn').focus()};
-$('closeModal').addEventListener('click',close);
-$('howModal').addEventListener('click',e=>{if(e.target===$('howModal'))close()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('howModal').classList.contains('open'))close()});
-$('sentenceArea').addEventListener('change',e=>{if(!e.target.matches('[data-used]'))return;const idx=Number(e.target.dataset.used);const used=read(key()+':used',[false,false,false,false]);used[idx]=e.target.checked;store(key()+':used',used);updateProgress(used)});
-$('sentenceArea').addEventListener('click',e=>{const btn=e.target.closest('[data-help]');if(!btn)return;const i=btn.dataset.help;const el=$('help-'+i),next=el.getAttribute('aria-hidden')==='true'?'false':'true';el.setAttribute('aria-hidden',next);btn.setAttribute('aria-expanded',String(next==='false'));btn.textContent=next==='false'?'✕ Hide example':'✦ Grammar SOS'});
-$('verdictButtons').addEventListener('click',e=>{const b=e.target.closest('[data-verdict]');if(!b)return;store(key()+':result',b.dataset.verdict);document.querySelectorAll('[data-verdict]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('verdictText').textContent='Decision saved on this device. Explain your result to your partner.'});
-}
-if(DATA.length) {attach();render()} else {$('loadingError').hidden=false}
+$('gameService').addEventListener('click',()=>change('service',1,'a'));
+$('gameSales').addEventListener('click',()=>change('sales',1,'a'));
+$('roleA').addEventListener('click',()=>change(null,null,'a'));
+$('roleB').addEventListener('click',()=>change(null,null,'b'));
+$('caseSelect').addEventListener('change',e=>change(null,Number(e.target.value)));
+$('randomBtn').addEventListener('click',()=>{const choices=cards().filter(c=>c.id!==state.id);if(choices.length)change(null,choices[Math.floor(Math.random()*choices.length)].id)});
+$('nextBtn').addEventListener('click',()=>change(null,state.id===15?1:state.id+1));
+$('partnerBtn').addEventListener('click',sharePartner);
+if(DATA.length===30)render();else $('loadError').hidden=false;
 })();
