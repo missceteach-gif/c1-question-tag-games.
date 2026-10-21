@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8f6f1">
+<meta name="description" content="C1 vocabulary in context: 19-verb interactive matching game and ten guided speaking discussions. By Miss C.">
+<title>Miss C · C1 Vocabulary · Simple Speaking Cards</title>
+<style>
+:root{--bg:#f8f6f1;--paper:#fffefa;--ink:#26352f;--muted:#5f6e65;--teal:#0d6558;--teal-light:#eaf4ef;--rose:#f5dedc;--line:#d9e2d9;--focus:#aa693f;--err:#9a3237;--errbg:#fff1ee;--ok:#126746;--shadow:0 9px 28px rgba(27,60,44,.075)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.5}button{font:inherit;cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.055em;line-height:1.1;margin-bottom:12px}h2{font-size:clamp(1.7rem,4vw,2.3rem);line-height:1.17;letter-spacing:-.04em;margin-bottom:12px}h3{font-size:1.22rem;margin-bottom:8px}.page{max-width:1100px;padding:0 20px 80px;margin:auto}header{border-bottom:1px solid var(--line);background:#fffefa}.top{max-width:1100px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:1rem;font-weight:800;letter-spacing:.05em}.brand span{color:var(--teal)}.brand small{display:block;letter-spacing:.01em;font-weight:500;color:var(--muted);font-size:12px}.pill{display:inline-block;padding:5px 12px;border-radius:99px;background:var(--teal-light);color:var(--teal);font-weight:800;letter-spacing:.08em;font-size:11px;text-transform:uppercase}.hero{display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center;padding:38px 0 30px}.hero p{color:var(--muted);max-width:660px;font-size:18px;margin-bottom:0}.heroMark{height:108px;width:108px;border-radius:31px;display:grid;place-items:center;font-size:48px;background:#e7ece5;transform:rotate(-5deg)}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 26px}.tab{border:2px solid var(--line);background:var(--paper);border-radius:16px;padding:16px 15px;font-weight:800;color:var(--ink);text-align:left;font-size:18px}.tab small{display:block;font-weight:500;font-size:13px;color:var(--muted);margin-top:2px}.tab.active{background:var(--teal);color:white;border-color:var(--teal)}.tab.active small{color:#d9eee6}.panel{display:none}.panel.active{display:block}.panelIntro{display:flex;justify-content:space-between;gap:12px;align-items:start;margin-bottom:18px}.sub{color:var(--muted);margin:0}.mainCard{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(19px,4vw,30px);box-shadow:var(--shadow)}.headRow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.chip{font-size:13px;font-weight:800;padding:7px 10px;background:#f0f2ed;border-radius:99px}.stageBar{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin:20px 0}.stageDot{border-radius:99px;height:9px;background:#e0e7df}.stageDot.done{background:#2a9a73}.stageDot.now{background:#e4a57f}.instruction{padding:13px 16px;border-radius:12px;background:#f4f6f1;color:var(--ink);margin:18px 0}.matchGrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:15px}.columnLabel{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.11em;margin-bottom:9px}.choiceList{display:flex;flex-direction:column;gap:9px}.choice{display:flex;text-align:left;align-items:center;gap:12px;min-height:68px;padding:13px 15px;width:100%;border:2px solid var(--line);border-radius:14px;background:white;color:var(--ink);font-size:17px;line-height:1.35;transition:background .1s,border-color .1s}.choice .circle{min-width:26px;width:26px;height:26px;border-radius:50%;border:1.8px solid #c7d5cd;display:grid;place-items:center;font-size:12px;font-weight:800}.choice.word{font-size:19px;font-weight:750}.choice.selected{border-color:var(--teal);background:var(--teal-light)}.choice.matched{border-color:#bad7c7;background:#eaf4ee;color:#345a48}.choice.matched .circle{background:var(--ok);border-color:var(--ok);color:white}.choice.wrong{border-color:var(--err);background:var(--errbg)}.choice:disabled{opacity:1;cursor:default}.msg{min-height:34px;margin:17px 0 5px;color:var(--teal);font-weight:750}.msg.error{color:var(--err)}.actions{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:18px}.btn{border:0;border-radius:12px;background:var(--teal);color:white;padding:12px 19px;min-height:49px;font-weight:800;font-size:16px}.btn.secondary{background:#edf2ec;color:var(--ink)}.btn.outline{background:white;border:2px solid var(--line);color:var(--ink)}.btn:hover:not(:disabled){filter:brightness(.96)}.hint{font-size:14px;color:var(--muted)}.success{background:#e8f5ed;border-radius:15px;padding:20px;margin-top:18px}.success h3{color:var(--ok)}.success p{margin:0}.hidden{display:none!important}.cardTop{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.09em;font-size:12px;margin-bottom:14px}.cardStory{font-size:19px;line-height:1.45;padding:18px;border-radius:15px;background:#f3f4ee;margin:20px 0}.verbRow{display:flex;gap:7px;flex-wrap:wrap}.verb{padding:7px 12px;border:1px solid #c7ddd2;background:var(--teal-light);font-weight:750;color:var(--teal);font-size:14px;border-radius:99px}.goal{background:#eaf4ee;color:#225242;border-left:5px solid #338168;border-radius:11px;padding:16px;margin:19px 0;font-size:17px}.goal strong{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}.role{background:#fff;border:1.5px solid var(--line);border-radius:17px;padding:20px}.role h3{display:flex;align-items:center;gap:10px;margin-bottom:14px}.role .symbol{display:inline-grid;place-items:center;width:35px;height:35px;background:var(--teal);color:white;border-radius:10px;font-size:15px}.steps{counter-reset:item;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px}.steps li{display:grid;grid-template-columns:30px 1fr;gap:10px;font-size:17px;line-height:1.43}.steps li:before{counter-increment:item;content:counter(item);background:#f0f2ec;border-radius:50%;font-weight:800;color:#496259;height:30px;width:30px;display:grid;place-items:center;font-size:13px}.phrases{border:1.5px dashed #b7cabb;border-radius:16px;padding:20px;margin-top:15px;background:#fafbf8}.phrases h3{margin-bottom:8px}.phrases p{margin:7px 0;font-size:17px;color:#35594e}.cardsControls{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-top:20px}.miniCount{font-size:14px;color:var(--muted);font-weight:700}.finished{background:#e9f4ee;color:#19583b;border-radius:12px;padding:11px 14px;font-weight:700}.note{border-top:1px solid var(--line);padding-top:20px;margin-top:24px;color:var(--muted);font-size:14px}.counter{font-variant-numeric:tabular-nums}body.speaking-mode .hero{display:none} body.speaking-mode .tabs{margin-top:24px} footer{margin-top:32px;text-align:center;color:#77837a;font-size:13px}.role.shared{margin:18px 0 15px;padding:20px;background:#fff;border:1.5px solid var(--line);border-radius:17px}.role.shared h3{margin-bottom:14px}#stageFinish{text-align:center;padding:24px 4px}#stageFinish .star{font-size:48px;margin-bottom:10px}.skipLink{position:absolute;top:-100px;left:6px;padding:14px;z-index:5;background:white}.skipLink:focus{top:5px}@media(max-width:750px){.hero{padding:24px 0 19px}.heroMark{display:none}.page{padding:0 12px 60px}.top{padding:12px 14px}.tabs{gap:8px;margin-bottom:15px}.tab{font-size:15px;padding:13px 12px;border-radius:12px}.tab small{font-size:12px}.mainCard{border-radius:16px;padding:16px}.matchGrid{gap:8px;grid-template-columns:minmax(0, .82fr) minmax(0,1.35fr)}.choice{font-size:14px;padding:9px 8px;min-height:72px;gap:7px;border-radius:11px}.choice.word{font-size:15.5px}.choice .circle{min-width:22px;width:22px;height:22px;font-size:11px}.columnLabel{font-size:11px}.role{padding:18px}.cardStory{font-size:19px;padding:15px}.steps li{font-size:18px}.phrases p{font-size:18px}.panelIntro{display:block}.btn{font-size:16px}.hero p{font-size:16px}.hint{flex-basis:100%}.cardsControls .btn{flex:1}.cardsControls #randomCard{flex:0 0 auto}.goal{font-size:18px}}@media(max-width:360px){.choice.word{font-size:14px}.choice{font-size:13px}.tab{font-size:14px}.circle{display:none!important}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a href="#main" class="skipLink">Skip to activity</a>
+<header><div class="top"><div class="brand">✿ <span>MISS C</span> <small>C1 English · vocabulary practice</small></div><span class="pill">Speak more · Write less</span></div></header>
+<main class="page" id="main">
+<section class="hero"><div><span class="pill">C1 · Vocabulary in context</span><h1>Match it.<br>Then say it.</h1><p>Learn the difference between 19 easily confused verbs, then use them in 10 short, guided conversations. No worksheets. No typing. Just tap and talk.</p></div><div class="heroMark" aria-hidden="true">✳</div></section>
+<nav class="tabs" aria-label="Activity sections"><button id="matchingTab" class="tab active" aria-current="page"><span>01 · Matching</span><small>19 words · 6 quick rounds</small></button><button id="speakingTab" class="tab"><span>02 · Speaking cards</span><small>10 easy cards · pairs and groups</small></button></nav>
+<section id="matchingPanel" class="panel active" aria-label="Vocabulary matching">
+<div class="panelIntro"><div><h2>Find the meaning</h2><p class="sub">Tap a verb, then tap its definition. The app checks each match.</p></div><span id="totalMatched" class="chip counter">0 / 19 matched</span></div>
+<div class="mainCard"><div id="roundView"><div class="headRow"><strong id="roundTitle">Round 1 of 6</strong><span id="roundCount" class="chip">0 / 3</span></div><div class="stageBar" id="progressDots" aria-label="Six vocabulary rounds"></div><div class="instruction"><strong>How to play:</strong> Choose one word on the left and its meaning on the right. Keep going until you match all the words.</div><div class="matchGrid"><div><div class="columnLabel">Verbs</div><div id="wordList" class="choiceList"></div></div><div><div class="columnLabel">Definitions</div><div id="definitionList" class="choiceList"></div></div></div><p role="status" aria-live="polite" id="matchMessage" class="msg">Choose a verb to start.</p><div class="actions"><span class="hint" id="matchHint">You can retry if you get one wrong.</span><button class="btn" id="nextRound" disabled>Next group →</button></div></div><div id="stageFinish" class="hidden"><div class="star" aria-hidden="true">✦</div><h2>All 19 matched!</h2><p>You’re ready to put the words into a real conversation.</p><div class="actions" style="justify-content:center"><button class="btn secondary" id="replay">Practise matching again</button><button class="btn" id="goToSpeaking">Open speaking cards →</button></div></div></div>
+</section>
+<section id="speakingPanel" class="panel" aria-label="Guided pair roleplays">
+<div class="panelIntro"><div><h2>Discuss together!</h2><p class="sub">Work in pairs or groups of 3–4. Everyone answers the same questions. Try to use the green vocabulary.</p></div><span class="chip" id="cardsDone">0 / 10 completed</span></div>
+<article class="mainCard" id="speakingCard"><div class="cardTop"><span id="cardNumber">Card 01 of 10</span><span class="chip">Pairs or groups of 3–4</span></div><h2 id="cardTitle">Loading…</h2><div class="verbRow" id="targetWords"></div><div class="cardStory" id="cardSituation"></div><section class="role shared" aria-label="Discussion questions"><h3>💬 Talk together</h3><ol id="discussionQuestions" class="steps"></ol></section><div class="phrases"><h3>Useful expressions</h3><div id="sentenceStarters"></div></div><div class="cardsControls"><button class="btn outline" id="previousCard">← Previous</button><button class="btn secondary" id="randomCard">⇄ Surprise me</button><button class="btn" id="nextCard">Next →</button></div><div class="actions"><span class="miniCount" id="currentCardStatus">Card 1 / 10</span><button class="btn secondary" id="markCard">✓ Mark as practised</button></div><div id="markedMessage" class="finished hidden">✓ Great! Choose another card or swap partners.</div></article>
+<div class="note"><strong>Teacher tip:</strong> For 25 students: use pairs and one group of three, or small groups. Everyone answers the same questions. Take turns speaking and aim to use the target verbs naturally. No writing, recording or sign-in needed. Progress stays on this device.</div>
+</section>
+<footer>Miss C · Made for real conversations · C1 vocabulary practice</footer>
+</main>
+<script>
+'use strict';
+const groups=[
+ {name:'Understanding & ideas',items:[['perceive','Notice something through your senses, or interpret it in a particular way.'],['conceive','Imagine or form an idea, plan or possibility in your mind.'],['register','Become consciously aware of a fact, sometimes only after a delay.']]},
+ {name:'Memory',items:[['recall','Remember a fact, detail or experience from the past.'],['remind','Make someone remember something they might otherwise forget.'],['memorise','Learn information so that you can repeat it from memory.']]},
+ {name:'Change & movement',items:[['transform','Change the nature, appearance or function of something dramatically.'],['transport','Carry people or goods from one location to another.'],['transmit','Send information, signals or a disease from one place or person to another.'],['transfer','Move money, a person or responsibility from one person, account or place to another.']]},
+ {name:'Getting something',items:[['acquire','Get a skill, knowledge or possession, often gradually through experience.'],['obtain','Succeed in getting something, often officially or after an effort.'],['gain','Increase or develop something useful, such as confidence or experience.']]},
+ {name:'Combining things',items:[['integrate','Bring parts or people together so they work effectively as a whole.'],['incorporate','Include something as a feature or part of a larger whole.'],['merge','Join two organisations or things to form one.']]},
+ {name:'Influence',items:[['persuade','Get someone to do something by giving reasons or appealing to feelings.'],['convince','Make someone believe that something is true or a good idea.'],['entice','Attract or tempt someone to do something by offering an appealing benefit.']]}
+];
+const cards=[
+ {
+  "title": "The embarrassing email",
+  "words": [
+   "perceive",
+   "register",
+   "conceive"
+  ],
+  "situation": "Someone accidentally sends a private complaint about their boss to the entire office.",
+  "questions": [
+   "How might colleagues perceive this mistake?",
+   "When would it finally register that everyone had seen it?",
+   "Can you conceive of a way to apologise without making things worse?"
+  ],
+  "starters": [
+   "People might perceive it as…",
+   "It would only register when…",
+   "One solution I can conceive of is…"
+  ]
+ },
+ {
+  "title": "I know your face!",
+  "words": [
+   "recall",
+   "remind",
+   "memorise"
+  ],
+  "situation": "You recognise someone at a party, but you have completely forgotten their name.",
+  "questions": [
+   "What details might help you recall their name?",
+   "How could a friend remind you without embarrassing you?",
+   "What tricks help you memorise people's names?"
+  ],
+  "starters": [
+   "I vaguely recall…",
+   "Could you remind me…?",
+   "I memorise names by…"
+  ]
+ },
+ {
+  "title": "The wedding rescue",
+  "words": [
+   "transform",
+   "transport"
+  ],
+  "situation": "Heavy rain ruins an outdoor wedding. There's a small hall nearby, but the decorations and food are outside.",
+  "questions": [
+   "How could you transform the hall in 30 minutes?",
+   "What would you transport to the hall first?",
+   "How would you organise the move with just five helpers?"
+  ],
+  "starters": [
+   "We could transform it into…",
+   "We'd need to transport… first."
+  ]
+ },
+ {
+  "title": "Where's my €600?",
+  "words": [
+   "transmit",
+   "transfer"
+  ],
+  "situation": "A company sends your €600 refund to your old bank account and says it emailed you about the change.",
+  "questions": [
+   "How could the bank transfer have gone wrong?",
+   "What's the safest way to transmit your new bank details?",
+   "What should the company do to fix the problem?"
+  ],
+  "starters": [
+   "They transferred the money to…",
+   "I'd transmit the details via…"
+  ]
+ },
+ {
+  "title": "The course you'd actually take",
+  "words": [
+   "acquire",
+   "obtain",
+   "gain"
+  ],
+  "situation": "Your employer will pay for one professional course of your choice.",
+  "questions": [
+   "Which skill would you most like to acquire?",
+   "How would you obtain permission to attend during work hours?",
+   "What could you and your colleagues gain from it?"
+  ],
+  "starters": [
+   "I'd like to acquire…",
+   "To obtain permission, I'd…",
+   "We could gain…"
+  ]
+ },
+ {
+  "title": "Two gyms, one membership",
+  "words": [
+   "merge",
+   "integrate",
+   "incorporate"
+  ],
+  "situation": "Two gyms have merged. One offers yoga and a pool; the other has cheap memberships and late opening hours.",
+  "questions": [
+   "What problems might arise when the gyms merge?",
+   "How could they integrate their timetables and staff?",
+   "What should they incorporate into the new membership?"
+  ],
+  "starters": [
+   "When the gyms merge…",
+   "They could integrate…",
+   "They should incorporate…"
+  ]
+ },
+ {
+  "title": "The 6:30 a.m. hike",
+  "words": [
+   "persuade",
+   "convince",
+   "entice"
+  ],
+  "situation": "Your friends want to go on a sunrise hike, but one person hates getting up early.",
+  "questions": [
+   "What would you say to persuade them to come?",
+   "What might convince them that it's worth the effort?",
+   "What reward or treat could entice them to join?"
+  ],
+  "starters": [
+   "I'd try to persuade them by…",
+   "What might convince them is…",
+   "A free breakfast could entice…"
+  ]
+ },
+ {
+  "title": "The apartment surprise",
+  "words": [
+   "perceive",
+   "register",
+   "transform"
+  ],
+  "situation": "You rent a flat after seeing lovely photos. On arrival, you discover the living room has been turned into a second bedroom.",
+  "questions": [
+   "How might you have perceived the flat from the photos?",
+   "What warning signs might not have registered when you booked it?",
+   "How would you transform the space to make it liveable?"
+  ],
+  "starters": [
+   "I perceived it as…",
+   "It hadn't registered that…",
+   "I'd transform the room by…"
+  ]
+ },
+ {
+  "title": "Concert plan B",
+  "words": [
+   "transport",
+   "transfer",
+   "transmit"
+  ],
+  "situation": "Your train to a concert is cancelled. Your hotel says you can change the booking to another weekend.",
+  "questions": [
+   "How else could you transport everyone to the concert?",
+   "Would you transfer the hotel booking to a different weekend? Why?",
+   "How would you transmit the new plan to the whole group quickly?"
+  ],
+  "starters": [
+   "We could transport everyone by…",
+   "I'd transfer the booking to…",
+   "We could transmit the details through…"
+  ]
+ },
+ {
+  "title": "The 96-page handbook",
+  "words": [
+   "recall",
+   "memorise",
+   "integrate",
+   "incorporate"
+  ],
+  "situation": "A new café worker is given a 96-page handbook and ten minutes of training.",
+  "questions": [
+   "Which three rules should the worker memorise first?",
+   "Can you recall a useful tip from your first job?",
+   "How could the café integrate training into shifts and incorporate a simple checklist?"
+  ],
+  "starters": [
+   "They should memorise…",
+   "I can recall…",
+   "We could integrate… and incorporate…"
+  ]
+ }
+];
+
+const $=id=>document.getElementById(id);
+const store={get(k,f){try{const x=JSON.parse(localStorage.getItem('missc-c1-'+k));return x??f}catch{return f}},set(k,v){try{localStorage.setItem('missc-c1-'+k,JSON.stringify(v))}catch{}}};
+const roundState=groups.map(g=>({matched:[],attempts:{}}));let round=0,selectedWord=null,selectedDef=null,locked=false;
+const shuffle=a=>{let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
+const shuffleDefs=groups.map(g=>shuffle(g.items.map((_,i)=>i)));
+function total(){return roundState.reduce((acc,r)=>acc+r.matched.length,0)}
+function showMsg(message,error=false){$('matchMessage').textContent=message;$('matchMessage').classList.toggle('error',error)}
+function updateRound(){const g=groups[round],rs=roundState[round];$('roundTitle').textContent=`Round ${round+1} of ${groups.length} · ${g.name}`;$('roundCount').textContent=`${rs.matched.length} / ${g.items.length}`;$('totalMatched').textContent=`${total()} / 19 matched`;$('progressDots').innerHTML=groups.map((_,i)=>`<span class="stageDot ${i<round?'done':i===round?'now':''}"></span>`).join('');
+ const makeButton=(idx,isWord)=>{const b=document.createElement('button');b.type='button';b.className='choice '+(isWord?'word':'definition');b.dataset.idx=idx;const matched=rs.matched.includes(idx);if(matched)b.classList.add('matched');if(selectedWord===idx&&isWord ||selectedDef===idx&&!isWord)b.classList.add('selected');b.disabled=matched;b.setAttribute('aria-pressed',(!matched&&b.classList.contains('selected'))?'true':'false');
+ const circle=document.createElement('span');circle.className='circle';circle.textContent=matched?'✓':isWord?String(idx+1):'?';circle.setAttribute('aria-hidden','true');const label=document.createElement('span');label.textContent=isWord?g.items[idx][0]:g.items[idx][1];b.append(circle,label);b.addEventListener('click',()=>pick(idx,isWord));return b;};
+ $('wordList').replaceChildren(...g.items.map((_,i)=>makeButton(i,true)));
+ $('definitionList').replaceChildren(...shuffleDefs[round].map(i=>makeButton(i,false)));
+ $('nextRound').disabled=rs.matched.length!==g.items.length;
+ $('nextRound').textContent=round===groups.length-1?'Finish matching ✓':'Next group →';
+ if(rs.matched.length===g.items.length)showMsg('✓ Perfect! You’ve finished this group.');
+ else if(selectedWord===null&&selectedDef===null)showMsg('Choose a verb to start.');}
+function pick(i,isWord){if(locked)return;if(isWord)selectedWord=selectedWord===i?null:i;else selectedDef=selectedDef===i?null:i;
+ if(selectedWord!==null && selectedDef!==null){const w=selectedWord,d=selectedDef;selectedWord=null;selectedDef=null;const rs=roundState[round];if(w===d){if(!rs.matched.includes(w))rs.matched.push(w);updateRound();if(rs.matched.length!==groups[round].items.length)showMsg(`✓ ${groups[round].items[w][0]} — correct! Choose another.`);}else{locked=true;updateRound();const wBtn=$('wordList').querySelector(`[data-idx="${w}"]`),dBtn=$('definitionList').querySelector(`[data-idx="${d}"]`);wBtn?.classList.add('wrong');dBtn?.classList.add('wrong');rs.attempts[w]=(rs.attempts[w]||0)+1;showMsg(rs.attempts[w]>=2?`Not quite. Hint: ${groups[round].items[w][0]} means “${groups[round].items[w][1]}”`:'Not quite. Try another definition.',true);window.setTimeout(()=>{locked=false;updateRound();showMsg('Try again — choose a verb and its definition.');},1150);}}else{updateRound();showMsg('Now choose the matching '+(selectedWord!==null?'definition.':'verb.'));}}
+$('nextRound').addEventListener('click',()=>{if(roundState[round].matched.length!==groups[round].items.length)return;if(round===groups.length-1){$('roundView').classList.add('hidden');$('stageFinish').classList.remove('hidden');$('totalMatched').textContent='19 / 19 matched';}else{round++;selectedWord=null;selectedDef=null;updateRound();$('roundView').scrollIntoView({block:'start',behavior:'smooth'});}});
+$('replay').addEventListener('click',()=>{round=0;roundState.forEach(x=>{x.matched=[];x.attempts={}});groups.forEach((g,i)=>shuffleDefs[i]=shuffle(g.items.map((_,j)=>j)));$('roundView').classList.remove('hidden');$('stageFinish').classList.add('hidden');updateRound()});
+function openPanel(which){const matching=which==='matching';document.body.classList.toggle('speaking-mode',!matching);$('matchingPanel').classList.toggle('active',matching);$('speakingPanel').classList.toggle('active',!matching);$('matchingTab').classList.toggle('active',matching);$('speakingTab').classList.toggle('active',!matching);$('matchingTab').setAttribute('aria-current',matching?'page':'false');$('speakingTab').setAttribute('aria-current',matching?'false':'page');window.scrollTo({top:0,behavior:'smooth'});}
+$('matchingTab').addEventListener('click',()=>openPanel('matching'));
+$('speakingTab').addEventListener('click',()=>openPanel('speaking'));
+$('goToSpeaking').addEventListener('click',()=>openPanel('speaking'));
+let cardIndex=0,completed=store.get('cards',[]);if(!Array.isArray(completed))completed=[];
+function renderCard(){
+ const c=cards[cardIndex];
+ $('cardNumber').textContent=`Card ${String(cardIndex+1).padStart(2,'0')} of ${cards.length}`;
+ $('cardTitle').textContent=c.title;$('cardSituation').textContent=c.situation;
+ $('targetWords').replaceChildren(...c.words.map(w=>{const s=document.createElement('span');s.className='verb';s.textContent=w;return s}));
+ $('discussionQuestions').replaceChildren(...c.questions.map(q=>{const li=document.createElement('li');li.textContent=q;return li}));
+ $('sentenceStarters').replaceChildren(...c.starters.map(line=>{const p=document.createElement('p');p.textContent='“'+line+'”';return p}));
+ $('currentCardStatus').textContent=`Card ${cardIndex+1} / ${cards.length}`;
+ $('cardsDone').textContent=`${completed.length} / ${cards.length} completed`;
+ $('markCard').textContent=completed.includes(cardIndex)?'↶ Mark as not practised':'✓ Mark as practised';
+ $('markedMessage').classList.toggle('hidden',!completed.includes(cardIndex));
+ $('previousCard').disabled=cardIndex===0;$('nextCard').disabled=cardIndex===cards.length-1;
+}
+$('previousCard').addEventListener('click',()=>{if(cardIndex>0){cardIndex--;renderCard();}});
+$('nextCard').addEventListener('click',()=>{if(cardIndex<cards.length-1){cardIndex++;renderCard();}});
+$('randomCard').addEventListener('click',()=>{let next=cardIndex;while(next===cardIndex)next=Math.floor(Math.random()*cards.length);cardIndex=next;renderCard();});
+$('markCard').addEventListener('click',()=>{if(completed.includes(cardIndex))completed=completed.filter(x=>x!==cardIndex);else completed=[...completed,cardIndex];store.set('cards',completed);renderCard()});
+updateRound();renderCard();
+</script>
+</body></html>
