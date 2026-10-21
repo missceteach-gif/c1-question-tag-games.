@@ -5,3 +5,97 @@
 @media(max-width:620px){.shell{padding:0 14px}.mast{height:63px}.no-pressure{font-size:10px;padding:6px 8px}.intro{padding:22px 0 18px}.intro h1{font-size:44px}.intro p{font-size:13px}.game-switch{gap:8px;margin-bottom:11px}.game-switch button{padding:10px;min-height:80px;gap:8px;border-radius:13px}.game-switch strong{font-size:12px}.game-switch small{font-size:10px}.nav-emoji{font-size:23px!important}.selectors{padding:10px;gap:8px;flex-wrap:wrap;margin-bottom:12px}.picker{flex-basis:calc(100% - 119px);min-width:0}.surprise{order:1;flex:1;margin-top:4px}.role-picker{width:110px;min-width:110px}.cards{grid-template-columns:1fr;gap:10px}.scene,.character{min-height:0;padding:19px}.scene h2{font-size:29px;margin:10px 0}.scene p{font-size:13px}.character h2{font-size:24px;margin:10px 0}.char-block{margin-bottom:10px}.practice{margin-top:11px;padding:18px 14px}.practice-heading h2{font-size:26px}.practice-heading p{font-size:12px}.prompt-grid{grid-template-columns:1fr;gap:9px}.cue{padding:12px 14px}.cue-stem{font-size:18px;margin:7px 0}.cue-clue{padding:7px 9px}.game-footer{margin-top:11px}.game-actions{display:grid;grid-template-columns:1fr 1fr}.btn{white-space:normal;padding:10px 9px;line-height:1.4}.signature{padding:20px 4px;font-size:10px}}
 @media(max-width:360px){.game-switch button{flex-direction:column;align-items:start}.game-switch small{display:none}.surprise span{display:none}.intro h1{font-size:39px}}
 @media print{body{background:white}.shell{max-width:none}.mast,.game-switch,.selectors,.game-footer,.signature,.grammar-details{display:none!important}.cards{grid-template-columns:1fr 1fr}.scene,.character{box-shadow:none;min-height:0}.practice{box-shadow:none}.prompt-grid{grid-template-columns:1fr 1fr}.cue{break-inside:avoid}}
+
+
+/* Larger, readable typography (October 2026): especially for phones */
+@media screen {
+  body { font-size:18px; line-height:1.65; }
+  .brand strong { font-size:17px; }
+  .brand span:not(.brand-mark) { font-size:12px; }
+  .no-pressure { font-size:14px; }
+  .kicker { font-size:13px; letter-spacing:.1em; }
+  .intro p { font-size:17px; line-height:1.55; max-width:790px; }
+  .game-switch strong { font-size:19px; line-height:1.27; }
+  .game-switch small { font-size:14px; }
+  .picker label,.picker-label { font-size:13px; letter-spacing:.06em; }
+  .picker select { font-size:17px; min-height:51px; line-height:1.4; }
+  .select-shell:after { top:14px; }
+  .surprise { font-size:16px; min-height:51px; }
+  .role-toggle { height:51px; }
+  .role-toggle button { font-size:19px; }
+  .scene,.character { padding:26px 27px; }
+  .index,.role-badge,.secret-label,.section-label { font-size:13px; letter-spacing:.06em; }
+  .scene h2 { font-size:clamp(30px,3.5vw,42px); line-height:1.13; }
+  .scene p { font-size:18px; line-height:1.65; }
+  .character h2 { font-size:31px; }
+  .char-block p { font-size:18px; line-height:1.63; }
+  .inside { padding:15px 17px; }
+  .practice-heading h2 { font-size:33px; }
+  .practice-heading p { font-size:17px; line-height:1.55; }
+  .four-tag { font-size:13px; }
+  .cue { padding:20px 21px; }
+  .cue-number { width:28px; height:28px; font-size:15px; }
+  .cue-category { font-size:13px; letter-spacing:.03em; }
+  .cue-stem { font-size:clamp(22px,2.5vw,27px); line-height:1.4; }
+  .cue-clue { font-size:17px; line-height:1.6; padding:12px 14px; }
+  .grammar-details { font-size:16px; line-height:1.55; margin-top:14px; }
+  .grammar-details summary { padding:6px 0; }
+  .talk-prompt strong { font-size:18px; }
+  .talk-prompt p { font-size:16px; }
+  .btn { font-size:16px; min-height:50px; line-height:1.3; }
+  .signature { font-size:13px; }
+  .toast { font-size:16px; }
+}
+@media screen and (max-width:850px) {
+  .cards { grid-template-columns:1fr; }
+  .scene,.character { min-height:0; }
+  .scene h2 { max-width:none; }
+  .prompt-grid { grid-template-columns:1fr; }
+  .game-switch strong { font-size:17px; }
+}
+@media screen and (max-width:620px) {
+  .shell { padding:0 14px; }
+  .mast { height:73px; }
+  .no-pressure { font-size:12px; padding:7px 9px; }
+  .intro { padding:24px 0 20px; }
+  .intro h1 { font-size:46px; }
+  .intro p { font-size:16px; }
+  .game-switch { gap:9px; }
+  .game-switch button { padding:13px 11px; min-height:100px; align-items:flex-start; }
+  .game-switch strong { font-size:16px; }
+  .game-switch small { font-size:13px; line-height:1.4; }
+  .game-switch .nav-emoji { font-size:26px!important; }
+  .selectors { padding:13px; gap:10px; }
+  .picker { flex-basis:calc(100% - 126px); }
+  .picker select { font-size:16px; }
+  .role-picker { width:116px; min-width:116px; }
+  .surprise { font-size:16px; }
+  .scene,.character { padding:22px 20px; }
+  .scene h2 { font-size:35px; margin:12px 0; }
+  .scene p,.char-block p { font-size:18px; line-height:1.65; }
+  .character h2 { font-size:30px; }
+  .inside { padding:14px 16px; }
+  .practice { padding:20px 17px; }
+  .practice-heading h2 { font-size:32px; }
+  .practice-heading p { font-size:17px; }
+  .cue { padding:18px 16px; }
+  .cue-stem { font-size:24px; line-height:1.42; margin:10px 0; }
+  .cue-clue { font-size:17px; padding:12px; }
+  .grammar-details { font-size:16px; }
+  .talk-prompt strong { font-size:17px; }
+  .talk-prompt p { font-size:16px; }
+  .btn { font-size:15px; padding:13px 10px; }
+  .signature { font-size:12px; }
+}
+@media screen and (max-width:390px) {
+  .game-switch button { display:block; min-height:110px; }
+  .game-switch .nav-emoji { display:block; margin-bottom:6px; }
+  .game-switch strong { font-size:15px; }
+  .game-switch small { font-size:12px; }
+  .picker { flex-basis:100%; }
+  .role-picker { flex:1; width:auto; }
+  .surprise { flex:1; }
+  .intro h1 { font-size:42px; }
+  .scene h2 { font-size:33px; }
+  .cue-stem { font-size:23px; }
+}
