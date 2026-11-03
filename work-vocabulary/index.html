@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#253449">
+<meta name="description" content="Interactive C1.2 work vocabulary and instant speaking challenges.">
+<title>Work, Work, Work! | C1.2 Vocabulary Lab</title>
+<style>
+:root{--ink:#253449;--muted:#536174;--bg:#fff8ed;--paper:#fff;--pink:#ff7966;--pink-soft:#ffe5df;--mint:#e2f5e9;--blue:#e7f2fa;--yellow:#ffdf8e;--edge:#c9d2d9;--good:#176a49;--bad:#a53d35;--shadow:0 7px 0 #25344914;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:19px;line-height:1.55;overflow-wrap:anywhere}
+button,input,select,textarea{font:inherit}
+button{touch-action:manipulation;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:4px solid #e8a62b;outline-offset:2px}
+a{color:#174f84}
+header{background:var(--ink);color:white;padding:32px 18px 29px}
+.wrap{width:min(780px,100%);margin:0 auto}
+.eyebrow{font-size:14px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--pink);margin:0 0 10px}
+header .eyebrow{color:var(--yellow)}
+h1{font-size:clamp(39px,10vw,65px);letter-spacing:-.065em;line-height:1.04;margin:0 0 15px;font-weight:950}
+header p{color:#e2e9f1;margin:0;max-width:640px}
+.stickers{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.sticker{border:1px solid #ffffff70;background:#ffffff13;padding:5px 11px;border-radius:100px;font-size:14px;font-weight:800}
+.topbar{position:sticky;top:0;z-index:10;background:#fffdf8;box-shadow:0 2px 10px #25344917;border-bottom:1px solid #eadbca}
+.navinner{padding:10px 15px;display:flex;align-items:center;gap:11px}
+.progress{height:7px;background:#dfe5ea;border-radius:100px;overflow:hidden;flex:1}
+.fill{height:100%;background:var(--pink);width:0;transition:width .22s}
+.smallcount{font-size:13px;font-weight:900;white-space:nowrap}
+main{padding:25px 16px 70px}
+.picker{display:flex;align-items:center;gap:10px;margin-bottom:15px}
+.picker label{font-size:15px;font-weight:800;flex:0 0 auto}
+.picker select{flex:1;min-width:0;min-height:46px;border:2px solid var(--edge);background:white;border-radius:12px;padding:7px;font-size:16px}
+.lesson{border:2px solid var(--ink);border-radius:25px;background:var(--paper);box-shadow:var(--shadow);overflow:hidden}
+.lessonHead{padding:26px 24px 20px;background:var(--blue);border-bottom:2px solid var(--ink)}
+.lessonHead .eyebrow{color:#a2423d}
+.lessonHead h2{font-size:clamp(30px,7vw,44px);letter-spacing:-.045em;line-height:1.1;margin:0 0 6px}
+.es{font-weight:800;color:#57687b;font-size:17px}
+.explain{margin:12px 0 0;font-size:19px}
+.bodyPad{padding:22px 20px 26px}
+.micro{font-size:14px;font-weight:900;letter-spacing:.09em;color:#606b78;text-transform:uppercase}
+.qcard{border:1.5px solid #d8dfe3;border-radius:16px;padding:15px 16px;margin-bottom:12px;background:#fff}
+.qnum{color:#ac4d42;font-weight:900;font-size:14px;margin-bottom:5px}
+.question{font-size:21px;font-weight:730;line-height:1.35;margin-bottom:12px}
+.answerSelect,.answerInput,.answerText{width:100%;border:2px solid #aab9c4;border-radius:12px;background:#fff;color:var(--ink);font-size:19px;padding:13px 12px;min-height:55px}
+.answerText{min-height:90px;resize:vertical}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:10px}
+.option{border:2px solid #9fadb7;background:#fff;border-radius:12px;min-height:53px;font-size:18px;font-weight:780;padding:9px 12px;color:var(--ink)}
+.option.selected{border-color:var(--ink);background:var(--yellow)}
+.feed{font-size:16px;border-radius:10px;padding:11px 12px;margin-top:13px;font-weight:680;line-height:1.45}
+.feed.right{background:var(--mint);color:#14553c}
+.feed.wrong{background:#ffebe8;color:#8e302b}
+.feed.note{background:var(--blue);color:#204760}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{min-height:52px;padding:12px 17px;border-radius:13px;border:2px solid var(--ink);font-size:18px;font-weight:850;background:#fff;color:var(--ink)}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.coral{background:var(--pink);color:#1d2530}
+.btn.ghost{background:#fff}
+.btn:disabled{cursor:not-allowed;opacity:.45}
+.summary{font-size:18px;font-weight:800;background:#fff2d1;border-radius:13px;padding:13px 15px;margin-top:12px}
+.speech{border:2px solid var(--ink);border-radius:25px;margin-top:19px;background:#e2f4e9;overflow:hidden;box-shadow:var(--shadow);scroll-margin-top:85px}
+.speech .speechhead{padding:22px 21px 13px}
+.speech .eyebrow{color:#266646}
+.speech h3{font-size:clamp(26px,6vw,36px);margin:2px 0 9px;line-height:1.1;letter-spacing:-.035em}
+.speechbody{padding:0 21px 21px}
+.speech .scenario{background:white;border:2px solid #2a6f51;border-radius:15px;padding:16px 17px;font-size:21px;font-weight:830;line-height:1.4}
+.speech ol{padding-left:25px;margin:17px 0}
+.speech li{margin-bottom:10px}
+.frames{background:#ffffffac;border-radius:15px;padding:15px;margin-top:16px}
+.frames strong{font-size:16px}
+.frames p{margin:8px 0 0;font-size:18px;font-style:italic}
+.speakNote{font-size:15px;color:#395b4d;margin:8px 0 0}
+.locked{padding:22px;background:#f0f2f2;font-size:17px;color:#4e6170;border-radius:16px;margin-top:18px}
+.directions{border-left:5px solid var(--pink);padding-left:12px;margin:3px 0 19px;color:#44546b;font-size:17px}
+.tiny{font-size:15px;color:var(--muted)}
+.audioNotice{border-left:5px solid #e4a74b;background:#fff4de;border-radius:9px;padding:13px 15px;font-size:17px;margin:0 0 16px}
+.article{font-size:18px;background:#f7f8fb;border:1.5px solid #ccd5df;border-radius:16px;padding:13px 17px;margin-bottom:17px}
+.article summary{font-weight:900;font-size:19px;cursor:pointer}
+.article p{margin:13px 0}
+.article h4{font-size:23px;margin:12px 0}
+.checkgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.checkitem{border:2px solid #b9c5cf;border-radius:13px;padding:13px 12px;display:flex;gap:10px;align-items:center;font-size:17px;font-weight:750;min-height:58px}
+.checkitem input{width:22px;height:22px;accent-color:#236e52;flex:0 0 auto}
+.textIntro{color:#42536a}
+.footerNav{display:flex;gap:10px;justify-content:space-between;margin:22px 0}
+.footerNav .btn{flex:1}
+.footerNav .btn.primary{flex:1.5}
+footer{text-align:center;font-size:14px;color:#546070;padding-top:16px}
+footer a{color:#235c85}
+.hidden{display:none!important}
+@media(max-width:480px){body{font-size:18px}header{padding:25px 18px 23px}.lessonHead{padding:21px 18px 17px}.bodyPad{padding:17px 14px 20px}.question{font-size:20px}.qcard{padding:14px 13px}.speech .speechhead{padding:20px 16px 11px}.speechbody{padding:0 16px 18px}.speech .scenario{font-size:20px}.checkgrid{grid-template-columns:1fr}.btn{font-size:17px}.footerNav{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <p class="eyebrow">C1.2 • vocabulary + speaking lab</p>
+  <h1>Work, work,<br>work! <span aria-hidden="true">💼</span></h1>
+  <p>The world of work, without the boring worksheet feeling. Solve a short challenge, check your answers and immediately put the vocabulary to work with a partner.</p>
+  <div class="stickers"><span class="sticker">📱 Phone-first</span><span class="sticker">🗣️ Speak after every exercise</span><span class="sticker">✅ Self-check</span><span class="sticker">⏱️ No timer</span></div>
+ </div>
+</header>
+<nav class="topbar" aria-label="Lesson progress"><div class="wrap navinner"><div class="smallcount" id="counter">1 / 13</div><div class="progress" role="progressbar" aria-label="Activities completed" aria-valuemin="0" aria-valuemax="13" aria-valuenow="0" id="bar"><div class="fill" id="fill"></div></div><div class="smallcount" id="doneCount">0 done</div></div></nav>
+<main class="wrap">
+ <div class="picker"><label for="jump">Jump to:</label><select id="jump" aria-label="Choose an activity"></select></div>
+ <section class="lesson" aria-live="polite"><div class="lessonHead"><div class="eyebrow" id="lessonId"></div><h2 id="lessonTitle"></h2><div class="es" id="lessonEs"></div><p class="explain" id="lessonIntro"></p></div><div class="bodyPad"><div class="directions" id="lessonHelp"></div><div id="questions"></div><div id="result" aria-live="polite"></div><div class="actions"><button class="btn primary" type="button" id="checkBtn">Check answers ✓</button><button class="btn ghost" type="button" id="hintBtn">Need a hint?</button></div></div></section>
+ <section id="speech" class="speech hidden" aria-live="polite"><div class="speechhead"><p class="eyebrow">🗣️ Speak now · 60–90 seconds · in pairs</p><h3 id="speakTitle"></h3><p class="speakNote">No writing. Both partners speak. Swap roles after the first answer.</p></div><div class="speechbody"><div class="scenario" id="scenario"></div><ol id="speakQuestions"></ol><div class="frames"><strong>Useful C1 language / Estructuras de apoyo</strong><div id="frames"></div></div><div class="actions"><button type="button" id="twistBtn" class="btn ghost">🎲 Different scenario</button></div></div></section>
+ <div id="locked" class="locked">🔒 Complete this short exercise first. Your speaking challenge appears immediately afterwards.</div>
+ <div class="footerNav"><button class="btn" id="prevBtn">← Previous</button><button class="btn primary" id="nextBtn">Next activity →</button></div>
+ <footer><div><strong>Miss C • C1.2</strong> · Mobile vocabulary lab</div><p>Adapted from your Work Vocab worksheet. Listening tasks require the original recording; this PDF contains no embedded audio. <a href="https://drive.google.com/file/d/1RlAGvqiO5VQZRwl4QBgV8o8N6Wkj8jfF/view?usp=drivesdk" target="_blank" rel="noopener">Original worksheet</a>.</p><button class="btn ghost" type="button" id="resetBtn">Start again / Reiniciar</button></footer>
+</main>
+<script>
+(function(){
+"use strict";
+const INDUSTRIES=["agriculture","entertainment","mining","construction","finance","public services","customer services","insurance","retail","education","manufacturing","technology"];
+const Q=(q,answer,choices,why)=>({q:q,answer:answer,choices:choices,why:why||""});
+const F=(q,answer,why,alternatives)=>({q:q,answer:answer,why:why||"",alternatives:alternatives||[]});
+const S=(title,scenarios,questions,frames)=>({title:title,scenarios:scenarios,questions:questions,frames:frames});
+const steps=[
+ {id:"1.1",title:"Your local job market",es:"Sectores de empleo",icon:"🏙️",type:"survey",intro:"Which industries employ people where you live? Select all the industries you know.",help:"Tap the industries that are important in your area. / Marca los sectores importantes en tu zona.",items:INDUSTRIES,
+ speak:S("Your town, in 60 seconds",["A new student asks: 'What kinds of jobs can I find in your area?'","A friend is moving to your province. Explain which two industries might offer the best prospects.","Imagine the local council wants to invest in one sector. Pitch your choice."],["Name two important industries and give an example of a job in each.","Which industry is growing or struggling? Why?"],["The local economy relies heavily on…","There is growing demand for…","The job prospects in … tend to be…"])},
+ {id:"1.2",title:"Industry detective",es:"¿A qué sector pertenecen?",icon:"🔎",type:"quiz",intro:"Match each set of four words with its industry.",help:"Choose the industry. / Elige el sector correspondiente.",items:[
+ Q("coverage · premium · payout · policy","insurance",INDUSTRIES,"These are standard insurance terms."),
+ Q("satisfaction · expectations · bill · loyalty","customer services",INDUSTRIES,"Customer satisfaction and loyalty are key measures."),
+ Q("contractor · labourer · site · estate","construction",INDUSTRIES,"A construction site employs contractors and labourers."),
+ Q("mineral · extraction · pit · drill","mining",INDUSTRIES,"Extraction and pits are associated with mining."),
+ Q("harvest · pesticide · tractor · produce","agriculture",INDUSTRIES,"Harvests and tractors belong to farming."),
+ Q("venue · hospitality · promotion · festival","entertainment",INDUSTRIES,"Festivals and venues are part of entertainment.")],
+ speak:S("The mystery industry",["Describe an industry WITHOUT naming it. Your partner has two guesses.","You're recruiting for a mystery industry. Describe the workplace using at least three target words.","Your partner is an alien who has never heard of this industry. Explain it without naming it."],["Use at least three words from one vocabulary group.","After the guess, explain what a typical worker in that industry does."],["This industry deals mainly with…","Employees are responsible for…","One typical challenge is…"])},
+ {id:"V",title:"Fired, laid off or resigned?",es:"Vocabulario: dejar el trabajo",icon:"🚪",type:"quiz",intro:"Not all departures are the same. Pick the most accurate expression.",help:"Choose the best term. / Elige el término correcto.",items:[
+ Q("A company no longer needs 80 staff because demand has fallen.","make them redundant",["make them redundant","dismiss them for misconduct","they resign"],"Redundancy is about the position no longer being needed."),
+ Q("An employee repeatedly steals money from the till.","dismiss / fire them",["retire them","dismiss / fire them","make them redundant"],"Dismissal is due to the employee's conduct."),
+ Q("A teacher chooses to leave after receiving another offer.","resign",["resign","be laid off","retire"],"Resigning is the employee's own decision."),
+ Q("A worker stops working at the end of their career.","retire",["retire","be fired","be laid off"],"Retirement marks the end of working life."),
+ Q("The informal equivalent of 'make employees redundant' is…","lay them off",["lay them off","sack them","hand them in"],"Lay off means a job is eliminated; sack/fire suggests misconduct.")],
+ speak:S("The HR tribunal",["Your boss wants to fire someone for wearing odd socks. Is that reasonable?","A company replaces its entire team with AI. Is this redundancy or dismissal?","A colleague resigns because the office coffee is awful. Give them advice."],["Choose the correct employment term for the situation.","Would you support the decision? Give one reason."],["In this case, the employee would be…","It would be unreasonable to…","I would argue that…"])},
+ {id:"1.3",title:"Listening: three careers",es:"Escucha: verdadero o falso",icon:"🎧",type:"listeningTF",intro:"Listen to the three speakers in the original course recording. Choose True or False.",help:"The provided PDF has no audio. Your teacher needs to play the original track. / El profesor pone el audio original.",items:[
+ "Speaker 1 got her first job in a local factory.","Speaker 1 now works in India.","Speaker 2 has lost two jobs.","Speaker 2 is relaxed about losing his job.","Speaker 3's father used to run the farm.","Speaker 3 employs five people."],
+ speak:S("Who's having the worst week?",["Which speaker would find changing careers hardest?","Which speaker should make a Plan B first?","Pick one speaker to mentor. What would you tell them?"],["Choose one speaker and summarise their situation.","Suggest one sensible next step."],["From what we heard, the main obstacle is…","If I were in their shoes, I'd…","One option worth considering is…"])},
+ {id:"1.4",title:"Listening: fill the gaps",es:"Escucha: completa las frases",icon:"📝",type:"listeningFill",intro:"Listen again and complete the sentences with the exact words the speakers use.",help:"Type the missing words. Teacher-led check: no transcript/official key was supplied. / Completa y corrige en clase.",items:[
+ "When Speaker 1 left school, there was very little ______.",
+ "Speaker 1 was trained in ______.",
+ "The work Speaker 1 used to do is now done in an Indian ______.",
+ "Speaker 2's father ______ at the age of 65.",
+ "Speaker 2 has been ______ from two jobs.",
+ "Speaker 2 thinks it is more worrying to be ______ in middle age.",
+ "Speaker 3 doubts that his children will ______ him on the farm.",
+ "Speaker 3 finds it difficult to make enough money to ______."],
+ speak:S("Career survival",["Imagine you are made redundant tomorrow. What's your first move?","A family farm makes little money. Should the children take over?","Would you accept a job abroad if local employment opportunities dried up?"],["Choose one scenario and give a practical solution.","Use one employment word from the listening."],["My immediate priority would be…","I'd probably retrain in…","A more sustainable option might be…"])},
+ {id:"1.5",title:"Make it sound professional",es:"Vocabulario formal: sinónimos",icon:"🎩",type:"quiz",intro:"Replace the informal or everyday expressions with the formal terms from the worksheet.",help:"Select the formal equivalent. / Elige el equivalente formal.",items:[
+ Q("questions (from customers)","enquiries",["enquiries","employers","compensation","dictate"],"Enquiries are requests for information."),
+ Q("lay down (rules)","dictate",["disturbs","dictate","acquire","dismiss"],"Dictate means prescribe or determine."),
+ Q("sack an employee","dismiss",["acquire","dismiss","compensate","enquire"],"Dismiss is the formal word for fire/sack."),
+ Q("bothers me","disturbs",["dictates","disturbs","dismisses","acquires"],"Disturbs me expresses concern or unease."),
+ Q("pick up (skills)","acquire",["acquire","dismiss","dictate","disturb"],"Acquire means gain or develop skills."),
+ Q("boss","employer",["enquiry","employer","compensation","employee"],"An employer is the person or organisation employing you."),
+ Q("some money paid for an injury at work","compensation",["compensation","enquiries","payout policy","promotion"],"Compensation is money paid to make up for harm or loss.")],
+ speak:S("Corporate translator",["Your boss says: 'We get loads of questions and people keep messing up.' Give a formal update.","You're writing a workplace incident report, but your colleague uses informal language.","A manager wants to sack someone. Explain the process politely to HR."],["Say one informal sentence, then rephrase it formally.","Make a second sentence using another formal word."],["We have received a number of enquiries regarding…","The employer may be required to provide compensation…","I find the situation particularly disturbing because…"])},
+ {id:"1.6",title:"Job or work?",es:"¿Job o work?",icon:"⚖️",type:"quiz",intro:"One is usually countable (a job); the other describes work in general (uncountable).",help:"Choose 'job' or 'work'. / Elige la opción correcta.",items:[
+ Q("I'll be leaving ___ in ten minutes.","work",["job","work"],"Leave work = finish your working day."),
+ Q("I'm planning to find a ___ in London.","job",["job","work"],"A job = one specific position."),
+ Q("He must get to ___ by 8 o'clock.","work",["job","work"],"Get to work is the natural phrase."),
+ Q("Otherwise, he'll lose his ___.","job",["job","work"],"Lose your job = become unemployed."),
+ Q("I'm prepared to do ___ of any kind.","work",["job","work"],"Work is uncountable here."),
+ Q("You'll have more ___ to do.","work",["job","work"],"More work = more tasks or labour."),
+ Q("I'll have an easier ___.","job",["job","work"],"An easier job = a specific role or task.")],
+ speak:S("Two truths and a lie",["Say three sentences about your dream job and your workload; one must be a lie.","Describe a terrible job and an ideal workday. Your partner spots which is imaginary.","Your partner offers you a job. Ask two questions about the work involved."],["Use 'job' correctly once and 'work' correctly once.","Your partner must ask one follow-up question."],["I'd love to get a job that…","The work itself would involve…","I wouldn't mind doing…"])},
+ {id:"1.7",title:"Collocation builder",es:"Construye las combinaciones",icon:"🧩",type:"fill",intro:"Complete the original compound nouns. One word per gap.",help:"Type the missing word; you can request a first-letter hint. / Escribe la palabra que falta.",items:[
+ F("The job ______ says experience is required.","description","A job description outlines duties and requirements."),
+ F("You need relevant work ______.","experience","Work experience means previous practical employment."),
+ F("I get no job ______ from this role.","satisfaction","Job satisfaction is pleasure gained from one's job."),
+ F("My work______ is extremely high.","load","Workload is one word."),
+ F("Job ______ can't always be guaranteed.","security","Job security means relative stability in employment."),
+ F("A healthy work ______ needs good lighting.","environment","Work environment refers to conditions at work."),
+ F("She's waiting for her work ______ to arrive.","permit","A work permit authorises employment."),
+ F("She can then accept the job ______.","offer","A job offer is a proposal of employment."),
+ F("The job ______ is tough for graduates.","market","The job market is the availability of employment."),
+ F("Job ______ fresh from college need support.","seekers","Job seekers are looking for employment."),
+ F("Several work ______ are leaving.","colleagues","Work colleagues are people you work with."),
+ F("They are seeking new job ______.","opportunities","Job opportunities are openings."),
+ F("Bring suitable work ______ to the site.","clothes","Work clothes are suitable attire for the workplace."),
+ F("Keep your work______ free from clutter.","space","Workspace is normally written as one word.")],
+ speak:S("Advertise the worst job ever",["Sell a job with a HUGE workload but excellent free snacks.","Recruit for an office with zero job security but a rooftop pool.","Sell a job that offers excellent work-life balance but absolutely no job satisfaction."],["Pitch the job using three collocations from the exercise.","Your partner must ask a difficult interview question."],["The role offers outstanding job opportunities…","Although the workload can be demanding,…","Our work environment is particularly…"])},
+ {id:"1.8",title:"Work issues in your country",es:"El mundo laboral en tu país",icon:"🇪🇸",type:"write",intro:"Write one short sentence about your country for each issue, as in the original worksheet. Short answers are fine.",help:"Write a sentence for each topic. / Escribe una frase por tema. You'll then discuss two of them.",items:["child labour","equal opportunities","executive pay","industrial action","migrant labour","minimum wage","redundancy","unemployment","retirement age","work-life balance"],
+ speak:S("Agree, disagree or depends?",["Which matters more: a higher minimum wage or a shorter working week?","Would you support industrial action if it disrupted your holiday flight?","Should executive pay depend directly on ordinary workers' salaries?"],["Choose one controversial issue and give your opinion.","Your partner must respectfully challenge it with one counterargument."],["A key concern in Spain is…","Although I see your point, …","That depends largely on whether…"])},
+ {id:"2.1",title:"Ireland's brain drain",es:"Lectura: encuentra la prueba",icon:"✈️",type:"reading",intro:"Read Paula's story, then choose the phrase that best supports each statement.",help:"Read the article and select the evidence. / Lee el texto y elige la frase que lo demuestra.",
+ article:"<h4>Ireland's brain drain</h4><p>Complete with a degree from a top Irish university and ready to join the world of work, Paula McGrath struggled to find a job at home, so she decided to try her luck in the USA and escape the <strong>doom and gloom</strong> of the Irish economy. Now she can be found working in a restaurant in New York.</p><p>‘I graduated in Media Studies and came here to the US, which for many is the land of opportunity. I haven't landed the job of my dreams yet, but the excitement of living and working in a city like New York is like a dream come true in itself.</p><p>‘I always thought that I would stay in Ireland after I had graduated. The days when the country had a thriving economy were long gone, but there were still jobs for the more educated members of the workforce. At university I was aware that I couldn't wait for a job opportunity to spring up though, as there were plenty of people to fill gaps in the labour market when jobs were created.</p><p>‘At the same time Ireland was continuing to churn out more and more highly educated and highly motivated graduates, so I needed a plan to be able to compete. I decided that I would study as hard as I could and get the grades I needed to embark on a career.</p><p>‘I graduated with good grades and I was lucky enough to find a job in Dublin that had really good prospects. From my first day there I imagined myself climbing the corporate ladder and becoming an executive in the company. It was not to be though; after six months the company went bust and, all of a sudden, I found myself without a job.</p><p>‘I spent about six months trying to find a permanent job, but apart from some freelance work I couldn't find anything. I started to feel my work ethic disappear. It was at this point that I decided that it was time for a change. I came to the decision that I would try my luck in America. I applied for and got my visa and <strong>I haven't looked back since.</strong>’</p>",
+ items:[
+ Q("1. Paula found the economic situation in Ireland depressing.","escape the doom and gloom of the Irish economy",["escape the doom and gloom of the Irish economy","I graduated in Media Studies","I applied for and got my visa"],"Doom and gloom refers to pessimism."),
+ Q("2. Paula doesn't regret moving to New York.","I haven't looked back since",["I got good grades","I haven't looked back since","I decided to study as hard as I could"],"Haven't looked back means she's happy with the decision."),
+ Q("3. Paula expected employment opportunities in Ireland.","there were still jobs for the more educated members of the workforce",["she worked in a restaurant in New York","there were still jobs for the more educated members of the workforce","I applied for and got my visa"],"She thought qualified workers still had opportunities."),
+ Q("4. Paula was determined to be promoted.","I imagined myself climbing the corporate ladder",["I imagined myself climbing the corporate ladder","I started to feel my work ethic disappear","I couldn't find anything"],"Climb the corporate ladder means advance to more senior positions.")],
+ speak:S("Stay or go?",["You are Paula's friend. Convince her to stay in Ireland.","You are Paula's friend. Persuade her that New York is worth the risk.","You are an employer interviewing Paula. Explain the risks of her career change."],["Give Paula two pieces of advice about her career.","Use one expression from the article."],["If I were in Paula's position, I'd…","There might be better prospects in…","It could be a stepping stone towards…"])},
+ {id:"2.2",title:"Find the phrase",es:"Vocabulario de la lectura",icon:"📚",type:"fill",intro:"Type the precise word or phrase used in Paula's story.",help:"Find it in the reading; a first-letter hint is available. / Busca la expresión en el texto.",items:[
+ F("All the workers in a company or country","workforce","The collective number of workers."),
+ F("Self-employed and working for different clients","freelance","A freelancer works for multiple organisations."),
+ F("A feeling or atmosphere of hopelessness","doom and gloom","A gloomy, pessimistic atmosphere."),
+ F("Belief in the importance of hard work","work ethic","A person's attitude to working hard."),
+ F("Produce a large quantity of something repeatedly","churn out","Often implies regular or mass production."),
+ F("Chances of future success","prospects","Job prospects = future career opportunities."),
+ F("Appear unexpectedly or suddenly","spring up","New opportunities can spring up."),
+ F("Successful, busy and profitable","thriving","A thriving economy is doing very well.")],
+ speak:S("Career gossip",["Tell your partner about a friend who moved abroad and now has a thriving career. Invent the details.","Your university churns out thousands of graduates. What would you change?","Describe an industry where job prospects are poor despite a strong work ethic."],["Use two of today's new words in one believable mini-story.","Your partner asks: 'And what happened next?'" ],["Career prospects were looking…","Opportunities began to spring up…","Despite having a strong work ethic,…"])},
+ {id:"2.3",title:"Labour-market questions",es:"Expresiones: mercado laboral",icon:"🌍",type:"write",intro:"Answer the two questions from the reading section in your own words.",help:"Write one or two lines, then compare opinions with your partner. / Responde y comenta.",items:["Why are immigrants sometimes needed to fill gaps in the labour market?","What kind of people want to climb the corporate ladder?"],
+ speak:S("Two-minute career adviser",["A town has many unfilled jobs but few qualified candidates. What could employers do?","A friend wants promotion fast but refuses extra responsibility. Advise them.","A graduate is considering migrating for better job prospects. Ask them two questions."],["Explain the problem, then give one recommendation.","Use 'fill gaps in the labour market' or 'climb the corporate ladder' correctly."],["An effective way to fill gaps in the labour market is…","To climb the corporate ladder, you generally need to…","This would enable employers to…"])},
+ {id:"EXAM",title:"C1 word-formation challenge",es:"Exam practice: transforma palabras",icon:"🏆",type:"fill",intro:"Complete the text 'My ideal work environment' by changing the word in brackets. This follows the eight gaps in your PDF.",help:"Write one word per gap. / Escribe una palabra en cada hueco.",items:[
+ F("Workers' job ______ (SATISFY) is important.","satisfaction","Job satisfaction is a noun."),
+ F("At work, I always feel ______ (APPRECIATE).","appreciated","Feel + past participle adjective."),
+ F("I respect my boss for qualities of ______ (LEADER).","leadership","Leadership is a quality of leading."),
+ F("I know I can make a real ______ (CONTRIBUTE).","contribution","Make a contribution."),
+ F("The company has clearly defined ______ (OBJECT).","objectives","Objectives = goals; plural noun."),
+ F("We introduce ______ innovations (TECHNOLOGY).","technological","An adjective is needed before innovations."),
+ F("Every member of the ______ can learn new skills (WORK).","workforce","Workforce means all employees."),
+ F("I am an ______ part of the organisation (ESSENCE).","essential","An essential part = indispensable.")],
+ speak:S("The dream workplace pitch",["Your dream workplace has no manager, but everyone has excellent job satisfaction. Defend it.","Your company has a four-day week, spectacular leadership and zero meetings. Recruit your partner.","Imagine an employer that pays incredibly well but never appreciates its workforce. Would you join?"],["Describe three features of your ideal work environment.","Use at least three word-formation answers naturally."],["My ideal work environment would foster…","I'd feel appreciated if…","Strong leadership is essential because…"])}
+];
+let state;
+try{state=JSON.parse(localStorage.getItem("workLabC12_2026"))||{}}catch(e){state={}}
+if(!state.answers)state.answers={};
+if(!state.checked)state.checked={};
+if(!state.hints)state.hints={};
+if(!state.spins)state.spins={};
+if(!state.done)state.done={};
+let active=0;
+function save(){try{localStorage.setItem("workLabC12_2026",JSON.stringify(state))}catch(e){}}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}
+function norm(s){return String(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[’']/g,"").replace(/[\s-]+/g," ").replace(/[.,!?]/g,"").trim()}
+function getA(id){return state.answers[id]||(state.answers[id]={})}
+function answerOK(item,val){return [item.answer].concat(item.alternatives||[]).some(x=>norm(x)===norm(val))}
+function isGraded(step){return step.type==="quiz"||step.type==="reading"||step.type==="fill"}
+function el(id){return document.getElementById(id)}
+function render(){
+const step=steps[active],aa=getA(step.id),checked=!!state.checked[step.id];
+el("counter").textContent=(active+1)+" / "+steps.length;
+el("doneCount").textContent=Object.keys(state.done).filter(k=>state.done[k]).length+" done";
+el("fill").style.width=(100*Object.keys(state.done).filter(k=>state.done[k]).length/steps.length)+"%";
+el("bar").setAttribute("aria-valuemax",steps.length);
+el("bar").setAttribute("aria-valuenow",Object.keys(state.done).filter(k=>state.done[k]).length);
+el("lessonId").textContent="EXERCISE "+step.id+"  "+step.icon;
+el("lessonTitle").textContent=step.title;
+el("lessonEs").textContent=step.es;
+el("lessonIntro").textContent=step.intro;
+el("lessonHelp").textContent=step.help;
+el("jump").value=String(active);
+el("prevBtn").disabled=active===0;
+el("nextBtn").disabled=active===steps.length-1;
+el("nextBtn").textContent=active===steps.length-1?"Last activity ✓":"Next activity →";
+let h="";
+if(step.type==="reading")h+='<details class="article" open><summary>📖 Read Paula\'s story / Leer texto</summary>'+step.article+"</details>";
+if(step.type==="listeningTF"||step.type==="listeningFill")h+='<div class="audioNotice">🎧 <strong>Teacher-led listening</strong> · The source PDF does not contain a recording, so answers are saved for class correction rather than automatically graded. <a href="https://drive.google.com/file/d/1RlAGvqiO5VQZRwl4QBgV8o8N6Wkj8jfF/view?usp=drivesdk" target="_blank" rel="noopener">Open source PDF</a>.</div>';
+if(step.type==="survey")h+='<div class="checkgrid">'+step.items.map((t,i)=>'<label class="checkitem"><input type="checkbox" data-input="'+i+'" '+(aa[i]?"checked":"")+'><span>'+esc(t)+'</span></label>').join("")+"</div>";
+else step.items.forEach((item,i)=>{
+const q=(typeof item==="string"?item:item.q);
+h+='<div class="qcard"><div class="qnum">QUESTION '+(i+1)+'</div><div class="question">'+esc(q)+'</div>';
+if(step.type==="quiz"||step.type==="reading"){
+if(item.choices.length<=3){h+='<div class="choices">'+item.choices.map(ch=>'<button type="button" class="option '+(aa[i]===ch?"selected":"")+'" data-pick="'+i+'" data-val="'+esc(ch)+'" aria-pressed="'+(aa[i]===ch)+'">'+esc(ch)+'</button>').join("")+"</div>";}
+else{h+='<select class="answerSelect" data-input="'+i+'" aria-label="Answer '+(i+1)+'"><option value="">Select your answer…</option>'+item.choices.map(ch=>'<option value="'+esc(ch)+'" '+(aa[i]===ch?"selected":"")+'>'+esc(ch)+'</option>').join("")+"</select>";}
+}
+else if(step.type==="listeningTF"){h+='<div class="choices">'+["True","False"].map(ch=>'<button class="option '+(aa[i]===ch?"selected":"")+'" type="button" data-pick="'+i+'" data-val="'+ch+'" aria-pressed="'+(aa[i]===ch)+'">'+ch+"</button>").join("")+"</div>";}
+else if(step.type==="write"){h+='<textarea class="answerText" data-input="'+i+'" placeholder="Your sentence / Tu frase…" aria-label="Answer '+(i+1)+'">'+esc(aa[i]||"")+"</textarea>";}
+else{h+='<input class="answerInput" type="text" data-input="'+i+'" value="'+esc(aa[i]||"")+'" placeholder="'+(step.type==="listeningFill"?"Words you hear…":"Your answer…")+'" autocapitalize="off" autocomplete="off" spellcheck="false" aria-label="Answer '+(i+1)+'">';}
+if(checked&&isGraded(step)){
+const ok=answerOK(item,aa[i]);
+h+='<div class="feed '+(ok?"right":"wrong")+'">'+(ok?"✓ Correct!":"↗ Not quite. Correct answer: "+esc(item.answer))+(item.why?"<div>"+esc(item.why)+"</div>":"")+"</div>";
+}
+if(checked&&(step.type==="listeningTF"||step.type==="listeningFill"))h+='<div class="feed note">Saved for teacher-led correction. Compare with the recording or transcript.</div>';
+h+="</div>";
+});
+el("questions").innerHTML=h;
+el("hintBtn").style.display=step.type==="fill"?"inline-flex":"none";
+el("hintBtn").textContent=state.hints[step.id]?"Hints: ON ✓":"Need a hint?";
+if(step.type==="fill"&&state.hints[step.id]&&!checked){
+const cards=el("questions").querySelectorAll(".qcard");
+cards.forEach((card,i)=>{const e=document.createElement("div");e.className="tiny";e.textContent="💡 First letter: "+step.items[i].answer.charAt(0).toUpperCase()+"…";card.appendChild(e)});
+}
+el("checkBtn").textContent=isGraded(step)?"Check answers ✓":"Done → speaking 🗣️";
+el("result").innerHTML="";
+if(checked&&isGraded(step)){
+const right=step.items.filter((x,i)=>answerOK(x,aa[i])).length;
+el("result").innerHTML='<div class="summary">'+right+' / '+step.items.length+' correct · '+(right===step.items.length?"Brilliant! 🌟":"Review the feedback above, then try the speaking challenge. You can edit and check again.")+"</div>";
+}
+if(checked&&!isGraded(step))el("result").innerHTML='<div class="summary">✓ Saved! Compare your ideas, then speak to your partner.</div>';
+el("speech").classList.toggle("hidden",!checked);
+el("locked").classList.toggle("hidden",checked);
+if(checked)renderSpeaking(step);
+}
+function renderSpeaking(step){
+const s=step.speak,idx=(state.spins[step.id]||0)%s.scenarios.length;
+el("speakTitle").textContent=s.title;
+el("scenario").textContent=s.scenarios[idx];
+el("speakQuestions").innerHTML=s.questions.map(q=>"<li>"+esc(q)+"</li>").join("");
+el("frames").innerHTML=s.frames.map(f=>"<p>“"+esc(f)+"”</p>").join("");
+}
+el("jump").innerHTML=steps.map((s,i)=>'<option value="'+i+'">'+(state.done[s.id]?"✓ ":"")+(i+1)+". "+esc(s.title)+"</option>").join("");
+el("questions").addEventListener("change",e=>{
+const t=e.target, n=t.getAttribute("data-input");if(n===null)return;
+getA(steps[active].id)[n]=t.type==="checkbox"?t.checked:t.value;save();
+});
+el("questions").addEventListener("input",e=>{
+const t=e.target,n=t.getAttribute("data-input");if(n===null||t.type==="checkbox")return;
+getA(steps[active].id)[n]=t.value;save();
+});
+el("questions").addEventListener("click",e=>{
+const t=e.target.closest("button[data-pick]");if(!t)return;
+const step=steps[active];getA(step.id)[t.getAttribute("data-pick")]=t.getAttribute("data-val");save();render();
+});
+el("checkBtn").addEventListener("click",()=>{
+const step=steps[active];state.checked[step.id]=true;state.done[step.id]=true;save();render();
+el("speech").scrollIntoView({behavior:"smooth",block:"start"});
+});
+el("hintBtn").addEventListener("click",()=>{
+const id=steps[active].id;state.hints[id]=!state.hints[id];save();render();
+});
+el("twistBtn").addEventListener("click",()=>{
+const step=steps[active];state.spins[step.id]=((state.spins[step.id]||0)+1)%step.speak.scenarios.length;save();renderSpeaking(step);
+});
+el("jump").addEventListener("change",e=>{active=Number(e.target.value)||0;render();window.scrollTo({top:0,behavior:"smooth"})});
+el("prevBtn").addEventListener("click",()=>{if(active>0){active--;render();window.scrollTo({top:0,behavior:"smooth"})}});
+el("nextBtn").addEventListener("click",()=>{if(active<steps.length-1){active++;render();window.scrollTo({top:0,behavior:"smooth"})}});
+el("resetBtn").addEventListener("click",()=>{if(confirm("Reset all answers and progress? / ¿Borrar todas las respuestas?")){state={answers:{},checked:{},done:{},spins:{},hints:{}};active=0;save();render();window.scrollTo(0,0)}});
+render();
+})();
+</script>
+</body>
+</html>
