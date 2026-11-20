@@ -229,10 +229,7 @@ h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06;letter-spacing:-.055em;marg
 .hero-visual .specimen{margin:25px 0 18px}
 .hero-visual .specimen-piece.pre{font-size:20px}.hero-visual .specimen-piece.head{font-size:30px}.hero-visual .specimen-piece.post{font-size:18px}
 .hero-visual .visual-stamp{display:none}
-.learning-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0 24px}
-.flow-step{display:flex;align-items:center;gap:9px;border:1px solid #dce5ed;background:#fff;border-radius:12px;padding:12px 13px;color:#424c69;font-size:13px;font-weight:850;line-height:1.3}
-.flow-step b{display:grid;place-items:center;background:#e6e1ff;color:#6250ad;border-radius:8px;width:26px;height:26px;flex:none}
-.progress-card{margin-bottom:25px}
+.progress-card{margin-top:19px;margin-bottom:25px}
 .module-panel{scroll-margin-top:26px}
 .module-modes{display:flex;gap:7px;border-bottom:1px solid #dbe1e9;margin:15px 0 20px;padding:0 0 9px}
 .mode-btn{display:flex;align-items:center;gap:9px;min-height:47px;border:1px solid transparent;border-radius:12px;padding:10px 17px;background:#e9edf4;color:#4e5a77;font-size:15px;font-weight:900}
@@ -273,10 +270,9 @@ h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06;letter-spacing:-.055em;marg
 .feedback .revisit{display:block;border:0;background:transparent;color:#5d50a5;font-weight:900;text-decoration:underline;font-size:14px;padding:9px 0 0}
 .lesson-card .compare b,.lesson-card .example-box b{font-weight:950}
 @media(max-width:1100px){.hero{grid-template-columns:1fr 285px}.hero-copy{padding:28px}.lesson-grid{grid-template-columns:1fr}.lesson-card:first-child{grid-column:auto}}
-@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-visual{display:none}.learning-flow{grid-template-columns:1fr 1fr}.lesson-cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-visual{display:none}.lesson-cta{align-items:flex-start;flex-direction:column}}
 @media(max-width:760px){
  .hero-copy{padding:23px}.hero{min-height:0}.hero-meta{gap:7px}
- .learning-flow{gap:7px;margin:12px 0 19px}.flow-step{padding:10px;gap:7px;font-size:12px}.flow-step b{width:22px;height:22px}
  .module-modes{gap:6px}.mode-btn{padding:10px 11px;font-size:13px;flex:1;justify-content:center;line-height:1.3}.mode-btn b{width:22px;height:22px}
  .lesson-start{padding:21px;border-radius:15px}.lesson-start h3{font-size:25px}.lesson-start p{font-size:16px}
  .lesson-grid{grid-template-columns:1fr}.lesson-card{padding:20px 18px}.lesson-card h4{font-size:22px}
@@ -284,7 +280,7 @@ h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06;letter-spacing:-.055em;marg
  .lesson-cta{padding:19px;gap:17px}.lesson-cta .button{width:100%}.practice-how{font-size:14px;display:block}
  .practice-how b{display:block;margin-bottom:4px}
 }
-@media print{.learning-flow,.module-modes,#lessonView,.section-head{display:none!important}}
+@media print{.module-modes,#lessonView,.section-head{display:none!important}}
 </style>
 </head>
 <body>
@@ -316,7 +312,6 @@ h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06;letter-spacing:-.055em;marg
         <span class="visual-stamp">WORDS HAVE STRUCTURE. AND PERSONALITY.</span>
       </div>
     </section>
-    <div class="learning-flow" aria-label="Learning sequence"><span class="flow-step"><b>1</b> Understand the rule</span><span class="flow-step"><b>2</b> Compare examples</span><span class="flow-step"><b>3</b> Take the challenge</span><span class="flow-step"><b>4</b> Learn from feedback</span></div>
     <div class="progress-card"><span class="progress-label">Overall progress</span><div class="progress-track" role="progressbar" aria-label="Completed questions" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barOuter"><div class="progress-fill" id="progressFill"></div></div><span class="progress-percent" id="progressText">0%</span></div>
     <div class="module-panel" id="modulePanel">
       <div class="section-head"><div><p class="section-kicker" id="sectionKicker"></p><h2 id="sectionTitle"></h2><p id="sectionSubtitle"></p></div><div class="question-count" id="questionCounter"></div></div>
