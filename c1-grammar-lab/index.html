@@ -282,6 +282,94 @@ h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06;letter-spacing:-.055em;marg
 }
 @media print{.module-modes,#lessonView,.section-head{display:none!important}}
 </style>
+<style>
+/* Classroom edition: explicit practice sets, actual exercise choices and readable type. */
+:root{font-size:18px}
+.app{grid-template-columns:315px minmax(0,1fr)}
+.sidebar{padding:27px 19px}.brand strong{font-size:25px}.brand small{font-size:13px}
+.sideinfo{font-size:17px;line-height:1.55}.side-label{font-size:14px}
+.nav-btn{min-height:76px;padding:13px 12px}.nav-index{width:41px;height:41px;font-size:16px}
+.nav-txt{font-size:17px;line-height:1.3}.nav-txt small{font-size:14px}
+.sidebar-bottom p{font-size:15px}.plain-btn{font-size:17px}
+.main{padding:26px clamp(22px,3.1vw,48px) 60px}.content{max-width:1320px}
+.eyebrow,.small-chip{font-size:14px}.topline{margin-bottom:14px}
+.hero{grid-template-columns:minmax(0,1fr) 235px;min-height:0;margin-bottom:0;border-radius:21px}
+.hero-copy{padding:24px 30px 23px}.hero-eyebrow{font-size:14px;margin-bottom:10px}
+h1{font-size:clamp(36px,3.4vw,47px);line-height:1.08;margin-bottom:12px}
+.hero .intro{font-size:19px;line-height:1.5;max-width:800px}
+.hero-summary{display:flex;align-items:center;flex-wrap:wrap;gap:12px;color:#555d81;font-size:17px;margin:18px 0 0}
+.hero-summary strong{color:#5144aa;font-weight:900}.hero-summary span{color:#a1a3bc}
+.hero-visual{min-height:215px;padding:19px 17px}.hero-visual .specimen{margin:26px 0 13px}
+.hero-visual .specimen-piece.pre{font-size:17px}.hero-visual .specimen-piece.head{font-size:30px}.hero-visual .specimen-piece.post{font-size:17px}
+.hero-visual .visual-top{font-size:10px}.hero-visual .specimen-legend{display:none}
+.set-hub{margin:26px 0 23px}
+.set-hub-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:14px}
+.set-hub-head h2{font-size:clamp(27px,3vw,35px);line-height:1.12;letter-spacing:-.045em;margin:6px 0 0;color:#20274d}
+.set-hub-head p{margin:0;color:#626c88;font-size:18px;line-height:1.35;max-width:405px}
+.set-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.set-card{display:flex;flex-direction:column;text-align:left;gap:6px;background:#fff;color:#262c50;border:2px solid #dfe3f1;border-radius:17px;padding:17px 19px;min-height:127px;box-shadow:0 5px 15px #2b386711;transition:background .15s,border-color .15s,transform .15s;position:relative}
+.set-card:hover{transform:translateY(-2px);border-color:#7765cb;background:#f9f8ff}
+.set-card[aria-current="true"]{border-color:#6759bb;background:#f4f2ff;box-shadow:inset 0 0 0 1px #6759bb}
+.set-card-kicker{font-size:14px;font-weight:900;letter-spacing:.06em;color:#6554b3;text-transform:uppercase}
+.set-card strong{font-size:21px;font-weight:920;letter-spacing:-.025em;line-height:1.18}
+.set-card-detail{font-size:16px;color:#66708e;line-height:1.3}
+.set-card-progress{font-size:15px;font-weight:850;color:#3c7062;margin-top:auto}
+.set-card[aria-current="true"]:after{content:"ACTIVE";position:absolute;top:13px;right:13px;background:#d6f6a2;color:#344132;font-size:12px;font-weight:950;padding:5px 7px;border-radius:7px}
+.progress-card{padding:18px 22px;margin:0 0 27px}.progress-label{font-size:18px}.progress-percent{font-size:25px}.progress-track{height:13px}
+.section-kicker{font-size:16px}.section-head h2{font-size:clamp(33px,3.4vw,44px)}.section-head p{font-size:19px}
+.question-count{font-size:17px;padding:12px 16px}
+.module-modes{margin:16px 0 22px;gap:10px}.mode-btn{font-size:20px;min-height:62px;padding:15px 24px}
+.lesson-kicker,.lesson-number{font-size:15px}.lesson-start h3{font-size:clamp(28px,3.1vw,39px)}.lesson-start p{font-size:20px}
+.lesson-card h4{font-size:27px}.lesson-card p{font-size:19px;line-height:1.6}.rule-board{font-size:22px;line-height:1.5}
+.example-box strong{font-size:21px}.example-box span{font-size:18px}.lesson-card .compare{font-size:19px}
+.lesson-cta strong{font-size:21px}.lesson-cta p{font-size:18px}.lesson-cta .button{font-size:20px}
+.activity-picker{border:2px solid #cfd2f0;background:#f6f5ff;border-radius:18px;padding:21px 22px;margin-bottom:18px}
+.activity-picker-head h3{font-size:25px;letter-spacing:-.03em;margin:0 0 4px;color:#292550}
+.activity-picker-head p{margin:0 0 16px;font-size:18px;color:#575f84;line-height:1.45}
+.activity-filters{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.activity-filter{display:flex;flex-direction:column;justify-content:center;gap:6px;text-align:center;min-height:84px;padding:12px 8px;border:2px solid #d9d9ee;border-radius:13px;background:#fff;color:#424a73;font-weight:850;font-size:17px;line-height:1.2;transition:background .15s,border-color .15s}
+.activity-filter small{font-size:15px;color:#646c8e;font-weight:700}
+.activity-filter[aria-pressed="true"]{background:#28284f;border-color:#28284f;color:#fff}
+.activity-filter[aria-pressed="true"] small{color:#d5d7ff}
+.activity-filter:disabled{opacity:.42}
+.practice-how{font-size:18px;line-height:1.55;padding:18px 21px}.practice-how b{font-size:17px}
+.lens summary{font-size:17px}.lens .lens-toggle{font-size:15px}.lens>p{font-size:19px}
+.q-type,.q-level{font-size:16px}.prompt{font-size:clamp(26px,2.5vw,34px);line-height:1.4}
+.option{font-size:20px;line-height:1.5;min-height:86px;padding:17px 20px}
+.write-label{font-size:19px}.text-input{font-size:24px;min-height:76px}.text-hint{font-size:17px}
+.token{font-size:20px;min-height:58px;padding:13px 17px}.match-row strong,.match-row select{font-size:20px}.match-row select{min-height:60px}
+.button{font-size:20px;min-height:60px;padding:15px 22px}.feedback strong{font-size:21px}.feedback p,.feedback .model{font-size:19px}
+.q-dot{width:46px;height:46px;font-size:18px}.note{font-size:17px}.footer{font-size:16px}
+@media(max-width:1180px){.app{grid-template-columns:278px minmax(0,1fr)}.set-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr 210px}.nav-txt{font-size:16px}}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-visual{display:none}.set-hub-head{display:block}.set-hub-head p{max-width:none;margin-top:9px}.activity-filters{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+ :root{font-size:18px}.app{display:block}.sidebar{position:relative;height:auto;padding:17px 16px}
+ .brand strong{font-size:25px}.brand small{font-size:12px}.module-nav{display:flex;overflow-x:auto;gap:9px}
+ .nav-btn{min-width:225px;min-height:67px;padding:10px}.nav-txt{font-size:16px}.nav-txt small{font-size:14px}
+ .main{padding:18px 15px 40px}.topline{gap:8px}.eyebrow,.small-chip{font-size:13px}
+ .hero-copy{padding:24px 21px}h1{font-size:clamp(35px,9vw,48px)}.hero .intro{font-size:19px}.hero-summary{font-size:17px;gap:9px}
+ .set-hub{margin:23px 0}.set-hub-head h2{font-size:29px}.set-hub-head p{font-size:18px}
+ .set-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:11px;padding-bottom:10px}
+ .set-card{min-width:min(83vw,310px);min-height:147px;scroll-snap-align:start;padding:17px}
+ .set-card strong{font-size:22px}.set-card-detail{font-size:17px}
+ .progress-card{gap:12px}.progress-label{font-size:18px}.progress-percent{font-size:24px}
+ .section-head h2{font-size:34px}.section-head p{font-size:19px}.question-count{font-size:15px}
+ .module-modes{display:grid;grid-template-columns:1fr;gap:9px}.mode-btn{justify-content:center;font-size:20px;min-height:59px}
+ .activity-picker{padding:17px 15px}.activity-picker-head h3{font-size:24px}.activity-picker-head p{font-size:18px}
+ .activity-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.activity-filter:first-child{grid-column:1/-1}
+ .activity-filter{font-size:18px;min-height:70px}.activity-filter small{font-size:16px}
+ .lesson-start h3{font-size:29px}.lesson-start p{font-size:19px}.lesson-card h4{font-size:25px}
+ .lesson-card p{font-size:19px}.rule-board{font-size:20px}.lesson-card .compare{font-size:18px}
+ .example-box strong{font-size:20px}.example-box span{font-size:18px}
+ .q-top{padding:19px}.q-type,.q-level{font-size:14px}.q-body{padding:25px 19px}.prompt{font-size:27px}
+ .options{grid-template-columns:1fr}.option{font-size:20px;min-height:80px}
+ .controls{padding:18px;gap:11px}.button{font-size:19px;min-height:58px}
+ .match-row{display:grid;grid-template-columns:1fr}.match-row strong,.match-row select{font-size:19px}
+ .practice-how{font-size:18px}.practice-how b{font-size:16px}.lens summary{font-size:16px}.lens .lens-toggle{font-size:14px}
+ .feedback p,.feedback .model{font-size:18px}.note{font-size:16px}
+}
+@media print{.set-hub,.activity-picker{display:none!important}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -298,8 +386,8 @@ h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06;letter-spacing:-.055em;marg
       <div class="hero-copy">
         <div class="hero-eyebrow">THE SYNTAX STUDIO · C1.2</div>
         <h1 id="heroTitle">Noun phrases &amp; <em>possessives.</em></h1>
-        <p class="intro">Master the differences between <b>'s / of / noun + noun</b>, then move on to <b>possessive + -ing</b> and its advanced forms. Understand the rule, examine contrasting examples, and put your accuracy to the test.</p>
-        <div class="hero-meta"><span class="meta-tag"><strong>71</strong> challenges</span><span class="meta-tag"><strong>07</strong> modules</span><span class="meta-tag">✓ Self-marking</span></div>
+        <p class="intro">Seven C1.2 practice sets covering complex noun phrases, possession and advanced <b>-ing</b> clauses. Choose a set below, practise with instant feedback, or open the grammar guide whenever you need it.</p>
+        <p class="hero-summary"><strong>7 practice sets</strong><span aria-hidden="true">·</span><strong>71 questions</strong><span aria-hidden="true">·</span><strong>4 exercise formats</strong></p>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="visual-top"><span>PHRASE ANATOMY / STUDY 01</span><span></span></div>
@@ -312,12 +400,17 @@ h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06;letter-spacing:-.055em;marg
         <span class="visual-stamp">WORDS HAVE STRUCTURE. AND PERSONALITY.</span>
       </div>
     </section>
+    <section class="set-hub" id="setHub" aria-labelledby="setHubTitle">
+      <div class="set-hub-head"><div><span class="eyebrow">YOUR PRACTICE LIBRARY</span><h2 id="setHubTitle">Choose a grammar set</h2></div><p>Seven different topics. Select any card to start practising.</p></div>
+      <div class="set-grid" id="setGrid"></div>
+    </section>
     <div class="progress-card"><span class="progress-label">Overall progress</span><div class="progress-track" role="progressbar" aria-label="Completed questions" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barOuter"><div class="progress-fill" id="progressFill"></div></div><span class="progress-percent" id="progressText">0%</span></div>
     <div class="module-panel" id="modulePanel">
       <div class="section-head"><div><p class="section-kicker" id="sectionKicker"></p><h2 id="sectionTitle"></h2><p id="sectionSubtitle"></p></div><div class="question-count" id="questionCounter"></div></div>
-      <nav class="module-modes" aria-label="Choose learning or practice"><button class="mode-btn" id="learnTab" data-mode="learn" aria-current="true"><b>1</b> Learn the grammar</button><button class="mode-btn" id="practiceTab" data-mode="practice" aria-current="false"><b>2</b> Practise &amp; check</button></nav>
+      <nav class="module-modes" aria-label="Choose learning or practice"><button class="mode-btn" id="learnTab" data-mode="learn" aria-current="false">📖 Grammar guide</button><button class="mode-btn" id="practiceTab" data-mode="practice" aria-current="true">✏️ Practise the exercises</button></nav>
       <section id="lessonView" aria-label="Visual grammar lesson"></section>
     <div id="practiceView" class="hidden">
+      <section class="activity-picker" aria-labelledby="activityPickerTitle"><div class="activity-picker-head"><h3 id="activityPickerTitle">Choose an exercise format</h3><p>Each button opens a different kind of task. Your progress is saved automatically.</p></div><div class="activity-filters" id="activityFilters"></div></section>
       <div class="practice-how"><b>YOUR CHALLENGE</b><span>Read the task carefully, select or write your answer, and press <strong>Check answer</strong>. You have two attempts; afterwards, the model answer and an explanation will appear.</span></div>
       <details class="lens" id="grammarLens"><summary><span class="lens-spark" aria-hidden="true">✳</span><span>GRAMMAR LENS / QUICK REMINDER</span><span class="lens-toggle">Open if needed</span></summary><p id="lensText"></p><p id="lensTrap" class="pitfall"></p></details>
       <section class="question-card" aria-labelledby="questionPrompt">
@@ -558,24 +651,27 @@ const LESSONS={
 };
 const ALL=MODULES.flatMap((m,mi)=>m.questions.map((q,qi)=>({...q,key:m.id+":"+qi,mi,qi})));
 const BYKEY=Object.fromEntries(ALL.map(q=>[q.key,q]));
+const TYPES={all:{label:"All questions",icon:"✦"},text:{label:"Complete",icon:"✎"},order:{label:"Rebuild",icon:"▤"},match:{label:"Match",icon:"⌘"},choice:{label:"Choose",icon:"◉"}};
 const STORAGE="missceteach_c12_noun_possession_v3_guided";
 const blank=()=>({module:0,question:0,results:{},attempts:{},startedAt:Date.now()});
-let state=blank(),draft=null,finished=false,lessonOpen=true;
+let state=blank(),draft=null,finished=false,lessonOpen=false,activeType="all";
 try{let saved=JSON.parse(localStorage.getItem(STORAGE)||"null");if(saved&&typeof saved==="object"&&saved.results&&saved.attempts){state={...blank(),...saved};state.module=Math.max(0,Math.min(MODULES.length-1,Number(state.module)||0));state.question=Math.max(0,Math.min(MODULES[state.module].questions.length-1,Number(state.question)||0));}}catch{}
 const $=id=>document.getElementById(id);
 function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state));}catch{}}
 function html(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}
 function norm(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[‘’`]/g,"'").replace(/[‐‑–—]/g,"-").replace(/[^\p{L}\p{N}'\-\s]/gu," ").replace(/\s+/g," ").trim()}
 function moduleQuestions(){return MODULES[state.module].questions}
+function visibleQuestions(){return moduleQuestions().map((q,i)=>i).filter(i=>activeType==="all"||moduleQuestions()[i].type===activeType)}
 function current(){const q=moduleQuestions()[state.question];return {...q,key:MODULES[state.module].id+":"+state.question}}
 function resultCount(){return Object.keys(state.results).filter(k=>BYKEY[k]).length}
 function correctFirst(){return Object.entries(state.results).filter(([k,v])=>BYKEY[k]&&v.firstTry).length}
 function total(){return ALL.length}
-function onModule(mi){finished=false;lessonOpen=true;state.module=mi;state.question=0;save();render();$("modulePanel")?.scrollIntoView({behavior:"smooth",block:"start"})}
+function onModule(mi,mode="practice"){finished=false;lessonOpen=mode==="learn";activeType="all";state.module=mi;state.question=0;save();render();$("modulePanel")?.scrollIntoView({behavior:"smooth",block:"start"})}
 function goQuestion(qi){finished=false;lessonOpen=false;state.question=qi;save();render();$("modulePanel")?.scrollIntoView({behavior:"smooth",block:"start"})}
 function chooseMode(mode){finished=false;lessonOpen=mode==="learn";render();$("modulePanel")?.scrollIntoView({behavior:"smooth",block:"start"})}
-function next(){if(!state.results[current().key])return;if(state.question<moduleQuestions().length-1){goQuestion(state.question+1);return;}if(state.module<MODULES.length-1){onModule(state.module+1);return;}showResults();}
-function previous(){if(state.question>0){goQuestion(state.question-1)}else if(state.module>0){state.module--;state.question=MODULES[state.module].questions.length-1;save();render()}}
+function chooseFilter(type){if(!TYPES[type])return;activeType=type;const indices=visibleQuestions();if(!indices.length)return;const firstOpen=indices.find(i=>!state.results[MODULES[state.module].id+":"+i]);state.question=firstOpen===undefined?indices[0]:firstOpen;lessonOpen=false;save();render();$("activityPickerTitle")?.scrollIntoView({behavior:"smooth",block:"start"})}
+function next(){if(!state.results[current().key])return;const indices=visibleQuestions(),at=indices.indexOf(state.question);if(at<indices.length-1){goQuestion(indices[at+1]);return;}if(activeType!=="all"){activeType="all";const nextOpen=moduleQuestions().findIndex((q,i)=>!state.results[MODULES[state.module].id+":"+i]);if(nextOpen!==-1){goQuestion(nextOpen);return;}}if(state.module<MODULES.length-1){onModule(state.module+1);return;}showResults();}
+function previous(){const indices=visibleQuestions(),at=indices.indexOf(state.question);if(at>0){goQuestion(indices[at-1]);return;}if(activeType==="all"&&state.module>0){activeType="all";state.module--;state.question=MODULES[state.module].questions.length-1;save();render();}}
 function initDraft(q){draft=q.type==="choice"?{selected:null}:q.type==="text"?{value:""}:q.type==="order"?{picked:[]}:q.type==="match"?{chosen:Array(q.pairs.length).fill("")}:{};
 if(q.type==="order"){draft.pool=q.parts.map((text,i)=>({text,i}));for(let i=draft.pool.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[draft.pool[i],draft.pool[j]]=[draft.pool[j],draft.pool[i]];}}
 }
@@ -588,18 +684,43 @@ function valid(q,v){if(q.type==="choice")return v!==null;if(q.type==="text")retu
 function isCorrect(q,v){if(q.type==="choice")return q.ans.includes(v);if(q.type==="text")return q.accepted.some(a=>norm(a)===norm(v));if(q.type==="order")return draft.picked.every((i,j)=>i===j);if(q.type==="match")return v.every((x,i)=>Number(x)===i);return false}
 function solution(q){if(q.type==="choice")return q.ans.map(i=>q.opts[i]).join(" / ");if(q.type==="text")return q.model;if(q.type==="order")return q.model;if(q.type==="match")return q.model;return""}
 function showFeedback(q,status,msg){const f=$("feedback");f.className="feedback show "+status;f.innerHTML=msg}
-function lockIfDone(q){const completed=!!state.results[q.key];$("nextBtn").disabled=!completed;$("checkBtn").disabled=completed;$("clearBtn").disabled=completed;if(completed){$("answerArea").querySelectorAll("button,input,select").forEach(el=>el.disabled=true);$("nextBtn").textContent=state.module===MODULES.length-1&&state.question===moduleQuestions().length-1?"See results":"Next question";showFeedback(q,state.results[q.key].correct?"yes":"reveal",'<strong>'+(state.results[q.key].correct?"✓ Completed":"✓ Answer reviewed")+'</strong><p>'+q.why+'</p><div class="model">MODEL · '+html(solution(q))+'</div>');}}
+function lockIfDone(q){const completed=!!state.results[q.key];$("nextBtn").disabled=!completed;$("checkBtn").disabled=completed;$("clearBtn").disabled=completed;if(completed){$("answerArea").querySelectorAll("button,input,select").forEach(el=>el.disabled=true);const lastInFilter=visibleQuestions().at(-1)===state.question;$("nextBtn").textContent=activeType!=="all"&&lastInFilter?"Other exercise formats":state.module===MODULES.length-1&&lastInFilter?"See results":"Next question";showFeedback(q,state.results[q.key].correct?"yes":"reveal",'<strong>'+(state.results[q.key].correct?"✓ Completed":"✓ Answer reviewed")+'</strong><p>'+q.why+'</p><div class="model">MODEL · '+html(solution(q))+'</div>');}}
 function check(){let q=current(),v=answer();if(state.results[q.key])return;if(!valid(q,v)){showFeedback(q,"notyet","<strong>Choose or enter an answer first.</strong><p>Then select Check answer.</p>");return;}let n=(state.attempts[q.key]||0)+1;state.attempts[q.key]=n;let ok=isCorrect(q,v);if(ok){state.results[q.key]={correct:true,firstTry:n===1,tries:n};showFeedback(q,"yes",'<strong>✓ '+(n===1?"Spot on!":"Correct on the second try!")+'</strong><p>'+q.why+'</p><div class="model">MODEL · '+html(solution(q))+'</div>')}else if(n>=2){state.results[q.key]={correct:false,firstTry:false,tries:n};showFeedback(q,"reveal",'<strong>Answer revealed · review the distinction</strong><p>'+q.why+'</p><div class="model">CORRECT ANSWER · '+html(solution(q))+'</div>')}else{showFeedback(q,"notyet",'<strong>Not quite—one attempt remaining.</strong><p>'+html(q.extra||q.hint||LESSONS[MODULES[state.module].id].ready)+'</p><button type="button" class="revisit" data-mode="learn">Revisit this module’s explanation</button>');}
-save();lockIfDone(q);renderNav();renderProgress();renderDots();}
-function renderNav(){$("moduleNav").innerHTML=MODULES.map((m,i)=>{let done=m.questions.filter((_,qi)=>state.results[m.id+":"+qi]).length;return '<button type="button" class="nav-btn" data-module="'+i+'" aria-current="'+(i===state.module)+'"><span class="nav-index">'+(i+1)+'</span><span class="nav-txt">'+html(m.title)+'<small>'+done+'/'+m.questions.length+' completed</small></span>'+(done===m.questions.length?'<span class="nav-done" aria-label="complete">✓</span>':"")+'</button>'}).join("");}
+save();lockIfDone(q);renderNav();renderProgress();renderDots();renderFilters();}
+function renderNav(){
+ $("moduleNav").innerHTML=MODULES.map((m,i)=>{let done=m.questions.filter((_,qi)=>state.results[m.id+":"+qi]).length;return '<button type="button" class="nav-btn" data-module="'+i+'" aria-current="'+(i===state.module)+'"><span class="nav-index">'+(i+1)+'</span><span class="nav-txt">'+html(m.title)+'<small>'+done+'/'+m.questions.length+' completed</small></span>'+(done===m.questions.length?'<span class="nav-done" aria-label="complete">✓</span>':"")+'</button>'}).join("");
+ $("setGrid").innerHTML=MODULES.map((m,i)=>{const done=m.questions.filter((_,qi)=>state.results[m.id+":"+qi]).length;return '<button type="button" class="set-card" data-set="'+i+'" aria-current="'+(i===state.module)+'"><span class="set-card-kicker">SET '+String(i+1).padStart(2,"0")+'</span><strong>'+html(m.title)+'</strong><span class="set-card-detail">'+html(m.short)+'</span><span class="set-card-progress">'+done+' / '+m.questions.length+' questions completed</span></button>'}).join("");
+}
 function renderProgress(){let pct=Math.round(resultCount()/total()*100);$("progressFill").style.width=pct+"%";$("progressText").textContent=pct+"%";$("barOuter").setAttribute("aria-valuenow",pct)}
-function renderDots(){$("questionDots").innerHTML=moduleQuestions().map((q,i)=>{const r=state.results[MODULES[state.module].id+":"+i];return '<button type="button" class="q-dot '+(r?(r.firstTry?"solved":"needs"):"")+'" aria-current="'+(i===state.question)+'" data-q="'+i+'" aria-label="Question '+(i+1)+(r?", completed":"")+'">'+(i+1)+'</button>'}).join("")}
+function renderFilters(){$("activityFilters").innerHTML=Object.entries(TYPES).map(([key,info])=>{const count=moduleQuestions().filter(q=>key==="all"||q.type===key).length;const done=moduleQuestions().filter((q,i)=>(key==="all"||q.type===key)&&state.results[MODULES[state.module].id+":"+i]).length;return '<button type="button" class="activity-filter" data-filter="'+key+'" aria-pressed="'+(activeType===key)+'" '+(count?'':'disabled')+'><span>'+info.icon+' '+info.label+'</span><small>'+done+' / '+count+' completed</small></button>'}).join("")}
+function renderDots(){$("questionDots").innerHTML=visibleQuestions().map((i,position)=>{const r=state.results[MODULES[state.module].id+":"+i];return '<button type="button" class="q-dot '+(r?(r.firstTry?"solved":"needs"):"")+'" aria-current="'+(i===state.question)+'" data-q="'+i+'" aria-label="Question '+(position+1)+(r?", completed":"")+'">'+(position+1)+'</button>'}).join("")}
 function renderLesson(m){const data=LESSONS[m.id];$("lessonView").innerHTML='<div class="lesson-start"><span class="lesson-kicker">VISUAL GRAMMAR GUIDE · LEARN BEFORE YOU PRACTISE</span><h3>'+data.headline+'</h3><p>'+data.intro+'</p></div><div class="lesson-grid">'+data.rules.map(r=>'<article class="lesson-card"><span class="lesson-number">'+r.tag+'</span><h4>'+r.title+'</h4><p>'+r.explain+'</p><div class="rule-board">'+r.pattern+'</div><div class="example-box"><strong>'+r.sample+'</strong><span>'+r.translation+'</span></div><div class="compare">'+r.contrast+'</div></article>').join("")+'</div><div class="lesson-cta"><div><strong>Ready to put it into practice?</strong><p>'+data.ready+'</p></div><button type="button" class="button" id="startPracticeBtn">Start '+m.questions.length+' exercises</button></div>'}
-function render(){if(finished){showResults();return;}$("modulePanel").classList.remove("hidden");$("resultsView").classList.add("hidden");$("lessonView").classList.toggle("hidden",!lessonOpen);$("practiceView").classList.toggle("hidden",lessonOpen);$("learnTab").setAttribute("aria-current",String(lessonOpen));$("practiceTab").setAttribute("aria-current",String(!lessonOpen));$("grammarLens").open=false;let m=MODULES[state.module],q=current();initDraft(q);$("sectionKicker").textContent="MODULE "+(state.module+1)+" OF "+MODULES.length;$("sectionTitle").textContent=m.title;$("sectionSubtitle").textContent=m.short;$("questionCounter").textContent=lessonOpen?m.questions.length+" exercises":"Question "+(state.question+1)+" / "+m.questions.length;renderLesson(m);$("lensText").innerHTML=m.lens;$("lensTrap").innerHTML="<b>C1 trap:</b> "+m.trap;$("questionType").textContent=q.type==="choice"?"◉ CHOOSE":q.type==="text"?"✎ COMPLETE":q.type==="order"?"▤ BUILD":"⌘ MATCH";$("questionPrompt").innerHTML=q.prompt;$("answerArea").innerHTML=q.type==="choice"?choiceBody(q):q.type==="text"?textBody(q):q.type==="order"?orderBody(q):matchBody(q);$("feedback").className="feedback";$("feedback").innerHTML="";$("nextBtn").textContent="Next question";$("prevBtn").disabled=state.module===0&&state.question===0;renderNav();renderProgress();renderDots();lockIfDone(q);}
+function render(){
+ if(finished){showResults();return;}
+ $("modulePanel").classList.remove("hidden");$("resultsView").classList.add("hidden");
+ $("lessonView").classList.toggle("hidden",!lessonOpen);$("practiceView").classList.toggle("hidden",lessonOpen);
+ $("learnTab").setAttribute("aria-current",String(lessonOpen));$("practiceTab").setAttribute("aria-current",String(!lessonOpen));
+ $("grammarLens").open=false;
+ const m=MODULES[state.module],ids=visibleQuestions();if(!ids.includes(state.question))state.question=ids[0];
+ const q=current();initDraft(q);
+ $("sectionKicker").textContent="PRACTICE SET "+(state.module+1)+" OF "+MODULES.length;
+ $("sectionTitle").textContent=m.title;$("sectionSubtitle").textContent=m.short;
+ $("questionCounter").textContent=lessonOpen?m.questions.length+" questions":"QUESTION "+(ids.indexOf(state.question)+1)+" / "+ids.length;
+ renderLesson(m);renderFilters();
+ $("lensText").innerHTML=m.lens;$("lensTrap").innerHTML="<b>C1 trap:</b> "+m.trap;
+ $("questionType").textContent=q.type==="choice"?"◉ CHOOSE":q.type==="text"?"✎ COMPLETE":q.type==="order"?"▤ REBUILD":"⌘ MATCH";
+ $("questionPrompt").innerHTML=q.prompt;
+ $("answerArea").innerHTML=q.type==="choice"?choiceBody(q):q.type==="text"?textBody(q):q.type==="order"?orderBody(q):matchBody(q);
+ $("feedback").className="feedback";$("feedback").innerHTML="";
+ $("nextBtn").textContent="Next question";$("prevBtn").disabled=ids.indexOf(state.question)===0&&(activeType!=="all"||state.module===0);
+ renderNav();renderProgress();renderDots();lockIfDone(q);
+}
 function showResults(){finished=true;$("modulePanel").classList.add("hidden");$("resultsView").classList.remove("hidden");const done=resultCount(),ok=correctFirst(),pct=done?Math.round(ok/done*100):0;const tiles=MODULES.map(m=>{let items=m.questions.map((_,i)=>state.results[m.id+":"+i]).filter(Boolean);let right=items.filter(r=>r.firstTry).length;return '<div class="result-tile"><strong>'+right+'/'+m.questions.length+'</strong><span>'+html(m.title)+' · first-try accuracy</span></div>'}).join("");$("resultsView").innerHTML='<div class="eyebrow">YOUR LEARNING SNAPSHOT</div><h2>'+ (done===total()?"Practice completed":"Progress so far") +'</h2><p class="intro">Your score reflects correct answers <b>on the first attempt</b>. Every question can still be reviewed, even after a second try.</p><div class="bigscore">'+pct+'%</div><p>'+ok+' first-try correct · '+done+' questions attempted · '+total()+' in total</p><div class="result-grid">'+tiles+'</div><div class="result-actions"><button class="button primary" id="reviewBtn">Review questions</button><button class="button secondary" id="printBtn">Print result</button><button class="button outline" id="restartFromResults">Start again</button></div>';renderNav();renderProgress();window.scrollTo({top:0,behavior:"smooth"})}
 document.addEventListener("click",e=>{
  const target=e.target.closest("button");if(!target)return;
+ if(target.dataset.set!==undefined){onModule(Number(target.dataset.set),"practice");return}
  if(target.dataset.module!==undefined){onModule(Number(target.dataset.module));return}
+ if(target.dataset.filter){chooseFilter(target.dataset.filter);return}
  if(target.dataset.mode){chooseMode(target.dataset.mode);return}
  if(target.id==="startPracticeBtn"){chooseMode("practice");return}
  if(target.dataset.q!==undefined){goQuestion(Number(target.dataset.q));return}
@@ -612,7 +733,7 @@ document.addEventListener("click",e=>{
  if(target.id==="clearBtn"){initDraft(current());$("answerArea").innerHTML=current().type==="choice"?choiceBody(current()):current().type==="text"?textBody(current()):current().type==="order"?orderBody(current()):matchBody(current());if(!state.attempts[current().key]){$("feedback").className="feedback";}return}
  if(target.id==="resetBtn"||target.id==="restartFromResults"){$("resetDialog").classList.remove("hidden");return}
  if(target.id==="cancelReset"){$("resetDialog").classList.add("hidden");return}
- if(target.id==="confirmReset"){state=blank();save();finished=false;lessonOpen=true;$("resetDialog").classList.add("hidden");render();return}
+ if(target.id==="confirmReset"){state=blank();save();finished=false;lessonOpen=false;activeType="all";$("resetDialog").classList.add("hidden");render();return}
  if(target.id==="reviewBtn"){finished=false;onModule(0);return}
  if(target.id==="printBtn"){window.print();return}
 });
