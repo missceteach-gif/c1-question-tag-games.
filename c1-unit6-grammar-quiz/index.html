@@ -160,13 +160,17 @@ let run=null;
 const screens=["homeScreen","gameScreen","resultsScreen"];
 function showScreen(name){screens.forEach(id=>el(id).hidden=(id!==name));el("homeBtn").hidden=(name==="homeScreen");window.scrollTo({top:0,behavior:"instant"})}
 function shuffled(input){const a=[...input];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function shuffleAnswers(q){if(q.type!=="single"&&q.type!=="multi")return q;
+  const positions=shuffled(q.options.map((_,i)=>i));
+  return {...q,options:positions.map(i=>q.options[i]),answer:q.type==="single"?positions.indexOf(q.answer):q.answer.map(i=>positions.indexOf(i))};
+}
 function begin(mode,topic){let chosen;
   if(mode==="sprint")chosen=shuffled(Object.keys(TOPICS).flatMap(key=>shuffled(QUESTIONS.filter(q=>q.topic===key)).slice(0,3)));
   else if(mode==="topic")chosen=shuffled(QUESTIONS.filter(q=>q.topic===topic));
   else chosen=shuffled(QUESTIONS);
   start(chosen,mode==="sprint"?"Class Sprint":mode==="topic"?TOPICS[topic].label:"Full Grammar Quest");
 }
-function start(questions,label){run={questions, label, idx:0, points:0, correct:0, results:[], attempt:0, selection:[], input:"", order:[], resolved:false};showScreen("gameScreen");render()}
+function start(questions,label){run={questions:questions.map(shuffleAnswers), label, idx:0, points:0, correct:0, results:[], attempt:0, selection:[], input:"", order:[], resolved:false};showScreen("gameScreen");render()}
 function norm(s){return String(s).trim().toLowerCase().replace(/[’‘]/g,"'").replace(/[‐‑–—]/g,"-").replace(/\s+/g," ").replace(/[.!?]+$/g,"")}
 function current(){return run.questions[run.idx]}
 function readable(q){if(q.type==="single")return q.options[q.answer];if(q.type==="multi")return q.answer.map(i=>q.options[i]).join("  ·  ");return q.display}
