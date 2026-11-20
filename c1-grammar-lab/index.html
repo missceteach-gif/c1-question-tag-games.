@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#14354b">
+<meta name="description" content="C1.2 interactive and self-correcting practice: noun phrases, modifiers, possession and -ing clauses.">
+<title>C1.2 Grammar Lab | @missceteach</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#173046;background:#f3f6f7;font-size:16px;--ink:#173046;--navy:#14354b;--teal:#087c7a;--mint:#e1f4ed;--coral:#da6d55;--gold:#e9ad56;--line:#d8e2e4;--muted:#59707b;--card:#fff;--shadow:0 16px 42px rgba(24,60,72,.08)}
+*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f0bd62;outline-offset:3px}
+.app{min-height:100vh;display:grid;grid-template-columns:288px minmax(0,1fr)}.sidebar{background:#102d43;color:#ecf7f5;padding:31px 21px;position:sticky;top:0;height:100vh;overflow:auto}.brand{display:flex;gap:12px;align-items:center;margin:0 0 25px}.logo{width:44px;height:44px;background:#0e8a84;border-radius:13px;display:grid;place-items:center;font-weight:900;letter-spacing:-1px}.brand small{display:block;color:#aadbd6;font-size:12px;letter-spacing:.09em;font-weight:800}.brand strong{display:block;font-size:20px;line-height:1.18}.sideinfo{color:#c6d8dd;font-size:14px;line-height:1.55;margin-bottom:24px}.side-label{letter-spacing:.11em;font-size:11px;color:#98bbb9;font-weight:850;margin-bottom:13px}.module-nav{display:grid;gap:6px}.nav-btn{border:1px solid transparent;border-radius:12px;padding:13px 11px;background:transparent;text-align:left;color:#d4e5e7;display:flex;gap:10px;align-items:center;min-height:54px;transition:background .18s,border .18s}.nav-btn:hover{background:#1d4357}.nav-btn[aria-current="true"]{background:#1d5263;border-color:#53bdb5;color:white}.nav-index{width:28px;height:28px;border:1px solid #759ca5;border-radius:50%;display:grid;place-items:center;flex:none;font-weight:850;font-size:12px}.nav-btn[aria-current="true"] .nav-index{background:#dff6ed;color:#0f6c68;border-color:#dff6ed}.nav-txt{font-weight:750;font-size:13px;line-height:1.35}.nav-txt small{display:block;color:#abc8ca;font-size:11px;font-weight:500;margin-top:2px}.nav-done{margin-left:auto;color:#86e4c4;font-size:14px}.sidebar-bottom{margin-top:25px;border-top:1px solid #34576b;padding-top:20px}.sidebar-bottom p{color:#b4cbd1;font-size:12px;line-height:1.5}.plain-btn{background:transparent;border:1px solid #627f8c;color:#e4f3f2;border-radius:11px;padding:10px 13px;width:100%;font-weight:750}
+.main{padding:35px clamp(22px,4vw,66px) 62px;min-width:0}.content{max-width:1000px;margin:auto}.topline{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:17px}.eyebrow{font-size:12px;letter-spacing:.12em;font-weight:850;color:#087c7a}.small-chip{background:#e1eeed;border:1px solid #c9e1dd;border-radius:30px;padding:8px 13px;font-weight:800;color:#266a6c;font-size:12px}
+h1{font-size:clamp(32px,4vw,53px);line-height:1.05;letter-spacing:-.047em;margin:5px 0 12px;max-width:820px}h1 em{font-style:normal;color:var(--teal)}.intro{font-size:17px;color:#5a6c78;line-height:1.6;max-width:750px;margin:0 0 25px}.progress-card{border:1px solid var(--line);border-radius:17px;padding:18px 21px;background:white;display:flex;align-items:center;gap:18px;box-shadow:0 5px 15px rgba(22,54,66,.03);margin-bottom:22px}.progress-label{font-weight:850;white-space:nowrap;font-size:14px}.progress-track{height:12px;background:#e4eced;border-radius:20px;overflow:hidden;flex:1}.progress-fill{background:linear-gradient(90deg,#0e8883,#60bca7);height:100%;width:0;transition:width .35s}.progress-percent{font-weight:900;color:#087c7a;white-space:nowrap}
+.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin:24px 0 15px}.section-kicker{font-size:12px;font-weight:850;letter-spacing:.11em;color:#b45c44;margin:0 0 8px}.section-head h2{font-size:clamp(22px,3vw,31px);letter-spacing:-.035em;margin:0 0 6px}.section-head p{margin:0;color:var(--muted);line-height:1.45;font-size:15px}.question-count{color:var(--teal);background:#e0f3ee;padding:10px 12px;border-radius:11px;white-space:nowrap;font-size:13px;font-weight:850}
+.lens{border-radius:16px;background:#e5f3ef;border:1px solid #c9e5db;padding:18px 21px;margin-bottom:18px}.lens-title{display:flex;gap:8px;align-items:center;color:#075e58;font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}.lens p{margin:0;font-size:15px;line-height:1.65;color:#315e5c}.lens strong{font-weight:850}.lens .pitfall{margin-top:10px;border-top:1px dashed #91bdb0;padding-top:9px;color:#905136}
+.question-card{background:white;border:1px solid #dfe6e8;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.q-top{border-bottom:1px solid #e6eced;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.q-type{display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.10em;color:#8b645c;font-size:12px;font-weight:900}.q-level{border-radius:8px;padding:7px 10px;color:#4f6370;background:#eef3f4;font-size:12px;font-weight:750}.q-body{padding:clamp(20px,3.5vw,33px)}.prompt{font-size:clamp(20px,2.3vw,27px);line-height:1.4;font-weight:780;letter-spacing:-.025em;margin:0 0 23px}.quote{display:block;padding:16px 18px;background:#f5f7f8;border-left:4px solid #d4846b;border-radius:0 11px 11px 0;margin:10px 0;font-size:19px;font-weight:650;line-height:1.5}.options{display:grid;grid-template-columns:1fr 1fr;gap:11px}.option{border:1.5px solid #d7e1e3;background:#fff;padding:15px 16px;min-height:66px;text-align:left;border-radius:12px;color:#173046;font-size:16px;font-weight:630;line-height:1.45;display:flex;align-items:center;gap:13px;transition:.15s}.option:hover{border-color:#0b807b;background:#f2fcf9}.option[aria-pressed="true"]{border-color:#087d79;background:#e8f7f1;box-shadow:inset 0 0 0 1px #087d79}.letter{width:28px;height:28px;flex:none;border-radius:8px;display:grid;place-items:center;background:#edf1f2;color:#526977;font-weight:900;font-size:12px}.option[aria-pressed="true"] .letter{background:#097d79;color:white}.option.correct{border-color:#0c8f72;background:#e7f9ef}.option.wrong{border-color:#d16d59;background:#fff1ed}
+.write-label{font-weight:800;font-size:15px;margin-bottom:10px;display:block}.text-input{width:100%;border:2px solid #cbdadb;border-radius:13px;min-height:58px;padding:14px 16px;font-size:18px;color:#142c44;outline:none}.text-input:focus{border-color:#0e8883;box-shadow:0 0 0 4px #dbf1eb}.text-hint{color:#687c87;font-size:13px;margin-top:10px;line-height:1.45}.sentence-prefix,.sentence-suffix{font-size:17px;font-weight:620;line-height:1.5}.order-answer{min-height:70px;border:2px dashed #adc9c8;background:#f2f8f7;border-radius:13px;padding:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}.order-answer.empty{color:#6a858b}.tokenbank{display:flex;gap:9px;flex-wrap:wrap}.token{border:1px solid #b3d7cf;background:#fff;padding:11px 14px;border-radius:10px;min-height:44px;font-size:16px;font-weight:700;color:#174f56}.token:hover{background:#e3f5f0}.token.chosen{background:#d6f0e9;color:#165d58}.match-grid{display:grid;gap:12px}.match-row{display:grid;grid-template-columns:minmax(130px,1fr) minmax(160px,1.25fr);align-items:center;gap:15px;background:#f6f9f9;border:1px solid #e0e8e9;border-radius:12px;padding:13px 15px}.match-row strong{font-size:16px}.match-row select{border:1.5px solid #b9cdce;border-radius:10px;padding:12px;min-height:48px;max-width:100%;color:#173046;background:white;font-size:15px}
+.controls{display:flex;align-items:center;gap:11px;flex-wrap:wrap;border-top:1px solid #edf0f1;padding:19px 24px}.button{border:0;border-radius:12px;min-height:48px;padding:12px 19px;font-size:15px;font-weight:830}.button.primary{background:#087c7a;color:white;box-shadow:0 5px 15px rgba(8,124,122,.17)}.button.primary:hover{background:#096f6d}.button.secondary{background:#e7eeee;color:#274d5e}.button.outline{background:#fff;color:#4c6570;border:1px solid #cbdadd}.button.next{margin-left:auto;background:#17374f;color:white}.button.next:hover{background:#26516b}
+.feedback{margin:0 24px 23px;border-radius:15px;padding:17px 19px;line-height:1.55;border:1px solid;display:none}.feedback.show{display:block}.feedback.yes{background:#e6f8ed;border-color:#a8d5bd;color:#1d5941}.feedback.notyet{background:#fff5e5;border-color:#f1d9a3;color:#79552b}.feedback.reveal{background:#eaf2f8;border-color:#b4cbde;color:#254b68}.feedback strong{font-size:16px}.feedback p{margin:7px 0 0;font-size:15px}.feedback .model{background:#fff;padding:10px 12px;border-radius:9px;margin-top:11px;font-weight:740;color:#173c50}
+.q-dots{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0 0}.q-dot{width:31px;height:31px;display:grid;place-items:center;border:1px solid #d2dddf;background:white;color:#607680;font-size:12px;font-weight:850;border-radius:9px}.q-dot[aria-current="true"]{background:#14354b;border-color:#14354b;color:#fff}.q-dot.solved{background:#d2f3e3;border-color:#afd7c8;color:#247452}.q-dot.needs{background:#fff1df;border-color:#f0c69d;color:#a06a3b}
+.note{margin:18px 0 0;color:#627782;font-size:13px;line-height:1.5}.hidden{display:none!important}
+.result{background:#fff;border:1px solid #d9e4e5;box-shadow:var(--shadow);border-radius:21px;padding:36px;margin-top:20px}.result h2{font-size:34px;letter-spacing:-.03em;margin:4px 0 10px}.result .bigscore{font-size:72px;line-height:1;font-weight:900;color:#087c7a;margin:18px 0}.result .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:24px}.result-tile{padding:15px 16px;background:#f1f6f7;border-radius:11px}.result-tile strong{display:block;font-size:25px;color:#143e51}.result-tile span{font-size:13px;color:#5d7780}.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.footer{margin-top:38px;display:flex;justify-content:space-between;gap:10px;border-top:1px solid #d9e4e5;padding-top:19px;color:#74858e;font-size:12px}.dialog-backdrop{position:fixed;inset:0;background:rgba(16,40,54,.55);display:flex;justify-content:center;align-items:center;padding:18px;z-index:20}.dialog{background:#fff;max-width:510px;width:100%;padding:28px;border-radius:18px;box-shadow:0 20px 80px rgba(0,0,0,.22)}.dialog h2{margin:0 0 10px;font-size:24px}.dialog p{line-height:1.55;color:#526d77}.dialog .controls{padding:0;border:0}
+@media(max-width:1050px){.app{grid-template-columns:235px minmax(0,1fr)}.sidebar{padding:24px 14px}.main{padding:26px 27px}.nav-txt{font-size:12px}.options{grid-template-columns:1fr}}
+@media(max-width:760px){.app{display:block}.sidebar{position:relative;height:auto;padding:16px 17px}.brand{margin:0 0 10px}.brand strong{font-size:18px}.sideinfo,.sidebar-bottom,.side-label{display:none}.module-nav{display:flex;overflow-x:auto;gap:8px;padding:5px 0 7px;scroll-snap-type:x proximity}.nav-btn{min-width:180px;max-width:205px;scroll-snap-align:start;padding:10px}.nav-index{width:24px;height:24px}.nav-txt small{display:none}.main{padding:25px 15px 48px}.progress-card{flex-wrap:wrap;gap:10px;padding:14px}.progress-label{width:100%}.section-head h2{font-size:24px}.q-body{padding:22px 18px}.q-top,.controls{padding:16px 18px}.prompt{font-size:21px}.option{font-size:16px;min-height:59px}.feedback{margin:0 17px 17px}.button{min-height:48px}.button.next{margin-left:0}.match-row{grid-template-columns:1fr;gap:8px}.footer{display:block}.footer span{display:block;margin-bottom:4px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+<style>
+/* Grammar Lab — editorial studio edition */
+:root{
+  --ink:#1c2541;--navy:#191d3d;--teal:#256b68;--mint:#ddf4e9;--coral:#ec785d;
+  --gold:#ffc978;--line:#dce3eb;--muted:#68738c;--card:#ffffff;
+  --shadow:0 16px 50px rgba(34,44,85,.065);
+  font-family:"Avenir Next",Avenir,"Segoe UI",Inter,system-ui,sans-serif;
+  color:var(--ink);background:#f5f7fb;
+}
+body{background:#f5f7fb}
+.app{grid-template-columns:295px minmax(0,1fr)}
+.sidebar{
+  background:#171c3b;color:#f6f7ff;padding:29px 22px;
+  border-right:1px solid #323b67;
+  background-image:radial-gradient(circle at 120% -10%,rgba(129,109,255,.24),transparent 38%),
+    radial-gradient(circle at -35% 100%,rgba(53,204,168,.11),transparent 45%);
+}
+.brand{gap:13px;margin-bottom:33px}
+.logo{
+  width:51px;height:51px;flex:none;border-radius:14px;background:#c8fb6a;color:#1b263b;
+  font-size:18px;font-weight:950;letter-spacing:-.075em;
+  box-shadow:5px 5px 0 #675bcb;transform:rotate(-4deg);
+}
+.brand small{color:#b8c5ed;font-size:11px;letter-spacing:.13em;margin-bottom:3px}
+.brand strong{font-size:23px;letter-spacing:-.05em;font-weight:900}
+.sideinfo{font-size:14px;color:#abb8d9;line-height:1.65;margin-bottom:29px}
+.side-label{font-size:11px;color:#bdd1da;letter-spacing:.17em;margin-bottom:13px}
+.module-nav{gap:7px}
+.nav-btn{
+  border-radius:13px;min-height:65px;gap:12px;padding:11px 13px;color:#d2dbef;
+  position:relative;border:1px solid transparent;transition:background .17s,transform .17s,border-color .17s;
+}
+.nav-btn:hover{background:#292f58;transform:translateX(2px)}
+.nav-btn[aria-current="true"]{background:#fff;color:#212648;border-color:#fff;box-shadow:0 9px 26px rgba(0,0,0,.13)}
+.nav-btn[aria-current="true"]:before{content:"";position:absolute;inset:10px auto 10px 0;width:4px;border-radius:0 5px 5px 0;background:#f47f67}
+.nav-index{background:#2f365c;border:0;border-radius:10px;width:34px;height:34px;color:#bed1ee;font-size:13px;font-weight:900}
+.nav-btn[aria-current="true"] .nav-index{background:#c9fa70;color:#252b44;border:0}
+.nav-txt{font-size:13px;font-weight:800;letter-spacing:-.015em}
+.nav-txt small{color:#91a3c9;font-size:12px;margin-top:5px}
+.nav-btn[aria-current="true"] .nav-txt small{color:#777e98}
+.nav-done{color:#aef69a;font-size:19px}
+.nav-btn[aria-current="true"] .nav-done{color:#2d8e70}
+.sidebar-bottom{border-color:#3f496c;margin-top:27px}
+.sidebar-bottom p{color:#aab5d7;font-size:13px;line-height:1.6}
+.plain-btn{border-color:#7886b2;color:#fff;background:#252c51;min-height:47px}
+.plain-btn:hover{background:#343c64}
+.main{
+  background-color:#f5f7fb;
+  background-image:radial-gradient(#dce3ef 0.65px,transparent .65px);
+  background-size:21px 21px;
+  padding:29px clamp(22px,4.3vw,74px) 64px;
+}
+.content{max-width:1140px}
+.topline{margin-bottom:19px}
+.eyebrow{font-size:12px;color:#6458bb;font-weight:950;letter-spacing:.16em}
+.small-chip{background:#e8efff;border:1px solid #d4ddf6;color:#4b598e;font-size:12px;letter-spacing:.055em;padding:9px 14px}
+.hero{
+  background:#fff;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr);
+  border:1px solid #dce3eb;border-radius:27px;overflow:hidden;min-height:345px;
+  box-shadow:0 18px 56px rgba(33,48,88,.055);position:relative;margin-bottom:16px;
+}
+.hero-copy{padding:clamp(27px,4.2vw,53px) clamp(24px,4.2vw,53px) 28px;position:relative;z-index:1}
+.hero-eyebrow{display:flex;gap:10px;align-items:center;color:#7851b3;font-weight:950;font-size:12px;letter-spacing:.16em;margin-bottom:16px}
+.hero-eyebrow:before{content:"";width:27px;height:5px;border-radius:10px;background:#ef806b}
+h1{font-size:clamp(40px,5vw,70px);font-weight:950;line-height:.98;letter-spacing:-.07em;color:#171d3c;margin:0 0 22px;max-width:630px}
+h1 em{color:#6c5cc5;font-style:italic;font-weight:750}
+.intro{color:#5c6682;font-size:17px;line-height:1.65;margin:0;max-width:550px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:27px}
+.meta-tag{border:1px solid #dfe4ee;background:#f8faff;border-radius:100px;padding:8px 13px;font-size:12px;color:#384668;font-weight:850;letter-spacing:.01em}
+.meta-tag strong{color:#6755bf;font-size:14px;margin-right:5px}
+.hero-visual{
+  background:#242947;position:relative;min-height:350px;padding:29px 27px;isolation:isolate;
+  background-image:radial-gradient(circle at 79% 17%,#4c4a89 0%,transparent 45%),
+    linear-gradient(145deg,#34325b,#1e2844 77%);
+  overflow:hidden;
+}
+.hero-visual:before{content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-102px;top:-113px;box-shadow:0 0 0 36px rgba(255,255,255,.035),0 0 0 75px rgba(255,255,255,.025)}
+.hero-visual:after{content:"";position:absolute;width:200px;height:200px;left:-80px;bottom:-120px;background:#cfed7f;filter:blur(95px);opacity:.25;z-index:-1}
+.visual-top{font-size:11px;letter-spacing:.18em;color:#d9d5fb;font-weight:900;display:flex;justify-content:space-between;align-items:center}
+.visual-top span:last-child{width:12px;height:12px;background:#d1f58e;border-radius:50%;box-shadow:0 0 0 6px #d1f58e22}
+.specimen{margin:42px 0 24px;transform:rotate(-3deg)}
+.specimen-piece{display:table;max-width:100%;font-weight:900;line-height:1.15;letter-spacing:-.035em;padding:9px 13px 10px;box-shadow:8px 8px 0 rgba(0,0,0,.11)}
+.specimen-piece.pre{background:#f6a78a;color:#2c2440;font-size:clamp(19px,2vw,27px)}
+.specimen-piece.head{background:#d7fb83;color:#243239;font-size:clamp(29px,3vw,40px);margin-left:17px;position:relative;z-index:1}
+.specimen-piece.post{background:#aab6ff;color:#25264c;font-size:clamp(17px,1.8vw,24px);margin-left:4px}
+.specimen-legend{display:flex;gap:8px;flex-wrap:wrap;position:relative;margin-top:15px}
+.specimen-legend span{font-size:10px;font-weight:900;letter-spacing:.09em;color:#f5f6ff;border:1px solid #737894;padding:6px 9px;border-radius:6px}
+.specimen-legend span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;background:#f6a78a;margin-right:6px}
+.specimen-legend span:nth-child(2):before{background:#d7fb83}
+.specimen-legend span:nth-child(3):before{background:#aab6ff}
+.visual-stamp{position:absolute;right:22px;bottom:13px;font-size:11px;color:#9eb0ce;font-weight:800;letter-spacing:.09em;transform:rotate(-7deg)}
+.progress-card{
+  background:#fff;padding:17px 22px;border:1px solid #dfe6ef;border-radius:18px;
+  gap:18px;box-shadow:0 6px 25px rgba(28,43,83,.035);margin-bottom:29px;
+}
+.progress-label{color:#2c365c;font-size:14px}
+.progress-track{height:9px;background:#e9edf5}
+.progress-fill{background:linear-gradient(90deg,#7764c8,#34b59c)}
+.progress-percent{color:#5146a5;font-size:21px;font-weight:950;font-variant-numeric:tabular-nums}
+.section-head{margin:0 0 18px;align-items:center}
+.section-kicker{color:#a14c7b;font-size:12px;letter-spacing:.17em;font-weight:950}
+.section-head h2{font-size:clamp(27px,3.4vw,39px);letter-spacing:-.052em;font-weight:950;color:#202748}
+.section-head p{font-size:15px;color:#717b92}
+.question-count{background:#eae5ff;color:#5b48a2;border:1px solid #d9d0fb;border-radius:11px;padding:11px 15px;font-weight:900;font-size:13px}
+.lens{background:#f0f0ff;border:1px solid #dbdafa;border-left:5px solid #8170dc;border-radius:13px;padding:0;margin:0 0 17px;box-shadow:0 4px 12px #3b358008}
+.lens summary{list-style:none;display:flex;align-items:center;gap:11px;padding:16px 19px;cursor:pointer;font-weight:900;font-size:13px;letter-spacing:.035em;color:#3e3c88}
+.lens summary::-webkit-details-marker{display:none}
+.lens summary .lens-spark{display:grid;place-items:center;background:#e1dcff;color:#5549ad;width:29px;height:29px;border-radius:9px;font-size:17px;flex:none}
+.lens summary .lens-toggle{margin-left:auto;color:#6a659f;font-size:12px;white-space:nowrap;font-weight:800;letter-spacing:0}
+.lens summary .lens-toggle:after{content:"+";display:inline-grid;place-items:center;margin-left:9px;border:1px solid #bdb8ef;border-radius:50%;width:22px;height:22px;font-size:15px}
+.lens[open] summary .lens-toggle:after{content:"−"}
+.lens>p{padding:0 20px 17px 59px;color:#4d527c;font-size:15px;line-height:1.65}
+.lens .pitfall{border-top:1px solid #d9d6f4;padding-top:13px;margin:0 20px 0 59px;color:#8c4d64}
+.question-card{
+  background:#fff;border:1px solid #dce3ed;border-radius:22px;
+  box-shadow:0 19px 54px rgba(31,41,89,.07);position:relative;
+}
+.question-card:before{content:"";position:absolute;top:0;left:31px;width:105px;height:5px;background:#ccf477;border-radius:0 0 5px 5px;z-index:1}
+.q-top{padding:24px 30px 19px;background:#fbfcff;border-bottom:1px solid #e8edf2}
+.q-type{color:#6a59b0;font-size:12px;letter-spacing:.12em;font-weight:950}
+.q-level{background:#ebf6ee;color:#3f7669;padding:8px 12px;font-size:12px;font-weight:850;border-radius:50px}
+.q-body{padding:clamp(26px,4vw,46px) clamp(23px,4.1vw,49px) 31px}
+.prompt{font-size:clamp(22px,2.4vw,30px);line-height:1.38;letter-spacing:-.037em;color:#1d2544;font-weight:850;margin-bottom:26px}
+.quote{background:#f5f4ff;border-left-color:#8170d4;color:#31305b;border-radius:0 10px 10px 0;font-size:20px;padding:16px 19px}
+.options{gap:12px}
+.option{background:#fbfcff;border:1.5px solid #d9e0eb;border-radius:14px;min-height:74px;font-size:17px;color:#2c3556;font-weight:700;transition:transform .16s,border-color .16s,box-shadow .16s,background .16s}
+.option:hover{transform:translateY(-2px);border-color:#8572db;background:#f8f7ff;box-shadow:0 8px 18px rgba(68,62,143,.075)}
+.option[aria-pressed="true"]{border-color:#7865d1;box-shadow:inset 0 0 0 1px #7865d1;background:#f1efff}
+.letter{background:#eeedfa;color:#6961aa;border-radius:9px;width:35px;height:35px;font-size:14px}
+.option[aria-pressed="true"] .letter{background:#7160ca;color:white}
+.write-label{color:#4c527b;font-size:15px;font-weight:850}
+.text-input{border:2px solid #cfd5e7;background:#fdfdff;color:#202645;border-radius:13px;min-height:66px;font-size:19px}
+.text-input:focus{border-color:#8171cf;box-shadow:0 0 0 5px #ebe8ff}
+.text-hint{font-size:14px;color:#777e99}
+.order-answer{background:#f4f2ff;border:2px dashed #b9b0ea;border-radius:15px;padding:16px;min-height:83px}
+.order-answer.empty{color:#727299}
+.token{border:1px solid #aaa0df;background:#fff;color:#484283;box-shadow:0 3px 0 #dedafa;font-size:16px;min-height:49px}
+.token:hover{background:#efebff}
+.token.chosen{background:#e2e0fb;color:#51469b}
+.match-row{background:#f9faff;border-color:#e3e7ef;border-radius:13px;padding:16px}
+.match-row strong{color:#30385b;font-size:17px}
+.match-row select{border-color:#bdc4de;color:#30385b;padding:13px;font-size:16px}
+.controls{padding:22px 30px;border-color:#e9edf4;gap:10px}
+.button{min-height:49px;border-radius:11px;padding:12px 19px;font-size:15px;font-weight:900;transition:transform .16s,background .16s,box-shadow .16s}
+.button:not(:disabled):hover{transform:translateY(-2px)}
+.button.primary{background:#6c5bc5;color:white;box-shadow:0 5px 0 #5148a8}
+.button.primary:hover{background:#5e4db9}
+.button.secondary{background:#edf0f8;color:#434d76}
+.button.outline{background:#fff;border:1px solid #cfd5e3;color:#535d80}
+.button.next{background:#1f294c;color:#fff;box-shadow:0 5px 0 #111932}
+.button.next:hover{background:#303b67}
+.feedback{margin:0 30px 24px;border-radius:13px;padding:19px 22px}
+.feedback.yes{background:#e7faed;border-color:#abdec3;color:#275940}
+.feedback.notyet{background:#fff5df;border-color:#f1d59e;color:#805c28}
+.feedback.reveal{background:#eef1ff;border-color:#c8d0ef;color:#394e86}
+.feedback .model{border:1px solid #e2e5e7;color:#202b4a}
+.q-dots{gap:8px;flex-wrap:wrap;margin-top:21px}
+.q-dot{width:36px;height:36px;border:1px solid #d4dbea;border-radius:10px;color:#656d90;background:#fff;font-size:13px}
+.q-dot[aria-current="true"]{background:#6653b8;border-color:#6653b8;color:#fff;box-shadow:0 5px 0 #4d408f}
+.q-dot.solved{background:#dff7e8;border-color:#b8e3ca;color:#367351}
+.q-dot.needs{background:#fff1de;border-color:#eac99c;color:#9f733b}
+.note{color:#777f98;font-size:13px;margin-top:19px}
+.result{border-radius:22px;border-color:#dce3ed;padding:clamp(25px,5vw,48px)}
+.result h2{font-size:clamp(32px,4vw,47px);color:#20294b}
+.result .bigscore{font-size:clamp(65px,9vw,102px);color:#6955c9}
+.result-tile{background:#f2f2fc;border:1px solid #e7e4f6;border-radius:13px}
+.result-tile strong{color:#4b449a}
+.footer{border-top-color:#dce3eb;color:#7b839b;font-size:13px}
+.dialog-backdrop{background:rgba(18,23,52,.68);backdrop-filter:blur(4px)}
+.dialog{border-radius:20px;border:1px solid #e4e6f1}
+@media(max-width:1130px){.app{grid-template-columns:258px minmax(0,1fr)}.sidebar{padding:25px 15px}.hero{grid-template-columns:1fr minmax(235px,.8fr)}.hero-copy{padding:33px 25px}.hero-visual{padding:24px 18px}.specimen-piece.pre{font-size:21px}.specimen-piece.head{font-size:29px}.specimen-piece.post{font-size:19px}}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.hero-copy{padding:32px}.hero-visual{min-height:250px}.specimen{margin:30px 0 15px}.hero-visual .specimen-piece{font-size:clamp(18px,4vw,32px)}.hero-visual .specimen-piece.head{font-size:clamp(28px,5vw,42px)}}
+@media(max-width:760px){
+  .app{display:block}.sidebar{height:auto;position:relative;padding:15px 15px 13px}
+  .brand{margin-bottom:15px}.logo{width:43px;height:43px}.brand strong{font-size:21px}
+  .module-nav{gap:9px;padding:3px 0 8px}.nav-btn{min-width:190px;min-height:54px;padding:10px;border:1px solid #414972}
+  .nav-txt{font-size:13px}.nav-btn[aria-current="true"]{box-shadow:none}
+  .main{padding:21px 15px 39px}.topline{gap:9px}.eyebrow{font-size:11px}.small-chip{font-size:11px}
+  .hero{border-radius:19px;min-height:0}.hero-copy{padding:27px 23px 26px}h1{font-size:clamp(38px,9.3vw,57px)}
+  .intro{font-size:16px}.hero-meta{margin-top:20px}.meta-tag{font-size:12px}
+  .hero-visual{min-height:245px;padding:23px}.visual-top{font-size:10px}.specimen{margin:28px 0 22px}
+  .specimen-piece{padding:7px 11px 8px}.specimen-legend{gap:5px}.specimen-legend span{font-size:9px}
+  .progress-card{padding:17px 16px;margin-bottom:25px}.progress-label{width:100%}.progress-percent{font-size:19px}
+  .section-head{align-items:flex-start}.section-head h2{font-size:28px}.question-count{font-size:12px;padding:9px;white-space:normal;text-align:center}
+  .lens summary{padding:14px 13px;font-size:12px;gap:9px}.lens .lens-toggle{font-size:11px}
+  .lens>p{padding:0 14px 15px 17px}.lens .pitfall{margin:0 14px 0 17px}
+  .question-card{border-radius:18px}.q-top{padding:21px 19px 16px}.q-level{font-size:11px}
+  .q-body{padding:26px 20px}.prompt{font-size:22px}.options{grid-template-columns:1fr}
+  .option{min-height:64px;font-size:16px}.controls{padding:19px 17px}.button{padding:12px 16px}
+  .feedback{margin:0 18px 20px}.q-dots{gap:7px}.q-dot{width:35px;height:35px}
+}
+@media print{.sidebar,.topline,.hero,.progress-card,#practiceView,.footer,.result-actions{display:none!important}.app{display:block}.main{background:white;padding:0}.result{box-shadow:none;border:0}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo" aria-hidden="true">C1.</div><div><small>EOI HUELVA · @missceteach</small><strong>Grammar Lab</strong></div></div>
+    <p class="sideinfo">Advanced noun phrases, modifiers, possessives and gerund clauses. Seven guided modules, with feedback after every answer.</p>
+    <div class="side-label">YOUR PRACTICE PATH</div>
+    <nav id="moduleNav" class="module-nav" aria-label="Grammar modules"></nav>
+    <div class="sidebar-bottom"><button id="resetBtn" class="plain-btn">Start again</button><p>Saved only on this device. No account, timer or microphone required.</p></div>
+  </aside>
+  <main class="main"><div class="content">
+    <div class="topline"><div class="eyebrow">GRAMMAR & ACCURACY · CEFR C1.2</div><span class="small-chip">SELF-CORRECTING · NO TIMER</span></div>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">THE SYNTAX STUDIO · C1.2</div>
+        <h1 id="heroTitle">Grammar with a <em>plot twist.</em></h1>
+        <p class="intro">Build better noun phrases, untangle possession and master advanced <i>-ing</i> clauses. Real C1 accuracy, with a few gloriously absurd examples.</p>
+        <div class="hero-meta"><span class="meta-tag"><strong>71</strong> challenges</span><span class="meta-tag"><strong>07</strong> missions</span><span class="meta-tag">✓ Instant feedback</span></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-top"><span>PHRASE ANATOMY / STUDY 01</span><span></span></div>
+        <div class="specimen">
+          <span class="specimen-piece pre">the ridiculously overdressed</span>
+          <span class="specimen-piece head">CAT</span>
+          <span class="specimen-piece post">with a better CV than mine</span>
+        </div>
+        <div class="specimen-legend"><span>PREMODIFIER</span><span>HEAD NOUN</span><span>POSTMODIFIER</span></div>
+        <span class="visual-stamp">WORDS HAVE STRUCTURE. AND PERSONALITY.</span>
+      </div>
+    </section>
+    <div class="progress-card"><span class="progress-label">Overall progress</span><div class="progress-track" role="progressbar" aria-label="Completed questions" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barOuter"><div class="progress-fill" id="progressFill"></div></div><span class="progress-percent" id="progressText">0%</span></div>
+    <div id="practiceView">
+      <div class="section-head"><div><p class="section-kicker" id="sectionKicker"></p><h2 id="sectionTitle"></h2><p id="sectionSubtitle"></p></div><div class="question-count" id="questionCounter"></div></div>
+      <details class="lens" id="grammarLens"><summary><span class="lens-spark" aria-hidden="true">✳</span><span>GRAMMAR LENS / CLAVE GRAMATICAL</span><span class="lens-toggle">Open if needed</span></summary><p id="lensText"></p><p id="lensTrap" class="pitfall"></p></details>
+      <section class="question-card" aria-labelledby="questionPrompt">
+        <div class="q-top"><span class="q-type" id="questionType"></span><span class="q-level">C1.2 · exam-aware practice</span></div>
+        <div class="q-body"><h3 class="prompt" id="questionPrompt"></h3><div id="answerArea"></div></div>
+        <div id="feedback" class="feedback" aria-live="polite" role="status"></div>
+        <div class="controls"><button class="button outline" id="prevBtn">Previous</button><button class="button secondary" id="clearBtn">Clear answer</button><button class="button primary" id="checkBtn">Check answer</button><button class="button next" id="nextBtn" disabled>Next question</button></div>
+      </section>
+      <nav id="questionDots" class="q-dots" aria-label="Questions in this module"></nav>
+      <p class="note">Two attempts per question. You receive an explanation and the model answer even if you make a mistake. Alternative correct forms are accepted where specified.</p>
+    </div>
+    <section class="result hidden" id="resultsView" aria-live="polite"></section>
+    <div class="footer"><span>Made for adult C1.2 learners · EOI Huelva</span><span>Independent practice · no personal data sent</span></div>
+  </div></main>
+</div>
+<div class="dialog-backdrop hidden" id="resetDialog" role="dialog" aria-modal="true" aria-labelledby="resetTitle"><div class="dialog"><h2 id="resetTitle">Restart the practice?</h2><p>This clears your progress and answers on this device. You can also keep your work and continue later.</p><div class="controls"><button class="button secondary" id="cancelReset">Keep progress</button><button class="button primary" id="confirmReset">Yes, start again</button></div></div></div>
+<script>
+"use strict";
+const C=(prompt,opts,ans,why,extra="")=>({type:"choice",prompt,opts,ans:Array.isArray(ans)?ans:[ans],why,extra});
+const T=(prompt,accepted,model,why,hint="")=>({type:"text",prompt,accepted:Array.isArray(accepted)?accepted:[accepted],model,why,hint});
+const O=(prompt,parts,why)=>({type:"order",prompt,parts,why,model:parts.join(" ")});
+const M=(prompt,pairs,why)=>({type:"match",prompt,pairs,why,model:pairs.map(p=>p[0]+" → "+p[1]).join(" · ")});
+const MODULES=[
+{id:"noun",title:"Layered noun phrases",short:"Heads, pre- and post-modifiers",lens:"A noun phrase can package several layers of meaning. The <b>head noun</b> controls the phrase; <b>premodifiers</b> come before it, while <b>postmodifiers</b> (prepositional and relative clauses) follow it.",trap:"A noun phrase can be long without being a whole sentence. Find its head before you decide what the other parts modify.",questions:[
+C("Identify the HEAD NOUN in the phrase: “the beautifully restored Victorian house at the end of the lane”.",["restored","Victorian","house","lane"],2,"The head is <b>house</b>. Everything else narrows down which house we mean."),
+C("In “the journalist who exposed the scandal”, what is the function of “who exposed the scandal”?",["Premodifying adjective","Defining relative clause, postmodifying journalist","Independent sentence","Noun modifier"],1,"The relative clause identifies <b>which journalist</b>; it modifies the noun after it."),
+M("Match each part of a complex noun phrase to its grammatical function.",[["a thought-provoking documentary","complete noun phrase"],["thought-provoking","adjectival premodifier"],["documentary","head noun"],["about urban poverty","prepositional postmodifier"]],"The head is <b>documentary</b>; premodification precedes it and an of-/about-phrase can follow it."),
+C("Which noun phrase is grammatical and natural?",["the teacher who lives next door","the teacher which lives next door","the teacher lives next door who","the teacher where lives next door"],0,"Use <b>who/that</b> for a defining relative clause referring to a person."),
+T("Complete the noun phrase with ONE preposition: “the house ___ a green door”.",["with"],"with","Use <b>with</b> to add a characteristic: <i>the house with a green door</i>.","One word."),
+O("Build a layered noun phrase. Put the parts in a natural order.",["the","recently renovated","house","overlooking the harbour"],"The determiner and premodifiers precede the head; the postmodifier follows it."),
+C("“The students who arrived late missed the briefing.” Which part is the SUBJECT noun phrase?",["who arrived late","missed the briefing","The students who arrived late","the briefing"],2,"The entire noun phrase <b>The students who arrived late</b> is the subject; the embedded relative clause is part of it."),
+T("Fill the relative pronoun in this sentence: “The proposal ___ Asier submitted was rejected.”",["that","which"],"that / which","Both <b>that</b> and <b>which</b> work in this defining clause; a zero relative pronoun is also possible, but this item asks for one word.","Type ONE word."),
+C("Which noun phrase contains BOTH a premodifier and a relative clause?",["the house that Nerea bought","a beautifully furnished flat that overlooks the sea","the roof of the building","the old wooden staircase"],1,"<b>Beautifully furnished</b> premodifies <i>flat</i>; <b>that overlooks the sea</b> postmodifies it.")
+]},
+{id:"mod",title:"Modifiers & compounds",short:"Noun + noun, adjective order, hyphens",lens:"A noun placed before another noun often classifies its <b>type or purpose</b>, rather than indicating ownership: <i>a shoe shop</i>, <i>a housing policy</i>. Numerical compounds used as adjectives typically take a hyphen and a <b>singular</b> unit.",trap:"Do not automatically add -s to a noun modifier: <i>shoe shop</i>, not <i>shoes shop</i>. However, genuine exceptions such as <i>sports car</i> exist.",questions:[
+M("Match the structure to the grammatical relationship it expresses.",[["coffee machine","purpose / category"],["Sole's espresso machine","owner / association"],["the lid of the machine","part-whole relation"],["a machine that makes coffee","relative-clause modification"]],"Noun + noun often identifies a <b>type</b>; an apostrophe indicates association; relative clauses and of-phrases add other information."),
+T("Complete the compound modifier: “It was a ___ meeting.” (three / hours)",["three-hour"],"three-hour","Measurement compounds used before a noun normally take a hyphen and a singular unit: <b>three-hour</b>.","Type the entire compound adjective."),
+T("Complete the standard noun compound: “Could you pop into the ___ shop for new trainers?”",["shoe"],"shoe","The noun modifier is normally singular: <b>shoe shop</b>.","One word."),
+C("Which sentence uses a noun as a modifier, NOT a possessive?",["Nerea's extraordinary patience impressed us.","The roof of the shelter collapsed.","The housing committee met on Friday.","Yesterday's presentation was chaotic."],2,"<b>Housing</b> identifies the kind of committee, not who owns it."),
+O("Build the noun phrase using the conventional order of modifiers.",["a","big","black","leather","bag"],"A typical adjective order is <b>size → colour → material</b> before the head noun."),
+O("Put the elements in a grammatical noun phrase.",["a","large","modern","house","by the sea"],"Determiner + adjectives + head noun + locative postmodifier."),
+C("Which is a correctly formed compound adjective?",["a well maintain garden","a well-maintained garden","a well-maintaining garden","a well maintainedly garden"],1,"A compound adjective before a noun often uses a hyphen: <b>well-maintained</b>."),
+M("Match the modifier with its function.",[["glass-fronted","adjectival premodifier"],["student accommodation","noun modifier + head"],["on the hill","prepositional postmodifier"],["that Nerea bought","relative-clause postmodifier"]],"Different modifiers have different syntactic positions. Notice that <i>student</i> classifies accommodation, whereas <i>that Nerea bought</i> identifies it."),
+C("Which expression is a phrase for a CATEGORY rather than a specific owner's possession?",["the school's bus","Sole's car","a school bus","the children's room"],2,"<b>A school bus</b> specifies the type of vehicle; <b>the school's bus</b> identifies one belonging to a particular school.")
+]},
+{id:"rel",title:"'S, OF or noun + noun?",short:"Meaning and naturalness",lens:"Choose structures by <b>relationship and meaning</b>, not a strict 'people = ’s / things = of' rule. ’s is natural with people, organisations, countries and time. Of is useful for parts, abstract relations and long possessors. Noun + noun often names a <b>category</b>.",trap:"Both <i>the building's roof</i> and <i>the roof of the building</i> are grammatical. The context and emphasis determine the natural choice.",questions:[
+T("Rephrase “the idea that Sandro had” using a possessive noun phrase (TWO words).",["Sandro's idea"],"Sandro's idea","For a person's idea, the ’s possessive is a concise, natural choice: <b>Sandro's idea</b>.","Two words, including an apostrophe."),
+C("“We discussed the long-term success ___ the project.”",["'s","of","for's","from's"],1,"<b>The success of the project</b> is an idiomatic abstract relationship."),
+O("Build a sentence using a possessive time expression.",["Yesterday's","news","shocked","Sandro."],"Time expressions readily take ’s: <b>yesterday's news</b>, <i>today's headlines</i>, <i>a week's notice</i>."),
+C("“The company's housing policy” vs “a company housing policy”: what is the safest distinction?",["Both always mean precisely the same thing","The first points to a company's policy; the second can classify a type of policy","Only the second is grammatical","The first is a noun modifier"],1,"The ’s construction links the policy to <b>a company</b>; the bare noun may instead classify the policy. Context matters."),
+M("Match the expression to its structural relationship.",[["London's skyline","place + possessive 's"],["the roof of the building","part-whole of-phrase"],["a music festival","noun modifier + head"],["a friend of mine","double possessive"]],"Places readily take ’s, of-phrases can mark parts, noun modifiers indicate categories and double possessives often mean one of several."),
+C("Choose the sentence with a genuine noun modifier.",["My sister's car needs repairs.","The success of the trial surprised us.","A music festival attracted thousands.","Yesterday's rain ruined the picnic."],2,"<b>Music festival</b> is noun + noun: a festival of a certain type."),
+C("What is true of “the building's roof”?",["Always wrong: buildings are inanimate","Grammatical, like “the roof of the building”","Only possible in American English","Means a type of building"],1,"Possessive ’s is not limited to people. Many inanimate and institutional possessives are natural."),
+T("Complete with ONE word: “The outcome ___ the negotiations was unexpected.”",["of"],"of","<b>Of</b> expresses this abstract relationship naturally.","One word."),
+O("Build the natural possessive sentence.",["The","director's","decision","surprised everyone."],"Use <b>the director's decision</b>: the director is the person responsible for the decision."),
+O("Rebuild the abstract noun phrase.",["the","impact","of","the new housing policy"],"The head <i>impact</i> is completed by an of-phrase: <b>the impact of the new housing policy</b>."),
+C("Which statement is accurate?",["All noun modifiers must be singular without exception","Noun modifiers are typically singular, with established exceptions","Every noun modifier needs an apostrophe","All compounds require hyphens"],1,"The singular is the usual pattern: <i>shoe shop</i>. But established compounds like <i>sports car</i> are exceptions.")
+]},
+{id:"apos",title:"Apostrophes & double genitives",short:"Plural owners and one-of-many",lens:"Regular plural possessive: <b>students'</b>. Irregular plural: <b>children's</b>. Double genitive: <b>a friend of mine</b> / <b>a colleague of Sole's</b>, often meaning one among several people associated with someone.",trap:"A picture <b>of María</b> may portray her; a picture <b>of María's</b> is one of the pictures belonging to her. The second construction signals possession.",questions:[
+T("Complete with a plural possessive: “the ___ classroom”. (students)",["students'"],"students'","Regular plural nouns ending in -s take the apostrophe after the -s: <b>students'</b>.","Write the plural noun with the apostrophe."),
+C("Which is correct for toys belonging to several children?",["the childrens' toys","the children toys","the children's toys","the childrens toys's"],2,"<b>Children</b> is an irregular plural, so add ’s: <b>children's</b>."),
+T("Complete: “A colleague ___ is giving a talk on climate policy.” (She has several colleagues.)",["of hers"],"of hers","A double genitive uses <b>of + independent possessive pronoun</b>: <i>a colleague of hers</i>.","Write TWO words."),
+C("Which is natural?",["a friend of my","a friend of mine","a friend of I","a friend of me's"],1,"Use the <b>possessive pronoun</b>: mine, yours, his, hers, ours, theirs."),
+M("Match the subtle meaning differences.",[["a friend of Mark's","one among Mark's friends"],["Mark's friend","friend associated with Mark"],["a portrait of Lucía","portrait depicting Lucía"],["a portrait of Lucía's","one of Lucía's portraits"]],"The <b>double genitive</b> points to one of someone's possessions/associates. Without the second possessive, a portrait of someone usually depicts them."),
+T("Complete with ONE word: “One of our former students” = “A former student of ___.”",["ours"],"ours","The independent possessive pronoun is <b>ours</b>, not <i>our</i>.","One word."),
+C("Which meaning is most strongly suggested by “a portrait of Lucía's”?",["A portrait that necessarily depicts Lucía","One of Lucía's portraits (owned by or associated with her)","A portrait of several Lucías","A portrait from Lucía's town only"],1,"<b>Of Lucía's</b> is a double genitive, indicating one of her portraits. <i>A portrait of Lucía</i> normally depicts her."),
+O("Build the idiomatic double genitive.",["a","friend","of","Sole's"],"Use <i>a + noun + of + possessive name</i>."),
+M("Match the phrase to its meaning.",[["a photo of Pablo","photo depicting Pablo"],["a photo of Pablo's","one of Pablo's photos"],["teachers' notes","notes belonging to teachers"],["teacher training","training for teachers"]],"These contrasts show the difference between an of-phrase, a double genitive, a plural possessive and a noun modifier."),
+C("What does “a friend of mine” normally imply?",["Exactly one friend exists","One person among my friends","The person owns me","It must be a formal business relationship"],1,"It typically highlights <b>one member of a larger group</b> of friends.")
+]},
+{id:"ing",title:"Possessive + -ing",short:"Action, agent and register",lens:"An -ing clause can function like a noun phrase. The person doing the action may be expressed as a <b>possessive determiner/name + ’s</b> (often more formal) or an <b>object form/name</b> (common in speech), particularly after verbs and prepositions.",trap:"In these constructions, subject pronouns like <i>he</i> or <i>they</i> are not used before -ing. Context can also make the agent unnecessary: <i>Thank you for waiting.</i>",questions:[
+T("Complete the formal gerund clause: “I object to ___ taking photographs without consent.” (he)",["his"],"his","Formal style often favours <b>his taking</b> because it foregrounds the action. Informal <i>him taking</i> is also possible.","One possessive determiner."),
+C("Which is more typical in conversation?",["Do you mind my opening the window?","Do you mind me opening the window?","Do you mind I opening the window?","Do you mind mine opening the window?"],1,"<b>Me opening</b> is common conversational usage; <b>my opening</b> is also correct and more formal."),
+C("Which form is NOT possible in the intended gerund construction?",["his singing","him singing","he singing","Sandro's singing"],2,"A subject pronoun cannot generally act as the subject of this nominal -ing clause: <b>he singing</b> is wrong."),
+C("“___ arriving an hour late annoyed everybody.” Choose the more formal subject.",["Them","Their","They","Theirs"],1,"<b>Their arriving</b> treats the arrival as the event that annoyed everyone. <i>Them arriving</i> occurs in less formal English."),
+O("Transform “It annoyed me that he kept interrupting” using a formal -ing clause.",["His","constantly","interrupting","annoyed me."],"The possessive gerund clause <b>His constantly interrupting</b> becomes the grammatical subject."),
+C("“She was upset about ___ not telling her the truth.” Choose formal written English.",["me","I","my","mine"],2,"<b>My not telling</b> focuses on the action. <i>Me not telling</i> is also possible in informal contexts."),
+M("Match -ing forms and related clauses to their functions.",[["his talking during the exam","formal possessive gerund"],["him talking during the exam","conversational -ing clause"],["he talked during the exam","finite clause"],["I saw him talking","perception-verb construction"]],"The same visible -ing form can play different syntactic roles. Do not confuse perception constructions with nominal -ing clauses."),
+T("Complete with ONE word for a formal style: “I really appreciate ___ helping me with the report.”",["your"],"your","<b>Your helping</b> makes the act of helping the object of appreciation. Conversational <i>you helping</i> is also possible.","Use a possessive determiner."),
+C("Which sentence needs NO possessive determiner?",["Thank you for waiting.","Thank you for your waiting.","Thank you for you waiting.","Thank you for yours waiting."],0,"When it is already obvious who performs the action, <b>Thank you for waiting</b> is the idiomatic form."),
+C("Which pair correctly contrasts formal and conversational register?",["our arriving / us arriving","we arriving / our arrive","ours arriving / us arrive","we arrive / ours arriving"],0,"<b>Our arriving</b> is relatively formal; <b>us arriving</b> is common in speech.")
+]},
+{id:"perfect",title:"Negative, perfect & perception",short:"Earlier events and important exceptions",lens:"Perfect -ing clauses can show that one action happened <b>earlier</b>: <i>his having sold the flat</i>. Negation goes before the -ing clause (<i>her not telling</i>, <i>her not having told</i>). With perception verbs like <b>see, hear, watch</b>, use an object form: <i>I saw him leaving</i>.",trap:"Not every object pronoun + -ing is a gerund clause: after <i>see/hear/watch</i>, the pronoun is the object of the perception verb. This construction differs from possessive + gerund.",questions:[
+C("Choose the form after a verb of perception: “I heard ___ talking on the phone.”",["his","him","he","him's"],1,"After <b>hear</b>, the object form is used: <i>I heard him talking</i>."),
+T("Complete the FORMAL PERFECT -ing clause: “We were shocked by ___ the apartment.” (he / sell)",["his having sold"],"his having sold","<b>His having sold</b> presents the sale as a completed action that happened before our reaction.","Write THREE words."),
+C("What does “I resented her not having told me” emphasise?",["She may tell me in the future","Her earlier failure to tell me","I was telling her","She was never able to speak"],1,"<b>Not having told</b> combines negation with perfect aspect: the omission happened earlier."),
+O("Build the perception-verb sentence with the correct pronoun case.",["I","saw","him","leaving","the building."],"After <b>see</b> use the object <b>him</b>, not possessive <i>his</i>."),
+T("Complete in FORMAL style: “The board objected to ___ the meeting.” (he / not / attend)",["his not attending"],"his not attending","<b>His not attending</b> is a negative nominal -ing clause after <i>objected to</i>.","Write THREE words."),
+T("Complete with ONE word: “I was impressed by ___ playing the piano so well.” (he)",["his"],"his","Use a possessive determiner before the -ing action in a formal nominal construction. <i>Him playing</i> also occurs informally.","Write the formal possessive."),
+C("Which sentence correctly places the negation?",["I object to his having not told the truth.","I object to his not having told the truth.","I object to he not having told the truth.","I object to his no having told the truth."],1,"<b>Not having told</b> is the standard ordering of negated perfect -ing."),
+C("Which form is also a natural formal paraphrase of “The fact that he cheated upset us”?",["His having cheated upset us.","He having cheat upset us.","Him has cheating upset us.","His have cheated upset us."],0,"<b>His having cheated</b> nominalises the earlier action and foregrounds the offence."),
+O("Build the formally correct negative perfect -ing phrase.",["her","not","having","informed","the committee"],"The possessive agent comes first, followed by <b>not + having + past participle</b>."),
+C("Complete: “I watched ___ walking out of the interview.”",["their","them","they","theirs"],1,"After <b>watch</b>, use the object pronoun: <b>them walking</b>.")
+]},
+{id:"clinic",title:"C1 editing challenge",short:"Transform, repair and explain",lens:"The final test combines all the targets. Think like an editor: identify <b>the grammatical function</b> and <b>the intended meaning</b> before choosing a form.",trap:"A plausible-sounding alternative may be grammatically possible but shift the meaning. Read the full sentence carefully.",questions:[
+M("Repair these four faulty chunks by matching each one to its correction.",[["borrowed of Nerea","borrowed from Nerea"],["novel who I read","novel that I read"],["house in green door","house with a green door"],["delicious cake chocolate","delicious chocolate cake"]],"These errors involve prepositions, relative pronouns, noun-phrase modification and noun-modifier ordering."),
+T("Write ONE word to repair: “We bought a delicious chocolate ___.”",["cake"],"cake","With <i>chocolate cake</i>, chocolate is the noun modifier and cake is the head.","One word."),
+C("Correct: “The students's classroom has been renovated.”",["The student's classroom has been renovated.","The students' classroom has been renovated.","The students classroom's has been renovated.","The student's classrooms has been renovated."],1,"Plural <b>students</b> already ends in -s; its possessive is <b>students'</b>."),
+O("Correct “It was a five hours meeting” by assembling the complete sentence.",["It was","a","five-hour","meeting."],"In an attributive compound, a measurement stays singular and is hyphenated: <b>five-hour</b>."),
+C("Choose the correct sentence.",["A friend of theirs has just bought a holiday home.","A friend of their has just bought a holiday home.","A friend of they has just bought a holiday home.","A friend of theirs' has just bought a holiday home."],0,"Use the independent possessive pronoun <b>theirs</b>, with no apostrophe."),
+C("Correct: “I don't like he interrupting when I'm speaking.”",["I don't like his interrupting when I'm speaking.","I don't like he interruptions when I'm speaking.","I don't like him interrupt when I'm speaking.","I don't like his interrupt when I'm speaking."],0,"<b>His interrupting</b> is a formal possessive -ing clause; <i>him interrupting</i> would also be correct informally."),
+T("Transform formally: “We were furious ___ the booking.” (they / have / cancel; perfect -ing)",["at their having cancelled","about their having cancelled"],"at their having cancelled","<b>Their having cancelled</b> is a perfect gerund construction. Both <i>furious at</i> and <i>furious about</i> are possible here.","Write the preposition and the gerund phrase."),
+O("Rephrase “One of Sole's colleagues” using a double possessive.",["a","colleague","of","Sole's"],"Double possessive: <b>a colleague of Sole's</b>."),
+C("“I noticed ___ leaving the meeting early.”",["his","he","him","him's"],2,"With the perception verb <b>notice</b>, the natural construction is object + -ing: <i>him leaving</i>."),
+T("Complete with ONE word: “The sudden departure ___ the director created confusion.”",["of"],"of","For this formal noun phrase, <b>the sudden departure of the director</b> is appropriate.","One word."),
+M("Match each structure with its best function.",[["Nerea's decision","possessive relationship"],["a housing policy","type / category"],["the effect of the decision","abstract relationship"],["his having resigned","perfect gerund clause"]],"Distinguishing functions is the core C1 skill. Surface forms may overlap, but the intended relationships differ."),
+C("Final challenge: which option is simultaneously grammatical and appropriately formal?",["Under no circumstances did the director approve of them to leave.","The director objected to their leaving before the vote.","The director objected to they leaving before the vote.","The director objected to theirs leave before the vote."],1,"<b>Object to + possessive -ing</b> is formal and correct: <i>objected to their leaving</i>.")
+]}
+];
+const ALL=MODULES.flatMap((m,mi)=>m.questions.map((q,qi)=>({...q,key:m.id+":"+qi,mi,qi})));
+const BYKEY=Object.fromEntries(ALL.map(q=>[q.key,q]));
+const STORAGE="missceteach_c12_noun_possession_v2";
+const blank=()=>({module:0,question:0,results:{},attempts:{},startedAt:Date.now()});
+let state=blank(),draft=null,finished=false;
+try{let saved=JSON.parse(localStorage.getItem(STORAGE)||"null");if(saved&&typeof saved==="object"&&saved.results&&saved.attempts){state={...blank(),...saved};state.module=Math.max(0,Math.min(MODULES.length-1,Number(state.module)||0));state.question=Math.max(0,Math.min(MODULES[state.module].questions.length-1,Number(state.question)||0));}}catch{}
+const $=id=>document.getElementById(id);
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state));}catch{}}
+function html(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}
+function norm(s){return String(s||"").normalize("NFKC").toLowerCase().replace(/[‘’`]/g,"'").replace(/[‐‑–—]/g,"-").replace(/[^\p{L}\p{N}'\-\s]/gu," ").replace(/\s+/g," ").trim()}
+function moduleQuestions(){return MODULES[state.module].questions}
+function current(){const q=moduleQuestions()[state.question];return {...q,key:MODULES[state.module].id+":"+state.question}}
+function resultCount(){return Object.keys(state.results).filter(k=>BYKEY[k]).length}
+function correctFirst(){return Object.entries(state.results).filter(([k,v])=>BYKEY[k]&&v.firstTry).length}
+function total(){return ALL.length}
+function onModule(mi){finished=false;state.module=mi;state.question=0;save();render();$("practiceView")?.scrollIntoView({behavior:"smooth",block:"start"})}
+function goQuestion(qi){finished=false;state.question=qi;save();render();$("questionPrompt")?.scrollIntoView({behavior:"smooth",block:"start"})}
+function next(){if(!state.results[current().key])return;if(state.question<moduleQuestions().length-1){goQuestion(state.question+1);return;}if(state.module<MODULES.length-1){onModule(state.module+1);return;}showResults();}
+function previous(){if(state.question>0){goQuestion(state.question-1)}else if(state.module>0){state.module--;state.question=MODULES[state.module].questions.length-1;save();render()}}
+function initDraft(q){draft=q.type==="choice"?{selected:null}:q.type==="text"?{value:""}:q.type==="order"?{picked:[]}:q.type==="match"?{chosen:Array(q.pairs.length).fill("")}:{};
+if(q.type==="order"){draft.pool=q.parts.map((text,i)=>({text,i}));for(let i=draft.pool.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[draft.pool[i],draft.pool[j]]=[draft.pool[j],draft.pool[i]];}}
+}
+function choiceBody(q){return '<div class="options" role="group" aria-label="Choose an answer">'+q.opts.map((o,i)=>'<button type="button" class="option" data-choice="'+i+'" aria-pressed="'+(draft.selected===i)+'"><span class="letter">'+String.fromCharCode(65+i)+'</span><span>'+html(o)+'</span></button>').join("")+'</div>'}
+function textBody(q){return '<label class="write-label" for="freeText">Write the missing part / Escribe la parte que falta</label>'+(q.prefix?'<p class="sentence-prefix">'+html(q.prefix)+'</p>':"")+'<input class="text-input" id="freeText" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+html(draft.value)+'" placeholder="Type your answer here">'+(q.hint?'<div class="text-hint">'+html(q.hint)+'</div>':"")}
+function orderBody(q){let chosen=new Set(draft.picked);return '<div class="write-label">Tap the chunks in the correct order. Tap a selected chunk to remove it.</div><div class="order-answer'+(draft.picked.length?'':' empty')+'" role="group" aria-label="Your sentence">'+(draft.picked.length?draft.picked.map(i=>'<button class="token chosen" data-remove="'+i+'">'+html(q.parts[i])+' ×</button>').join(""):"Your sentence will appear here")+'</div><div class="tokenbank" role="group" aria-label="Available chunks">'+draft.pool.filter(x=>!chosen.has(x.i)).map(x=>'<button class="token" data-add="'+x.i+'">'+html(x.text)+'</button>').join("")+'</div>'}
+function matchBody(q){let opts=q.pairs.map((p,i)=>({label:p[1],index:i})).reverse();return '<div class="match-grid">'+q.pairs.map((p,i)=>'<label class="match-row"><strong>'+html(p[0])+'</strong><select aria-label="Match '+html(p[0])+'" data-match="'+i+'"><option value="">Choose meaning / function…</option>'+opts.map(o=>'<option value="'+o.index+'" '+(draft.chosen[i]===String(o.index)?"selected":"")+'>'+html(o.label)+'</option>').join("")+'</select></label>').join("")+'</div>'}
+function answer(){const q=current();if(q.type==="choice")return draft.selected;if(q.type==="text")return $("freeText")?.value||"";if(q.type==="order")return draft.picked.map(i=>q.parts[i]).join(" ");if(q.type==="match")return draft.chosen.slice();return null}
+function valid(q,v){if(q.type==="choice")return v!==null;if(q.type==="text")return norm(v).length>0;if(q.type==="order")return draft.picked.length===q.parts.length;if(q.type==="match")return v.every(x=>x!=="");return false}
+function isCorrect(q,v){if(q.type==="choice")return q.ans.includes(v);if(q.type==="text")return q.accepted.some(a=>norm(a)===norm(v));if(q.type==="order")return draft.picked.every((i,j)=>i===j);if(q.type==="match")return v.every((x,i)=>Number(x)===i);return false}
+function solution(q){if(q.type==="choice")return q.ans.map(i=>q.opts[i]).join(" / ");if(q.type==="text")return q.model;if(q.type==="order")return q.model;if(q.type==="match")return q.model;return""}
+function showFeedback(q,status,msg){const f=$("feedback");f.className="feedback show "+status;f.innerHTML=msg}
+function lockIfDone(q){const completed=!!state.results[q.key];$("nextBtn").disabled=!completed;$("checkBtn").disabled=completed;$("clearBtn").disabled=completed;if(completed){$("answerArea").querySelectorAll("button,input,select").forEach(el=>el.disabled=true);$("nextBtn").textContent=state.module===MODULES.length-1&&state.question===moduleQuestions().length-1?"See results":"Next question";showFeedback(q,state.results[q.key].correct?"yes":"reveal",'<strong>'+(state.results[q.key].correct?"✓ Completed":"✓ Answer reviewed")+'</strong><p>'+q.why+'</p><div class="model">MODEL · '+html(solution(q))+'</div>');}}
+function check(){let q=current(),v=answer();if(state.results[q.key])return;if(!valid(q,v)){showFeedback(q,"notyet","<strong>Choose or complete an answer first.</strong><p>Then press Check answer.</p>");return;}let n=(state.attempts[q.key]||0)+1;state.attempts[q.key]=n;let ok=isCorrect(q,v);if(ok){state.results[q.key]={correct:true,firstTry:n===1,tries:n};showFeedback(q,"yes",'<strong>✓ '+(n===1?"Spot on!":"Correct on the second try!")+'</strong><p>'+q.why+'</p><div class="model">MODEL · '+html(solution(q))+'</div>')}else if(n>=2){state.results[q.key]={correct:false,firstTry:false,tries:n};showFeedback(q,"reveal",'<strong>Answer revealed · review the distinction</strong><p>'+q.why+'</p><div class="model">CORRECT ANSWER · '+html(solution(q))+'</div>')}else{showFeedback(q,"notyet",'<strong>Not quite — have another go.</strong><p>'+(q.extra||q.hint||"Look closely at the grammatical relationship, not just the individual words.")+'</p>');}
+save();lockIfDone(q);renderNav();renderProgress();renderDots();}
+function renderNav(){$("moduleNav").innerHTML=MODULES.map((m,i)=>{let done=m.questions.filter((_,qi)=>state.results[m.id+":"+qi]).length;return '<button type="button" class="nav-btn" data-module="'+i+'" aria-current="'+(i===state.module)+'"><span class="nav-index">'+(i+1)+'</span><span class="nav-txt">'+html(m.title)+'<small>'+done+'/'+m.questions.length+' completed</small></span>'+(done===m.questions.length?'<span class="nav-done" aria-label="complete">✓</span>':"")+'</button>'}).join("");}
+function renderProgress(){let pct=Math.round(resultCount()/total()*100);$("progressFill").style.width=pct+"%";$("progressText").textContent=pct+"%";$("barOuter").setAttribute("aria-valuenow",pct)}
+function renderDots(){$("questionDots").innerHTML=moduleQuestions().map((q,i)=>{const r=state.results[MODULES[state.module].id+":"+i];return '<button type="button" class="q-dot '+(r?(r.firstTry?"solved":"needs"):"")+'" aria-current="'+(i===state.question)+'" data-q="'+i+'" aria-label="Question '+(i+1)+(r?", completed":"")+'">'+(i+1)+'</button>'}).join("")}
+function render(){if(finished){showResults();return;}$("resultsView").classList.add("hidden");$("practiceView").classList.remove("hidden");$("grammarLens").open=false;let m=MODULES[state.module],q=current();initDraft(q);$("sectionKicker").textContent="MODULE "+(state.module+1)+" OF "+MODULES.length;$("sectionTitle").textContent=m.title;$("sectionSubtitle").textContent=m.short;$("questionCounter").textContent="Question "+(state.question+1)+" / "+m.questions.length;$("lensText").innerHTML=m.lens;$("lensTrap").innerHTML="<b>C1 trap:</b> "+m.trap;$("questionType").textContent=q.type==="choice"?"◉ Meaning & accuracy":q.type==="text"?"✎ Short transformation":q.type==="order"?"▤ Sentence builder":"⌘ Match the functions";$("questionPrompt").innerHTML=q.prompt;$("answerArea").innerHTML=q.type==="choice"?choiceBody(q):q.type==="text"?textBody(q):q.type==="order"?orderBody(q):matchBody(q);$("feedback").className="feedback";$("feedback").innerHTML="";$("nextBtn").textContent="Next question";$("prevBtn").disabled=state.module===0&&state.question===0;renderNav();renderProgress();renderDots();lockIfDone(q);}
+function showResults(){finished=true;$("practiceView").classList.add("hidden");$("resultsView").classList.remove("hidden");const done=resultCount(),ok=correctFirst(),pct=done?Math.round(ok/done*100):0;const tiles=MODULES.map(m=>{let items=m.questions.map((_,i)=>state.results[m.id+":"+i]).filter(Boolean);let right=items.filter(r=>r.firstTry).length;return '<div class="result-tile"><strong>'+right+'/'+m.questions.length+'</strong><span>'+html(m.title)+' · first-try accuracy</span></div>'}).join("");$("resultsView").innerHTML='<div class="eyebrow">YOUR LEARNING SNAPSHOT</div><h2>'+ (done===total()?"Practice completed":"Progress so far") +'</h2><p class="intro">Your score reflects correct answers <b>on the first attempt</b>. Every question can still be reviewed, even after a second try.</p><div class="bigscore">'+pct+'%</div><p>'+ok+' first-try correct · '+done+' questions attempted · '+total()+' in total</p><div class="result-grid">'+tiles+'</div><div class="result-actions"><button class="button primary" id="reviewBtn">Review questions</button><button class="button secondary" id="printBtn">Print result</button><button class="button outline" id="restartFromResults">Start again</button></div>';renderNav();renderProgress();window.scrollTo({top:0,behavior:"smooth"})}
+document.addEventListener("click",e=>{const target=e.target.closest("button");if(!target)return;if(target.dataset.module!==undefined){onModule(Number(target.dataset.module));return}if(target.dataset.q!==undefined){goQuestion(Number(target.dataset.q));return}if(target.dataset.choice!==undefined){draft.selected=Number(target.dataset.choice);document.querySelectorAll(".option").forEach(btn=>btn.setAttribute("aria-pressed",String(btn===target)));return}if(target.dataset.add!==undefined){draft.picked.push(Number(target.dataset.add));$("answerArea").innerHTML=orderBody(current());return}if(target.dataset.remove!==undefined){let index=draft.picked.indexOf(Number(target.dataset.remove));if(index>=0)draft.picked.splice(index,1);$("answerArea").innerHTML=orderBody(current());return}if(target.id==="checkBtn"){check();return}if(target.id==="nextBtn"){next();return}if(target.id==="prevBtn"){previous();return}if(target.id==="clearBtn"){initDraft(current());$("answerArea").innerHTML=current().type==="choice"?choiceBody(current()):current().type==="text"?textBody(current()):current().type==="order"?orderBody(current()):matchBody(current());if(!state.attempts[current().key]){$("feedback").className="feedback";}return}if(target.id==="resetBtn"||target.id==="restartFromResults"){$("resetDialog").classList.remove("hidden");return}if(target.id==="cancelReset"){$("resetDialog").classList.add("hidden");return}if(target.id==="confirmReset"){state=blank();save();finished=false;$("resetDialog").classList.add("hidden");render();return}if(target.id==="reviewBtn"){finished=false;onModule(0);return}if(target.id==="printBtn"){window.print();return}});
+document.addEventListener("change",e=>{const t=e.target;if(t.matches("[data-match]"))draft.chosen[Number(t.dataset.match)]=t.value});
+document.addEventListener("input",e=>{if(e.target.id==="freeText")draft.value=e.target.value});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="freeText"&&!state.results[current().key])check();if(e.key==="Escape")$("resetDialog").classList.add("hidden")});
+render();
+</script>
+</body>
+</html>
