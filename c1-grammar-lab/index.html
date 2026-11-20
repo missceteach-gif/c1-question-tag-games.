@@ -218,12 +218,80 @@ h1 em{color:#6c5cc5;font-style:italic;font-weight:750}
 }
 @media print{.sidebar,.topline,.hero,.progress-card,#practiceView,.footer,.result-actions{display:none!important}.app{display:block}.main{background:white;padding:0}.result{box-shadow:none;border:0}}
 </style>
+<style>
+/* Learning-first layout: make the grammar—not the decoration—the main event. */
+.hero{min-height:255px;grid-template-columns:minmax(0,1.4fr) minmax(265px,.6fr)}
+.hero-copy{padding:33px 36px 28px}.hero-eyebrow{margin-bottom:13px}
+h1{font-size:clamp(32px,3.6vw,50px);line-height:1.06;letter-spacing:-.055em;margin-bottom:12px}
+.hero .intro{font-size:16px;line-height:1.55}
+.hero-meta{margin-top:16px}
+.hero-visual{min-height:255px;padding:23px 20px}
+.hero-visual .specimen{margin:25px 0 18px}
+.hero-visual .specimen-piece.pre{font-size:20px}.hero-visual .specimen-piece.head{font-size:30px}.hero-visual .specimen-piece.post{font-size:18px}
+.hero-visual .visual-stamp{display:none}
+.learning-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0 24px}
+.flow-step{display:flex;align-items:center;gap:9px;border:1px solid #dce5ed;background:#fff;border-radius:12px;padding:12px 13px;color:#424c69;font-size:13px;font-weight:850;line-height:1.3}
+.flow-step b{display:grid;place-items:center;background:#e6e1ff;color:#6250ad;border-radius:8px;width:26px;height:26px;flex:none}
+.progress-card{margin-bottom:25px}
+.module-panel{scroll-margin-top:26px}
+.module-modes{display:flex;gap:7px;border-bottom:1px solid #dbe1e9;margin:15px 0 20px;padding:0 0 9px}
+.mode-btn{display:flex;align-items:center;gap:9px;min-height:47px;border:1px solid transparent;border-radius:12px;padding:10px 17px;background:#e9edf4;color:#4e5a77;font-size:15px;font-weight:900}
+.mode-btn[aria-current="true"]{background:#252c50;color:#fff;box-shadow:0 5px 0 #171c3a}
+.mode-btn b{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:#fdfdff;color:#49479c;font-size:13px}
+.mode-btn[aria-current="true"] b{background:#cafa7e;color:#283140}
+.lesson-start{background:#292a59;color:#fff;border-radius:20px;padding:clamp(22px,3.3vw,35px);position:relative;overflow:hidden;margin-bottom:13px}
+.lesson-start:after{content:"Aa";position:absolute;font-size:175px;line-height:1;right:-7px;top:-41px;color:#ffffff0a;font-weight:950;letter-spacing:-.12em;pointer-events:none}
+.lesson-kicker{font-weight:900;color:#c9f784;font-size:12px;letter-spacing:.14em}
+.lesson-start h3{font-weight:950;font-size:clamp(25px,3vw,35px);letter-spacing:-.045em;line-height:1.16;margin:12px 0;max-width:750px}
+.lesson-start p{font-size:17px;line-height:1.6;color:#e1e6fa;max-width:800px;margin:0}
+.lesson-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.lesson-card{border:1px solid #d9e2ec;border-radius:17px;background:#fff;padding:25px;box-shadow:0 9px 32px rgba(39,49,92,.045);min-width:0}
+.lesson-card:first-child{grid-column:1/-1}
+.lesson-number{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;font-size:12px;font-weight:950;letter-spacing:.12em;color:#765ec4;margin-bottom:12px}
+.lesson-number:before{content:"";width:8px;height:8px;background:#f19d75;border-radius:2px}
+.lesson-card h4{font-size:clamp(20px,2.1vw,26px);letter-spacing:-.035em;color:#242b4c;margin:0 0 9px;font-weight:950}
+.lesson-card p{font-size:16px;line-height:1.56;color:#555f7e;margin:0 0 14px}
+.rule-board{background:#f2f1ff;border:1px solid #e1defb;border-radius:12px;padding:15px;line-height:1.5;margin:16px 0;font-weight:850;font-size:18px;color:#2e345c;display:flex;align-items:center;gap:7px;flex-wrap:wrap;overflow-wrap:anywhere}
+.seg{padding:5px 9px;border-radius:6px;font-size:inherit;display:inline-block}
+.seg.det{background:#e6e9f6;color:#3a4a76}
+.seg.pre{background:#ffdbc6;color:#77442d}
+.seg.head{background:#d8f4a7;color:#324c2a}
+.seg.post{background:#d9defe;color:#424a99}
+.seg.formal{background:#d7f4e7;color:#246857}
+.seg.other{background:#fce0ed;color:#944f72}
+.lesson-card .example-box{border-left:4px solid #6b5dc7;background:#f8f8fd;border-radius:0 11px 11px 0;padding:15px 16px;margin:12px 0}
+.example-box strong{color:#30365b;font-size:18px;line-height:1.45;display:block;font-weight:850}
+.example-box span{display:block;font-size:14px;color:#6a738b;line-height:1.5;margin-top:6px}
+.lesson-card .compare{background:#fff5ed;border:1px solid #f4decf;border-radius:10px;color:#7b5546;font-size:15px;line-height:1.5;padding:13px 14px;margin-top:13px}
+.lesson-cta{margin-top:13px;border-radius:16px;background:#e6f5eb;border:1px solid #bdddcc;padding:23px 25px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.lesson-cta div{min-width:0}
+.lesson-cta strong{display:block;font-size:18px;color:#28554a;margin-bottom:5px}
+.lesson-cta p{font-size:15px;color:#526c62;line-height:1.4;margin:0}
+.lesson-cta .button{background:#225f52;color:#fff;box-shadow:0 4px 0 #174437;flex:none}
+.practice-how{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid #dde4ed;border-radius:12px;padding:13px 16px;margin:0 0 13px;font-size:15px;line-height:1.5;color:#5a6380}
+.practice-how b{color:#5b50ad;white-space:nowrap}
+.feedback .revisit{display:block;border:0;background:transparent;color:#5d50a5;font-weight:900;text-decoration:underline;font-size:14px;padding:9px 0 0}
+.lesson-card .compare b,.lesson-card .example-box b{font-weight:950}
+@media(max-width:1100px){.hero{grid-template-columns:1fr 285px}.hero-copy{padding:28px}.lesson-grid{grid-template-columns:1fr}.lesson-card:first-child{grid-column:auto}}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-visual{display:none}.learning-flow{grid-template-columns:1fr 1fr}.lesson-cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:760px){
+ .hero-copy{padding:23px}.hero{min-height:0}.hero-meta{gap:7px}
+ .learning-flow{gap:7px;margin:12px 0 19px}.flow-step{padding:10px;gap:7px;font-size:12px}.flow-step b{width:22px;height:22px}
+ .module-modes{gap:6px}.mode-btn{padding:10px 11px;font-size:13px;flex:1;justify-content:center;line-height:1.3}.mode-btn b{width:22px;height:22px}
+ .lesson-start{padding:21px;border-radius:15px}.lesson-start h3{font-size:25px}.lesson-start p{font-size:16px}
+ .lesson-grid{grid-template-columns:1fr}.lesson-card{padding:20px 18px}.lesson-card h4{font-size:22px}
+ .lesson-card p{font-size:16px}.rule-board{font-size:17px;padding:12px;gap:6px}
+ .lesson-cta{padding:19px;gap:17px}.lesson-cta .button{width:100%}.practice-how{font-size:14px;display:block}
+ .practice-how b{display:block;margin-bottom:4px}
+}
+@media print{.learning-flow,.module-modes,#lessonView,.section-head{display:none!important}}
+</style>
 </head>
 <body>
 <div class="app">
   <aside class="sidebar">
     <div class="brand"><div class="logo" aria-hidden="true">C1.</div><div><small>EOI HUELVA · @missceteach</small><strong>Grammar Lab</strong></div></div>
-    <p class="sideinfo">Advanced noun phrases, modifiers, possessives and gerund clauses. Seven guided modules, with feedback after every answer.</p>
+    <p class="sideinfo">Siete bloques de gramática C1.2. Entiende las diferencias, compara ejemplos y practica con corrección explicada.</p>
     <div class="side-label">YOUR PRACTICE PATH</div>
     <nav id="moduleNav" class="module-nav" aria-label="Grammar modules"></nav>
     <div class="sidebar-bottom"><button id="resetBtn" class="plain-btn">Start again</button><p>Saved only on this device. No account, timer or microphone required.</p></div>
@@ -233,9 +301,9 @@ h1 em{color:#6c5cc5;font-style:italic;font-weight:750}
     <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-copy">
         <div class="hero-eyebrow">THE SYNTAX STUDIO · C1.2</div>
-        <h1 id="heroTitle">Grammar with a <em>plot twist.</em></h1>
-        <p class="intro">Build better noun phrases, untangle possession and master advanced <i>-ing</i> clauses. Real C1 accuracy, with a few gloriously absurd examples.</p>
-        <div class="hero-meta"><span class="meta-tag"><strong>71</strong> challenges</span><span class="meta-tag"><strong>07</strong> missions</span><span class="meta-tag">✓ Instant feedback</span></div>
+        <h1 id="heroTitle">Noun phrases &amp; <em>possessives.</em></h1>
+        <p class="intro">Aprende a distinguir <b>'s / of / noun + noun</b> y a utilizar <b>possessive + -ing</b> en inglés C1.2. Primero la explicación, después ejemplos y finalmente práctica con corrección.</p>
+        <div class="hero-meta"><span class="meta-tag"><strong>71</strong> ejercicios</span><span class="meta-tag"><strong>07</strong> bloques</span><span class="meta-tag">✓ Autocorregibles</span></div>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="visual-top"><span>PHRASE ANATOMY / STUDY 01</span><span></span></div>
@@ -248,18 +316,24 @@ h1 em{color:#6c5cc5;font-style:italic;font-weight:750}
         <span class="visual-stamp">WORDS HAVE STRUCTURE. AND PERSONALITY.</span>
       </div>
     </section>
-    <div class="progress-card"><span class="progress-label">Overall progress</span><div class="progress-track" role="progressbar" aria-label="Completed questions" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barOuter"><div class="progress-fill" id="progressFill"></div></div><span class="progress-percent" id="progressText">0%</span></div>
-    <div id="practiceView">
+    <div class="learning-flow" aria-label="Learning sequence"><span class="flow-step"><b>1</b> Entiende la regla</span><span class="flow-step"><b>2</b> Compara ejemplos</span><span class="flow-step"><b>3</b> Practica tú</span><span class="flow-step"><b>4</b> Revisa el porqué</span></div>
+    <div class="progress-card"><span class="progress-label">Progreso general</span><div class="progress-track" role="progressbar" aria-label="Completed questions" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barOuter"><div class="progress-fill" id="progressFill"></div></div><span class="progress-percent" id="progressText">0%</span></div>
+    <div class="module-panel" id="modulePanel">
       <div class="section-head"><div><p class="section-kicker" id="sectionKicker"></p><h2 id="sectionTitle"></h2><p id="sectionSubtitle"></p></div><div class="question-count" id="questionCounter"></div></div>
+      <nav class="module-modes" aria-label="Choose learning or practice"><button class="mode-btn" id="learnTab" data-mode="learn" aria-current="true"><b>1</b> Entender / Learn</button><button class="mode-btn" id="practiceTab" data-mode="practice" aria-current="false"><b>2</b> Practicar / Practice</button></nav>
+      <section id="lessonView" aria-label="Visual grammar lesson"></section>
+    <div id="practiceView" class="hidden">
+      <div class="practice-how"><b>YOUR TASK · TU RETO</b><span>Lee la instrucción, responde y pulsa <strong>Check answer</strong>. Tienes dos intentos; después verás la explicación y la respuesta modelo.</span></div>
       <details class="lens" id="grammarLens"><summary><span class="lens-spark" aria-hidden="true">✳</span><span>GRAMMAR LENS / CLAVE GRAMATICAL</span><span class="lens-toggle">Open if needed</span></summary><p id="lensText"></p><p id="lensTrap" class="pitfall"></p></details>
       <section class="question-card" aria-labelledby="questionPrompt">
-        <div class="q-top"><span class="q-type" id="questionType"></span><span class="q-level">C1.2 · exam-aware practice</span></div>
+        <div class="q-top"><span class="q-type" id="questionType"></span><span class="q-level">C1.2 · guided practice</span></div>
         <div class="q-body"><h3 class="prompt" id="questionPrompt"></h3><div id="answerArea"></div></div>
         <div id="feedback" class="feedback" aria-live="polite" role="status"></div>
         <div class="controls"><button class="button outline" id="prevBtn">Previous</button><button class="button secondary" id="clearBtn">Clear answer</button><button class="button primary" id="checkBtn">Check answer</button><button class="button next" id="nextBtn" disabled>Next question</button></div>
       </section>
       <nav id="questionDots" class="q-dots" aria-label="Questions in this module"></nav>
       <p class="note">Two attempts per question. You receive an explanation and the model answer even if you make a mistake. Alternative correct forms are accepted where specified.</p>
+    </div>
     </div>
     <section class="result hidden" id="resultsView" aria-live="polite"></section>
     <div class="footer"><span>Made for adult C1.2 learners · EOI Huelva</span><span>Independent practice · no personal data sent</span></div>
@@ -345,25 +419,153 @@ O("Build the formally correct negative perfect -ing phrase.",["her","not","havin
 C("Complete: “I watched ___ walking out of the interview.”",["their","them","they","theirs"],1,"After <b>watch</b>, use the object pronoun: <b>them walking</b>.")
 ]},
 {id:"clinic",title:"C1 editing challenge",short:"Transform, repair and explain",lens:"The final test combines all the targets. Think like an editor: identify <b>the grammatical function</b> and <b>the intended meaning</b> before choosing a form.",trap:"A plausible-sounding alternative may be grammatically possible but shift the meaning. Read the full sentence carefully.",questions:[
-M("Repair these four faulty chunks by matching each one to its correction.",[["borrowed of Nerea","borrowed from Nerea"],["novel who I read","novel that I read"],["house in green door","house with a green door"],["delicious cake chocolate","delicious chocolate cake"]],"These errors involve prepositions, relative pronouns, noun-phrase modification and noun-modifier ordering."),
-T("Write ONE word to repair: “We bought a delicious chocolate ___.”",["cake"],"cake","With <i>chocolate cake</i>, chocolate is the noun modifier and cake is the head.","One word."),
-C("Correct: “The students's classroom has been renovated.”",["The student's classroom has been renovated.","The students' classroom has been renovated.","The students classroom's has been renovated.","The student's classrooms has been renovated."],1,"Plural <b>students</b> already ends in -s; its possessive is <b>students'</b>."),
+M("Match each incorrect C1 phrase with its repaired version.",[["the researchers's findings","the researchers' findings"],["a five-years commitment","a five-year commitment"],["a colleague of she","a colleague of hers"],["the director objected to they leaving","the director objected to their leaving"]],"Check the plural apostrophe, singular measurement compound, independent possessive pronoun and formal possessive + -ing."),
+T("Rewrite formally with perfect -ing: “He rejected the offer without discussion. The committee was shocked.” → “The committee was shocked by ___ the offer without discussion.” (he / have / reject)",["his having rejected"],"his having rejected","The formal perfect -ing clause <b>his having rejected</b> makes the earlier action the object of <i>shocked by</i>.","Write exactly THREE words for the gap."),
+C("An editor writes “a photograph of Nerea's”. What does the double genitive tell us?",["Nerea must be shown in the photograph.","It is one of the photographs associated with Nerea.","Nerea must have taken it herself.","The photograph necessarily belongs to every student."],1,"<b>A photograph of Nerea's</b> points to one of Nerea's photographs; <b>a photograph of Nerea</b> commonly describes a photograph depicting her."),
 O("Correct “It was a five hours meeting” by assembling the complete sentence.",["It was","a","five-hour","meeting."],"In an attributive compound, a measurement stays singular and is hyphenated: <b>five-hour</b>."),
 C("Choose the correct sentence.",["A friend of theirs has just bought a holiday home.","A friend of their has just bought a holiday home.","A friend of they has just bought a holiday home.","A friend of theirs' has just bought a holiday home."],0,"Use the independent possessive pronoun <b>theirs</b>, with no apostrophe."),
 C("Correct: “I don't like he interrupting when I'm speaking.”",["I don't like his interrupting when I'm speaking.","I don't like he interruptions when I'm speaking.","I don't like him interrupt when I'm speaking.","I don't like his interrupt when I'm speaking."],0,"<b>His interrupting</b> is a formal possessive -ing clause; <i>him interrupting</i> would also be correct informally."),
 T("Transform formally: “We were furious ___ the booking.” (they / have / cancel; perfect -ing)",["at their having cancelled","about their having cancelled"],"at their having cancelled","<b>Their having cancelled</b> is a perfect gerund construction. Both <i>furious at</i> and <i>furious about</i> are possible here.","Write the preposition and the gerund phrase."),
 O("Rephrase “One of Sole's colleagues” using a double possessive.",["a","colleague","of","Sole's"],"Double possessive: <b>a colleague of Sole's</b>."),
 C("“I noticed ___ leaving the meeting early.”",["his","he","him","him's"],2,"With the perception verb <b>notice</b>, the natural construction is object + -ing: <i>him leaving</i>."),
-T("Complete with ONE word: “The sudden departure ___ the director created confusion.”",["of"],"of","For this formal noun phrase, <b>the sudden departure of the director</b> is appropriate.","One word."),
+T("Complete the formal report noun phrase with ONE word: “The unintended consequences ___ the committee's decision were far-reaching.”",["of"],"of","An abstract relationship is commonly expressed as <b>the consequences of the committee's decision</b>. Notice the nested possessive <i>committee's</i>.","One word."),
 M("Match each structure with its best function.",[["Nerea's decision","possessive relationship"],["a housing policy","type / category"],["the effect of the decision","abstract relationship"],["his having resigned","perfect gerund clause"]],"Distinguishing functions is the core C1 skill. Surface forms may overlap, but the intended relationships differ."),
 C("Final challenge: which option is simultaneously grammatical and appropriately formal?",["Under no circumstances did the director approve of them to leave.","The director objected to their leaving before the vote.","The director objected to they leaving before the vote.","The director objected to theirs leave before the vote."],1,"<b>Object to + possessive -ing</b> is formal and correct: <i>objected to their leaving</i>.")
 ]}
 ];
+const LESSONS={
+ noun:{
+  headline:"Una noun phrase puede ser larga… pero siempre tiene un núcleo.",
+  intro:"Una <b>noun phrase</b> (grupo nominal) es un bloque que funciona como un nombre dentro de una oración. Para analizarlo, localiza primero el <b>head noun</b>; después mira qué palabras aparecen antes y después. No confundas el grupo completo con su núcleo.",
+  rules:[
+   {tag:"EL NÚCLEO",title:"01 · Find the head noun",explain:"El <b>head</b> es el sustantivo principal. Los demás elementos añaden información, pero no cambian qué tipo de cosa estamos nombrando.",
+    pattern:"<span class='seg det'>the</span><span class='seg pre'>ridiculously expensive</span><span class='seg head'>flat</span><span class='seg post'>overlooking the sea</span>",
+    sample:"the ridiculously expensive <b>flat</b> overlooking the sea",translation:"Head = <b>flat</b>. Todo el bloque puede ser sujeto u objeto. El piso puede costar tres sueldos; el núcleo sigue siendo «flat».",
+    contrast:"TRUCO: pregunta «¿qué cosa/persona es?». Aquí es un <b>flat</b>, no un <i>sea</i> ni un <i>overlooking</i>."},
+   {tag:"ANTES DEL NÚCLEO",title:"02 · Premodification",explain:"<b>Determiners</b> (<i>the, my, some</i>), adjetivos y nombres que clasifican aparecen <b>antes</b> del sustantivo principal.",
+    pattern:"<span class='seg det'>a</span><span class='seg pre'>breathtaking</span><span class='seg pre'>coastal</span><span class='seg head'>view</span>",
+    sample:"a breathtaking coastal view",translation:"breathtaking = adjetivo; coastal = adjetivo; view = núcleo.",
+    contrast:"No digas <s>a view coastal breathtaking</s>. Para el orden de adjetivos y los compuestos, ve al bloque 2."},
+   {tag:"DESPUÉS DEL NÚCLEO",title:"03 · Postmodification",explain:"Una <b>prepositional phrase</b> o una <b>relative clause</b> amplía el significado <b>después</b> del núcleo: indica cuál, dónde, con qué característica…",
+    pattern:"<span class='seg det'>the</span><span class='seg head'>journalist</span><span class='seg post'>who exposed the scandal</span>",
+    sample:"the journalist <b>who exposed the scandal</b>",translation:"La relative clause especifica qué periodista. También: «the house <b>with a green door</b>».",
+    contrast:"PERSONAS: <b>who/that</b>; COSAS: <b>which/that</b> en relativas especificativas. «The proposal (that/which) Asier submitted» puede omitir el relativo."}
+  ],ready:"Localiza el núcleo, distingue antes/después y reconoce relativas y sintagmas preposicionales."
+ },
+ mod:{
+  headline:"No es lo mismo describir, clasificar y hablar de propiedad.",
+  intro:"Los modificadores pueden ser <b>adjetivos</b>, <b>otros sustantivos</b> o <b>compuestos</b>. La pregunta clave es: ¿describe una cualidad, indica un tipo o expresa quién posee algo?",
+  rules:[
+   {tag:"ADJECTIVE ORDER",title:"01 · Adjective order",explain:"Cuando se acumulan adjetivos, hay tendencias de orden: opinión → tamaño → edad → forma → color → origen → material. No es una fórmula matemática rígida, pero evita combinaciones poco naturales.",
+    pattern:"<span class='seg det'>a</span><span class='seg pre'>beautiful</span><span class='seg pre'>old</span><span class='seg pre'>Italian</span><span class='seg head'>vase</span>",
+    sample:"a beautiful old Italian vase",translation:"Opinión + edad + origen + sustantivo. «A vase Italian old beautiful» no sigue el orden natural.",
+    contrast:"Algunos adjetivos de la misma clase pueden coordinarse: <i>a strange, fascinating story</i>."},
+   {tag:"NOUN + NOUN",title:"02 · Classification, not possession",explain:"En <b>noun + noun</b>, el primero suele funcionar como clasificador: ¿qué clase de tienda, autobús, política…?",
+    pattern:"<span class='seg pre'>school</span><span class='seg head'>bus</span><span class='seg other'>≠</span><span class='seg formal'>the school's bus</span>",
+    sample:"a school bus / the school's bus",translation:"<b>A school bus</b> = tipo de autobús. <b>The school's bus</b> = autobús asociado a un colegio concreto.",
+    contrast:"El nombre clasificador suele ir en singular: <b>shoe shop</b>, no <s>shoes shop</s>. Hay excepciones lexicalizadas, como <i>sports car</i>."},
+   {tag:"COMPOUND MODIFIERS",title:"03 · Hyphens + singular units",explain:"Un grupo que modifica <b>antes</b> del nombre puede formar un adjetivo compuesto. Si incluye una medida, la unidad suele aparecer en <b>singular</b> y con guion.",
+    pattern:"<span class='seg det'>a</span><span class='seg pre'>three-hour</span><span class='seg head'>meeting</span>",
+    sample:"a three-hour meeting / a well-maintained garden",translation:"Son compuestos adjetivales delante del nombre. Sin embargo: «The meeting lasted <b>three hours</b>».",
+    contrast:"No escribas <s>a three-hours meeting</s>. Compara también <i>a five-year plan</i> con <i>the plan lasts five years</i>."}
+  ],ready:"Distingue cualidad, categoría y poseedor; revisa los guiones y el singular en medidas."
+ },
+ rel:{
+  headline:"¿'s, of o noun + noun? Decide por significado, no por una regla absoluta.",
+  intro:"Esta es la distinción central. No basta con preguntar si el poseedor es persona o cosa: importa <b>la relación</b> y <b>qué quieres destacar</b>. Las tres construcciones no son intercambiables sin cambiar el sentido.",
+  rules:[
+   {tag:"POSSESSIVE 'S",title:"01 · Who is associated with it?",explain:"Usa <b>owner/associated entity + 's + noun</b> con personas, animales, organizaciones y también expresiones de tiempo o lugar.",
+    pattern:"<span class='seg formal'>Nerea's</span><span class='seg head'>proposal</span>",
+    sample:"Nerea's proposal / the company's profits / yesterday's headlines / London's skyline",translation:"Responde a «¿de quién es / con quién se relaciona?». No significa siempre propiedad literal.",
+    contrast:"Con un plural regular acabado en <i>-s</i>: <b>the students' essays</b>. Ver bloque 4."},
+   {tag:"OF-CONSTRUCTION",title:"02 · What is the part or relation?",explain:"Estructura <b>head noun + of + noun phrase</b>. Muy útil con partes de un todo, conceptos abstractos y poseedores largos.",
+    pattern:"<span class='seg head'>the outcome</span><span class='seg post'>of the negotiations</span>",
+    sample:"the roof of the building / the success of the project / the impact of the decision",translation:"Coloca el elemento principal primero: roof, success, impact…",
+    contrast:"IMPORTANTE: <b>the building's roof</b> también es gramatical. No existe la prohibición «cosas = nunca 's»."},
+   {tag:"NOUN + NOUN",title:"03 · What kind of thing is it?",explain:"Si lo que quieres indicar es una <b>clase, finalidad o tema</b>, usa un sustantivo como modificador: <b>noun modifier + head</b>.",
+    pattern:"<span class='seg pre'>housing</span><span class='seg head'>policy</span>",
+    sample:"a housing policy / a music festival / a coffee machine",translation:"<b>Housing policy</b> = política de vivienda (tipo de política). No te dice quién la ha elaborado.",
+    contrast:"Compara <b>a company housing policy</b> (categoría) con <b>the company's housing policy</b> (la política de una empresa concreta)."}
+  ],ready:"Pregúntate: ¿poseedor/asociación, relación «de», o categoría? Luego elige la estructura."
+ },
+ apos:{
+  headline:"¿Dónde va el apóstrofo? ¿Y por qué «a friend of mine»?",
+  intro:"Aquí hay <b>dos conceptos distintos</b>: cómo escribir el genitivo con apóstrofo y cómo construir el llamado <b>double genitive</b> para hablar de una persona o cosa entre varias.",
+  rules:[
+   {tag:"APOSTROPHE",title:"01 · Singular / plural / irregular",explain:"Singular: añade <b>'s</b>. Plural regular terminado en <i>-s</i>: añade solo <b>'</b>. Plural irregular sin <i>-s</i>: añade <b>'s</b>.",
+    pattern:"<span class='seg formal'>Sandro's notes</span><span class='seg formal'>teachers' meeting</span><span class='seg formal'>children's toys</span>",
+    sample:"Sandro's notes / the teachers' meeting / the children's toys",translation:"Los apuntes de Sandro; la reunión de varios docentes; los juguetes de los niños.",
+    contrast:"Con algunos nombres propios terminados en -s existen convenciones distintas: <b>James's</b> y <b>James'</b> pueden aceptarse según el estilo."},
+   {tag:"DOUBLE GENITIVE",title:"02 · A friend of mine",explain:"Estructura <b>a/an + noun + of + independent possessive</b>. Sirve para escoger un miembro de un grupo o una posesión entre varias.",
+    pattern:"<span class='seg det'>a</span><span class='seg head'>colleague</span><span class='seg post'>of hers</span>",
+    sample:"a friend of mine = one of my friends",translation:"my → mine; your → yours; her → hers; our → ours; their → theirs; his → his.",
+    contrast:"No digas <s>a friend of my</s> ni <s>a friend of hers'</s>. Con nombre propio: <b>a colleague of Sole's</b>."},
+   {tag:"MEANING CHANGE",title:"03 · A photo of Nerea ≠ a photo of Nerea's",explain:"La construcción con <b>of + name</b> puede indicar a quién representa la foto; <b>of + name's</b> indica una de las fotos asociadas a esa persona.",
+    pattern:"<span class='seg post'>a photo of Nerea</span><span class='seg other'>≠</span><span class='seg formal'>a photo of Nerea's</span>",
+    sample:"a portrait of Pablo / a portrait of Pablo's",translation:"El primero normalmente retrata a Pablo; el segundo es uno de los retratos que tiene Pablo.",
+    contrast:"No metas un apóstrofo después de un pronombre posesivo independiente: <i>ours</i>, <i>theirs</i>, <i>hers</i>."}
+  ],ready:"Comprueba si el poseedor es singular/plural y si el «of» lleva pronombre independiente o nombre + 's."
+ },
+ ing:{
+  headline:"Possessive + -ing: hablamos de la ACCIÓN, no solo de la persona.",
+  intro:"Una cláusula en <b>-ing</b> puede actuar como un grupo nominal: el hecho de que alguien haga algo. Para indicar quién realiza esa acción, en estilo cuidado se usa un <b>posesivo</b>; en conversación, a menudo un <b>pronombre objeto</b>.",
+  rules:[
+   {tag:"FORMAL REGISTER",title:"01 · Possessive + -ing",explain:"Usa <b>my/your/his/her/our/their + -ing</b> o <b>name's + -ing</b> para destacar la acción como hecho o comportamiento.",
+    pattern:"<span class='seg formal'>His</span><span class='seg head'>interrupting</span><span class='seg post'>during the meeting</span>",
+    sample:"His constantly interrupting annoyed everyone.",translation:"Lo que molestó fue <b>que interrumpiera constantemente</b>. Es una oración con un grupo nominal en posición de sujeto.",
+    contrast:"También: <i>Jack's going to sleep during the wedding was embarrassing</i>. En esta frase <i>Jack's</i> indica quién se durmió."},
+   {tag:"EVERYDAY REGISTER",title:"02 · Object form + -ing",explain:"En inglés conversacional suele aparecer <b>me/him/her/us/them + -ing</b>, especialmente detrás de un verbo o preposición. Ambas opciones pueden ser gramaticales; cambia el registro.",
+    pattern:"<span class='seg formal'>Do you mind my opening…?</span><span class='seg other'>↔</span><span class='seg post'>Do you mind me opening…?</span>",
+    sample:"I object to his taking photos. / I object to him taking photos.",translation:"Ambas señalan la misma acción; la primera resulta más formal en muchos contextos.",
+    contrast:"El pronombre sujeto NO funciona aquí: <s>he talking</s>, <s>we making noise</s>. Se usa <i>his/him talking</i>, <i>our/us making noise</i>."},
+   {tag:"NO PRONOUN NEEDED",title:"03 · When the agent is obvious",explain:"Si ya está claro quién hace la acción, no hace falta un posesivo. En algunas expresiones, incluso sonaría poco idiomático.",
+    pattern:"<span class='seg head'>Thank you for waiting.</span>",
+    sample:"Thank you for waiting. / There's no point in arguing.",translation:"No necesitamos <i>your</i> delante de <i>waiting</i>.",
+    contrast:"No digas <s>Thank you for your waiting</s> con este sentido. Y cuidado: <b>I saw him leaving</b> es otro tipo de construcción (bloque 6)."}
+  ],ready:"Decide si la acción funciona como nombre, elige el registro y evita los pronombres sujeto antes de -ing."
+ },
+ perfect:{
+  headline:"Tres contrastes que marcan el salto al C1: NOT, HAVING y SEE/HEAR.",
+  intro:"La forma en <b>-ing</b> puede ser <b>negativa</b>, mostrar que algo ocurrió <b>antes</b> (perfect -ing) o acompañar a un verbo de percepción. En cada caso cambia la estructura y, a veces, el significado.",
+  rules:[
+   {tag:"NEGATIVE -ING",title:"01 · Not + -ing",explain:"Pon <b>not</b> delante de la forma en <i>-ing</i>. Si hay un agente posesivo, va primero.",
+    pattern:"<span class='seg formal'>their</span><span class='seg other'>not</span><span class='seg head'>attending</span>",
+    sample:"The director objected to their not attending the meeting.",translation:"El director se opuso al hecho de que no asistieran.",
+    contrast:"No digas <s>their no attending</s>. El orden es <b>possessive + not + -ing</b>."},
+   {tag:"PERFECT -ING",title:"02 · Having + past participle",explain:"<b>Having + V3</b> marca anterioridad: el acto ya había ocurrido cuando se produjo la reacción. Puedes combinarlo con <i>not</i>.",
+    pattern:"<span class='seg formal'>her</span><span class='seg other'>not</span><span class='seg pre'>having</span><span class='seg head'>informed</span><span class='seg post'>us</span>",
+    sample:"We resented her not having informed us earlier.",translation:"Nos molestó que ella no nos hubiera informado <b>antes</b>.",
+    contrast:"Orden: <b>possessive + not + having + past participle</b>. Sin negación: <i>his having sold the flat</i>."},
+   {tag:"PERCEPTION VERBS",title:"03 · I saw HIM leaving (not HIS)",explain:"Con <b>see, hear, watch, notice</b> solemos usar <b>object + -ing</b>. No es el mismo patrón nominal que <i>his leaving</i> después de una preposición.",
+    pattern:"<span class='seg pre'>I saw</span><span class='seg formal'>him</span><span class='seg head'>leaving</span>",
+    sample:"I saw him leaving the room. / I saw him leave the room.",translation:"<i>Leaving</i> presenta la acción en desarrollo; <i>leave</i> puede presentar el evento completo.",
+    contrast:"No digas <s>I saw his leaving</s> para describir lo que presenciaste. Aquí <b>him</b> es objeto de <i>saw</i>."}
+  ],ready:"Elige NOT para negar, HAVING + V3 para anterioridad y pronombre objeto con percepción."
+ },
+ clinic:{
+  headline:"Elige la estructura por FUNCIÓN. Eso es lo que se evalúa en C1.",
+  intro:"Este bloque mezcla todo. Antes de responder, identifica <b>qué relación expresa la frase</b>, <b>qué elemento es el núcleo</b>, <b>qué registro se exige</b> y <b>si la acción ocurrió antes</b>.",
+  rules:[
+   {tag:"CHECK 01",title:"What is the HEAD?",explain:"Separa determinante, modificadores y núcleo. Si el bloque completo es sujeto u objeto, el núcleo sigue siendo un solo sustantivo.",
+    pattern:"<span class='seg pre'>the surprisingly expensive</span><span class='seg head'>repair</span><span class='seg post'>of the roof</span>",
+    sample:"The surprisingly expensive repair of the roof",translation:"El núcleo es <b>repair</b>; no es <i>roof</i>.",
+    contrast:"Busca siempre el head antes de decidir qué estructura es correcta."},
+   {tag:"CHECK 02",title:"Owner, relation or category?",explain:"¿Estás diciendo de quién es? ¿Cuál es la relación abstracta? ¿O de qué clase de objeto se trata?",
+    pattern:"<span class='seg formal'>Sole's bag</span><span class='seg other'>/</span><span class='seg post'>the handle of the bag</span><span class='seg other'>/</span><span class='seg pre'>bag shop</span>",
+    sample:"Sole's bag / the handle of the bag / a bag shop",translation:"Poseedor / parte de un todo / categoría. Tres significados distintos.",
+    contrast:"No sustituyas estructuras mecánicamente sin comprobar si cambia el significado."},
+   {tag:"CHECK 03",title:"Formal -ing or perception?",explain:"Si la acción funciona como nombre, considera posesivo + -ing; si depende de un verbo de percepción, utiliza objeto + -ing.",
+    pattern:"<span class='seg formal'>his leaving</span><span class='seg other'>≠</span><span class='seg post'>I saw him leaving</span>",
+    sample:"We objected to his leaving. / We saw him leaving.",translation:"En la primera se evalúa el hecho de marcharse; en la segunda, lo que vimos.",
+    contrast:"Si la acción ocurrió antes, considera <b>having + V3</b>. Si es negativa, <b>not + -ing</b>."}
+  ],ready:"En cada reto: localiza el núcleo → identifica la relación → decide el registro → comprueba la forma verbal."
+ }
+};
 const ALL=MODULES.flatMap((m,mi)=>m.questions.map((q,qi)=>({...q,key:m.id+":"+qi,mi,qi})));
 const BYKEY=Object.fromEntries(ALL.map(q=>[q.key,q]));
-const STORAGE="missceteach_c12_noun_possession_v2";
+const STORAGE="missceteach_c12_noun_possession_v3_guided";
 const blank=()=>({module:0,question:0,results:{},attempts:{},startedAt:Date.now()});
-let state=blank(),draft=null,finished=false;
+let state=blank(),draft=null,finished=false,lessonOpen=true;
 try{let saved=JSON.parse(localStorage.getItem(STORAGE)||"null");if(saved&&typeof saved==="object"&&saved.results&&saved.attempts){state={...blank(),...saved};state.module=Math.max(0,Math.min(MODULES.length-1,Number(state.module)||0));state.question=Math.max(0,Math.min(MODULES[state.module].questions.length-1,Number(state.question)||0));}}catch{}
 const $=id=>document.getElementById(id);
 function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state));}catch{}}
@@ -374,8 +576,9 @@ function current(){const q=moduleQuestions()[state.question];return {...q,key:MO
 function resultCount(){return Object.keys(state.results).filter(k=>BYKEY[k]).length}
 function correctFirst(){return Object.entries(state.results).filter(([k,v])=>BYKEY[k]&&v.firstTry).length}
 function total(){return ALL.length}
-function onModule(mi){finished=false;state.module=mi;state.question=0;save();render();$("practiceView")?.scrollIntoView({behavior:"smooth",block:"start"})}
-function goQuestion(qi){finished=false;state.question=qi;save();render();$("questionPrompt")?.scrollIntoView({behavior:"smooth",block:"start"})}
+function onModule(mi){finished=false;lessonOpen=true;state.module=mi;state.question=0;save();render();$("modulePanel")?.scrollIntoView({behavior:"smooth",block:"start"})}
+function goQuestion(qi){finished=false;lessonOpen=false;state.question=qi;save();render();$("modulePanel")?.scrollIntoView({behavior:"smooth",block:"start"})}
+function chooseMode(mode){finished=false;lessonOpen=mode==="learn";render();$("modulePanel")?.scrollIntoView({behavior:"smooth",block:"start"})}
 function next(){if(!state.results[current().key])return;if(state.question<moduleQuestions().length-1){goQuestion(state.question+1);return;}if(state.module<MODULES.length-1){onModule(state.module+1);return;}showResults();}
 function previous(){if(state.question>0){goQuestion(state.question-1)}else if(state.module>0){state.module--;state.question=MODULES[state.module].questions.length-1;save();render()}}
 function initDraft(q){draft=q.type==="choice"?{selected:null}:q.type==="text"?{value:""}:q.type==="order"?{picked:[]}:q.type==="match"?{chosen:Array(q.pairs.length).fill("")}:{};
@@ -391,14 +594,33 @@ function isCorrect(q,v){if(q.type==="choice")return q.ans.includes(v);if(q.type=
 function solution(q){if(q.type==="choice")return q.ans.map(i=>q.opts[i]).join(" / ");if(q.type==="text")return q.model;if(q.type==="order")return q.model;if(q.type==="match")return q.model;return""}
 function showFeedback(q,status,msg){const f=$("feedback");f.className="feedback show "+status;f.innerHTML=msg}
 function lockIfDone(q){const completed=!!state.results[q.key];$("nextBtn").disabled=!completed;$("checkBtn").disabled=completed;$("clearBtn").disabled=completed;if(completed){$("answerArea").querySelectorAll("button,input,select").forEach(el=>el.disabled=true);$("nextBtn").textContent=state.module===MODULES.length-1&&state.question===moduleQuestions().length-1?"See results":"Next question";showFeedback(q,state.results[q.key].correct?"yes":"reveal",'<strong>'+(state.results[q.key].correct?"✓ Completed":"✓ Answer reviewed")+'</strong><p>'+q.why+'</p><div class="model">MODEL · '+html(solution(q))+'</div>');}}
-function check(){let q=current(),v=answer();if(state.results[q.key])return;if(!valid(q,v)){showFeedback(q,"notyet","<strong>Choose or complete an answer first.</strong><p>Then press Check answer.</p>");return;}let n=(state.attempts[q.key]||0)+1;state.attempts[q.key]=n;let ok=isCorrect(q,v);if(ok){state.results[q.key]={correct:true,firstTry:n===1,tries:n};showFeedback(q,"yes",'<strong>✓ '+(n===1?"Spot on!":"Correct on the second try!")+'</strong><p>'+q.why+'</p><div class="model">MODEL · '+html(solution(q))+'</div>')}else if(n>=2){state.results[q.key]={correct:false,firstTry:false,tries:n};showFeedback(q,"reveal",'<strong>Answer revealed · review the distinction</strong><p>'+q.why+'</p><div class="model">CORRECT ANSWER · '+html(solution(q))+'</div>')}else{showFeedback(q,"notyet",'<strong>Not quite — have another go.</strong><p>'+(q.extra||q.hint||"Look closely at the grammatical relationship, not just the individual words.")+'</p>');}
+function check(){let q=current(),v=answer();if(state.results[q.key])return;if(!valid(q,v)){showFeedback(q,"notyet","<strong>Elige o escribe una respuesta.</strong><p>Después pulsa Check answer.</p>");return;}let n=(state.attempts[q.key]||0)+1;state.attempts[q.key]=n;let ok=isCorrect(q,v);if(ok){state.results[q.key]={correct:true,firstTry:n===1,tries:n};showFeedback(q,"yes",'<strong>✓ '+(n===1?"Spot on!":"Correct on the second try!")+'</strong><p>'+q.why+'</p><div class="model">MODEL · '+html(solution(q))+'</div>')}else if(n>=2){state.results[q.key]={correct:false,firstTry:false,tries:n};showFeedback(q,"reveal",'<strong>Answer revealed · review the distinction</strong><p>'+q.why+'</p><div class="model">CORRECT ANSWER · '+html(solution(q))+'</div>')}else{showFeedback(q,"notyet",'<strong>Aún no: te queda un intento.</strong><p>'+html(q.extra||q.hint||LESSONS[MODULES[state.module].id].ready)+'</p><button type="button" class="revisit" data-mode="learn">Volver a la explicación de este bloque</button>');}
 save();lockIfDone(q);renderNav();renderProgress();renderDots();}
 function renderNav(){$("moduleNav").innerHTML=MODULES.map((m,i)=>{let done=m.questions.filter((_,qi)=>state.results[m.id+":"+qi]).length;return '<button type="button" class="nav-btn" data-module="'+i+'" aria-current="'+(i===state.module)+'"><span class="nav-index">'+(i+1)+'</span><span class="nav-txt">'+html(m.title)+'<small>'+done+'/'+m.questions.length+' completed</small></span>'+(done===m.questions.length?'<span class="nav-done" aria-label="complete">✓</span>':"")+'</button>'}).join("");}
 function renderProgress(){let pct=Math.round(resultCount()/total()*100);$("progressFill").style.width=pct+"%";$("progressText").textContent=pct+"%";$("barOuter").setAttribute("aria-valuenow",pct)}
 function renderDots(){$("questionDots").innerHTML=moduleQuestions().map((q,i)=>{const r=state.results[MODULES[state.module].id+":"+i];return '<button type="button" class="q-dot '+(r?(r.firstTry?"solved":"needs"):"")+'" aria-current="'+(i===state.question)+'" data-q="'+i+'" aria-label="Question '+(i+1)+(r?", completed":"")+'">'+(i+1)+'</button>'}).join("")}
-function render(){if(finished){showResults();return;}$("resultsView").classList.add("hidden");$("practiceView").classList.remove("hidden");$("grammarLens").open=false;let m=MODULES[state.module],q=current();initDraft(q);$("sectionKicker").textContent="MODULE "+(state.module+1)+" OF "+MODULES.length;$("sectionTitle").textContent=m.title;$("sectionSubtitle").textContent=m.short;$("questionCounter").textContent="Question "+(state.question+1)+" / "+m.questions.length;$("lensText").innerHTML=m.lens;$("lensTrap").innerHTML="<b>C1 trap:</b> "+m.trap;$("questionType").textContent=q.type==="choice"?"◉ Meaning & accuracy":q.type==="text"?"✎ Short transformation":q.type==="order"?"▤ Sentence builder":"⌘ Match the functions";$("questionPrompt").innerHTML=q.prompt;$("answerArea").innerHTML=q.type==="choice"?choiceBody(q):q.type==="text"?textBody(q):q.type==="order"?orderBody(q):matchBody(q);$("feedback").className="feedback";$("feedback").innerHTML="";$("nextBtn").textContent="Next question";$("prevBtn").disabled=state.module===0&&state.question===0;renderNav();renderProgress();renderDots();lockIfDone(q);}
-function showResults(){finished=true;$("practiceView").classList.add("hidden");$("resultsView").classList.remove("hidden");const done=resultCount(),ok=correctFirst(),pct=done?Math.round(ok/done*100):0;const tiles=MODULES.map(m=>{let items=m.questions.map((_,i)=>state.results[m.id+":"+i]).filter(Boolean);let right=items.filter(r=>r.firstTry).length;return '<div class="result-tile"><strong>'+right+'/'+m.questions.length+'</strong><span>'+html(m.title)+' · first-try accuracy</span></div>'}).join("");$("resultsView").innerHTML='<div class="eyebrow">YOUR LEARNING SNAPSHOT</div><h2>'+ (done===total()?"Practice completed":"Progress so far") +'</h2><p class="intro">Your score reflects correct answers <b>on the first attempt</b>. Every question can still be reviewed, even after a second try.</p><div class="bigscore">'+pct+'%</div><p>'+ok+' first-try correct · '+done+' questions attempted · '+total()+' in total</p><div class="result-grid">'+tiles+'</div><div class="result-actions"><button class="button primary" id="reviewBtn">Review questions</button><button class="button secondary" id="printBtn">Print result</button><button class="button outline" id="restartFromResults">Start again</button></div>';renderNav();renderProgress();window.scrollTo({top:0,behavior:"smooth"})}
-document.addEventListener("click",e=>{const target=e.target.closest("button");if(!target)return;if(target.dataset.module!==undefined){onModule(Number(target.dataset.module));return}if(target.dataset.q!==undefined){goQuestion(Number(target.dataset.q));return}if(target.dataset.choice!==undefined){draft.selected=Number(target.dataset.choice);document.querySelectorAll(".option").forEach(btn=>btn.setAttribute("aria-pressed",String(btn===target)));return}if(target.dataset.add!==undefined){draft.picked.push(Number(target.dataset.add));$("answerArea").innerHTML=orderBody(current());return}if(target.dataset.remove!==undefined){let index=draft.picked.indexOf(Number(target.dataset.remove));if(index>=0)draft.picked.splice(index,1);$("answerArea").innerHTML=orderBody(current());return}if(target.id==="checkBtn"){check();return}if(target.id==="nextBtn"){next();return}if(target.id==="prevBtn"){previous();return}if(target.id==="clearBtn"){initDraft(current());$("answerArea").innerHTML=current().type==="choice"?choiceBody(current()):current().type==="text"?textBody(current()):current().type==="order"?orderBody(current()):matchBody(current());if(!state.attempts[current().key]){$("feedback").className="feedback";}return}if(target.id==="resetBtn"||target.id==="restartFromResults"){$("resetDialog").classList.remove("hidden");return}if(target.id==="cancelReset"){$("resetDialog").classList.add("hidden");return}if(target.id==="confirmReset"){state=blank();save();finished=false;$("resetDialog").classList.add("hidden");render();return}if(target.id==="reviewBtn"){finished=false;onModule(0);return}if(target.id==="printBtn"){window.print();return}});
+function renderLesson(m){const data=LESSONS[m.id];$("lessonView").innerHTML='<div class="lesson-start"><span class="lesson-kicker">EXPLICACIÓN VISUAL · ANTES DE PRACTICAR</span><h3>'+data.headline+'</h3><p>'+data.intro+'</p></div><div class="lesson-grid">'+data.rules.map(r=>'<article class="lesson-card"><span class="lesson-number">'+r.tag+'</span><h4>'+r.title+'</h4><p>'+r.explain+'</p><div class="rule-board">'+r.pattern+'</div><div class="example-box"><strong>'+r.sample+'</strong><span>'+r.translation+'</span></div><div class="compare">'+r.contrast+'</div></article>').join("")+'</div><div class="lesson-cta"><div><strong>Ahora ya puedes practicarlo.</strong><p>'+data.ready+'</p></div><button type="button" class="button" id="startPracticeBtn">Empezar los '+m.questions.length+' ejercicios</button></div>'}
+function render(){if(finished){showResults();return;}$("modulePanel").classList.remove("hidden");$("resultsView").classList.add("hidden");$("lessonView").classList.toggle("hidden",!lessonOpen);$("practiceView").classList.toggle("hidden",lessonOpen);$("learnTab").setAttribute("aria-current",String(lessonOpen));$("practiceTab").setAttribute("aria-current",String(!lessonOpen));$("grammarLens").open=false;let m=MODULES[state.module],q=current();initDraft(q);$("sectionKicker").textContent="BLOQUE "+(state.module+1)+" DE "+MODULES.length;$("sectionTitle").textContent=m.title;$("sectionSubtitle").textContent=m.short;$("questionCounter").textContent=lessonOpen?m.questions.length+" ejercicios":"Pregunta "+(state.question+1)+" / "+m.questions.length;renderLesson(m);$("lensText").innerHTML=m.lens;$("lensTrap").innerHTML="<b>C1 trap:</b> "+m.trap;$("questionType").textContent=q.type==="choice"?"◉ CHOOSE · ELIGE":q.type==="text"?"✎ COMPLETE · ESCRIBE":q.type==="order"?"▤ BUILD · ORDENA":"⌘ MATCH · RELACIONA";$("questionPrompt").innerHTML=q.prompt;$("answerArea").innerHTML=q.type==="choice"?choiceBody(q):q.type==="text"?textBody(q):q.type==="order"?orderBody(q):matchBody(q);$("feedback").className="feedback";$("feedback").innerHTML="";$("nextBtn").textContent="Next question";$("prevBtn").disabled=state.module===0&&state.question===0;renderNav();renderProgress();renderDots();lockIfDone(q);}
+function showResults(){finished=true;$("modulePanel").classList.add("hidden");$("resultsView").classList.remove("hidden");const done=resultCount(),ok=correctFirst(),pct=done?Math.round(ok/done*100):0;const tiles=MODULES.map(m=>{let items=m.questions.map((_,i)=>state.results[m.id+":"+i]).filter(Boolean);let right=items.filter(r=>r.firstTry).length;return '<div class="result-tile"><strong>'+right+'/'+m.questions.length+'</strong><span>'+html(m.title)+' · first-try accuracy</span></div>'}).join("");$("resultsView").innerHTML='<div class="eyebrow">YOUR LEARNING SNAPSHOT</div><h2>'+ (done===total()?"Practice completed":"Progress so far") +'</h2><p class="intro">Your score reflects correct answers <b>on the first attempt</b>. Every question can still be reviewed, even after a second try.</p><div class="bigscore">'+pct+'%</div><p>'+ok+' first-try correct · '+done+' questions attempted · '+total()+' in total</p><div class="result-grid">'+tiles+'</div><div class="result-actions"><button class="button primary" id="reviewBtn">Review questions</button><button class="button secondary" id="printBtn">Print result</button><button class="button outline" id="restartFromResults">Start again</button></div>';renderNav();renderProgress();window.scrollTo({top:0,behavior:"smooth"})}
+document.addEventListener("click",e=>{
+ const target=e.target.closest("button");if(!target)return;
+ if(target.dataset.module!==undefined){onModule(Number(target.dataset.module));return}
+ if(target.dataset.mode){chooseMode(target.dataset.mode);return}
+ if(target.id==="startPracticeBtn"){chooseMode("practice");return}
+ if(target.dataset.q!==undefined){goQuestion(Number(target.dataset.q));return}
+ if(target.dataset.choice!==undefined){draft.selected=Number(target.dataset.choice);document.querySelectorAll(".option").forEach(btn=>btn.setAttribute("aria-pressed",String(btn===target)));return}
+ if(target.dataset.add!==undefined){draft.picked.push(Number(target.dataset.add));$("answerArea").innerHTML=orderBody(current());return}
+ if(target.dataset.remove!==undefined){let index=draft.picked.indexOf(Number(target.dataset.remove));if(index>=0)draft.picked.splice(index,1);$("answerArea").innerHTML=orderBody(current());return}
+ if(target.id==="checkBtn"){check();return}
+ if(target.id==="nextBtn"){next();return}
+ if(target.id==="prevBtn"){previous();return}
+ if(target.id==="clearBtn"){initDraft(current());$("answerArea").innerHTML=current().type==="choice"?choiceBody(current()):current().type==="text"?textBody(current()):current().type==="order"?orderBody(current()):matchBody(current());if(!state.attempts[current().key]){$("feedback").className="feedback";}return}
+ if(target.id==="resetBtn"||target.id==="restartFromResults"){$("resetDialog").classList.remove("hidden");return}
+ if(target.id==="cancelReset"){$("resetDialog").classList.add("hidden");return}
+ if(target.id==="confirmReset"){state=blank();save();finished=false;lessonOpen=true;$("resetDialog").classList.add("hidden");render();return}
+ if(target.id==="reviewBtn"){finished=false;onModule(0);return}
+ if(target.id==="printBtn"){window.print();return}
+});
 document.addEventListener("change",e=>{const t=e.target;if(t.matches("[data-match]"))draft.chosen[Number(t.dataset.match)]=t.value});
 document.addEventListener("input",e=>{if(e.target.id==="freeText")draft.value=e.target.value});
 document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="freeText"&&!state.results[current().key])check();if(e.key==="Escape")$("resetDialog").classList.add("hidden")});
