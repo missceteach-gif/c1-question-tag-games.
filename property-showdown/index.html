@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#116a69">
+  <meta name="description" content="A hilarious, vocabulary-rich C1.2 estate-agent role-play game for Units 36 and 37: At Home.">
+  <title>Property Showdown | Celia English · C1.2</title>
+  <link rel="preload" href="assets/unit36-0.webp" as="image">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="revision.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#game">Skip to the activity</a>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Celia English, back to top"><span class="brand-mark">c<span>.</span></span><span>CELIA <strong>ENGLISH</strong><small>C1.2 · SPEAKING LAB</small></span></a>
+      <span class="topbar-right"><span class="topbar-dot" aria-hidden="true"></span> PAIR WORK · NO TIMERS · NO TYPING</span>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="mini-star">✳</span> AT HOME · UNITS 36 & 37 <span class="line"></span> THE SPEAKING COLLECTION</div>
+        <h1 id="hero-title">Property<br><em>Showdown!</em><span class="hero-burst" aria-hidden="true">✴</span></h1>
+        <p class="hero-sub">The houses are questionable. The agents are <span class="underline-ink">very</span> persuasive. The buyers have <span class="underline-ink">questions.</span></p>
+        <div class="hero-meta"><span><span aria-hidden="true">◷</span> 4–5 min / listing</span><span><span aria-hidden="true">◉</span> 2 students / 2 roles</span><span><span aria-hidden="true">✳</span> C1.2 vocabulary</span></div>
+      </div>
+      <div class="hero-photo" aria-hidden="true">
+        <img src="assets/unit36-0.webp" alt="" fetchpriority="high">
+        <div class="photo-sticker">OPEN HOUSE<br><strong>IF YOU DARE</strong><span>✳</span></div>
+        <div class="hero-photo-caption">COUNTRYSIDE CHARM <span>↗</span> MOSTLY</div>
+      </div>
+    </section>
+
+    <section class="intro-strip" aria-label="How to play">
+      <div class="intro-title"><span class="tag-outline">HOW TO PLAY</span><strong>Look at the photos. Open your role. Make a deal.</strong></div>
+      <p class="intro-helper">One student is the estate agent; the other is the buyer. Keep your brief to yourself.</p>
+    </section>
+
+    <section class="practice" id="game">
+      <div class="section-heading"><div><span class="section-kicker">THE CLASSROOM EDITION</span><h2>Pick your <em>nightmare.</em></h2></div><div class="section-side">TWO UNITS. TWELVE VERY DODGY DEALS.</div></div>
+      <div class="tablist" role="tablist" aria-label="Choose your vocabulary unit">
+        <button id="tab-36" role="tab" aria-controls="panel-36" aria-selected="true" tabindex="0" class="unit-tab active" type="button"><span class="tab-icon">⌂</span><span class="tab-text"><span class="tab-small">UNIT 36 · VOCABULARY IN USE</span><strong>Property & places</strong></span><span class="tab-count">6 listings</span></button>
+        <button id="tab-37" role="tab" aria-controls="panel-37" aria-selected="false" tabindex="-1" class="unit-tab" type="button"><span class="tab-icon">↝</span><span class="tab-text"><span class="tab-small">UNIT 37 · PHRASAL VERBS IN USE</span><strong>Moving-in mayhem</strong></span><span class="tab-count">6 listings</span></button>
+      </div>
+
+      <div id="panel-36" role="tabpanel" aria-labelledby="tab-36" class="unit-panel">
+        <p class="unit-description">Property types, rooms &amp; household objects. <strong>Speak naturally; use at least three target words.</strong></p>
+      </div>
+      <div id="panel-37" role="tabpanel" aria-labelledby="tab-37" class="unit-panel" hidden>
+        <p class="unit-description">Phrasal verbs for moving and home improvement. <strong>Speak naturally; use at least three target expressions.</strong></p>
+      </div>
+
+      <div class="game-layout">
+        <div class="game-main">
+          <div class="deck-head"><span class="deck-title">TODAY'S LISTINGS <span class="hand-drawn" aria-hidden="true">⌣</span></span><div class="deck-tools"><button type="button" id="random" class="text-button"><span aria-hidden="true">✳</span> Surprise me</button><button type="button" id="print" class="text-button"><span aria-hidden="true">▤</span> Print</button></div></div>
+          <div class="deck-progress"><span id="counter">LISTING 01 / 06</span><span id="deck-topic">UNIT 36</span></div>
+          <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+          <article class="listing" id="listing" aria-live="polite" aria-atomic="true">
+            <div class="property-gallery" aria-label="Three photographs showing the property and the story behind it">
+              <figure class="gallery-main"><img id="listing-image" src="assets/unit36-0.webp" alt="Exterior of the current property"><figcaption><span id="property-kind">COTTAGE</span><span>THE LISTING</span></figcaption></figure>
+              <figure class="gallery-context"><img id="listing-detail-one" src="assets/unit36-0-detail1.webp" alt="An unusual feature inside the property"><figcaption id="gallery-caption-one">THE CELLAR</figcaption></figure>
+              <figure class="gallery-context"><img id="listing-detail-two" src="assets/unit36-0-detail2.webp" alt="Another curious detail around the property"><figcaption id="gallery-caption-two">AFTER DARK</figcaption></figure>
+            </div>
+            <div class="listing-info"><div class="listing-overline"><span id="property-id">PROPERTY / 01</span><span class="price" id="property-price">€285,000</span></div><h3 id="property-title">The Haunted Heritage Cottage</h3><p class="property-blurb" id="property-blurb">A peaceful rural retreat. The previous residents are apparently very attached to it.</p></div>
+          </article>
+
+          <div class="mission-head"><div><span class="section-kicker">YOUR TURN TO SPEAK</span><h3>Choose your <em>role.</em></h3></div><div class="mission-note">Open your own brief. Keep it a secret.</div></div>
+          <div class="role-grid">
+            <section class="role-card agent-card" aria-labelledby="agent-label"><button type="button" id="agent-open" class="role-open" aria-expanded="false" aria-controls="agent-brief"><span class="role-top"><span class="role-avatar" aria-hidden="true">A</span><span><span class="role-kicker">STUDENT A</span><span id="agent-label" class="role-name">The estate agent</span></span><span class="open-label">OPEN BRIEF <span aria-hidden="true">+</span></span></span><span class="role-tagline" id="agent-tagline"></span></button><div id="agent-brief" class="role-brief" hidden><p class="brief-kicker">YOUR MISSION</p><ul id="agent-tasks" class="role-tasks"></ul><p class="secret-heading">KEEP THIS TO YOURSELF</p><p class="secret" id="agent-secret"></p></div></section>
+            <section class="role-card buyer-card" aria-labelledby="buyer-label"><button type="button" id="buyer-open" class="role-open" aria-expanded="false" aria-controls="buyer-brief"><span class="role-top"><span class="role-avatar" aria-hidden="true">B</span><span><span class="role-kicker">STUDENT B</span><span id="buyer-label" class="role-name">The potential buyer</span></span><span class="open-label">OPEN BRIEF <span aria-hidden="true">+</span></span></span><span class="role-tagline" id="buyer-tagline"></span></button><div id="buyer-brief" class="role-brief" hidden><p class="brief-kicker">YOUR MISSION</p><ul id="buyer-tasks" class="role-tasks"></ul><p class="secret-heading">KEEP THIS TO YOURSELF</p><p class="secret" id="buyer-secret"></p></div></section>
+          </div>
+
+          <section class="twist-box"><div class="twist-main"><span class="twist-icon">!</span><div><span class="twist-title">PLOT TWIST</span><p>Halfway through your negotiation, something happens…</p></div></div><button type="button" id="twist-button" class="twist-button" aria-expanded="false" aria-controls="twist-content">Reveal the surprise <span aria-hidden="true">✳</span></button><p id="twist-content" class="twist-content" hidden></p></section>
+
+          <details class="language-drawer" id="language-drawer"><summary><span class="drawer-icon" aria-hidden="true">✳</span><span><strong>Need a word?</strong><small>Vocabulary and useful C1 phrases — optional help</small></span><span class="drawer-plus" aria-hidden="true">+</span></summary><div class="drawer-content"><div class="language-card"><span class="side-eyebrow">USE AT LEAST THREE</span><div id="vocab-chips" class="vocab-chips"></div><div id="vocab-definition" class="vocab-definition" aria-live="polite">Tap a word for a meaning and example.</div></div><div class="phrase-card"><span class="side-eyebrow">IF YOU GET STUCK</span><div class="phrase-list" id="phrase-list"></div></div></div></details>
+
+          <div class="deck-footer"><button id="prev" type="button" class="nav-button nav-prev">Previous property</button><div class="deck-dots" id="deck-dots" aria-label="Choose a listing"></div><button id="next" type="button" class="nav-button nav-next">Next property</button></div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <footer><div><span class="footer-brand">CELIA <strong>ENGLISH</strong> <span>✳</span></span><p>Made for ambitious English speakers who deserve a laugh.</p></div><div>C1.2 · AT HOME · UNITS 36 + 37 <span class="footer-end">NO HOUSE WAS HARMED IN THE MAKING OF THIS GAME.</span></div></footer>
+</body>
+</html>

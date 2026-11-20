@@ -1,0 +1,136 @@
+/* v2 — a photo-first, deliberately low-cognitive-load classroom interface. */
+.hero{padding:34px 34px 36px;grid-template-columns:1fr 250px;gap:40px}
+.hero h1{font-size:clamp(3.8rem,5vw,5.1rem);margin:19px 0 16px;line-height:.93}
+.hero-burst{font-size:2.4rem;top:5px;right:30px}
+.hero-sub{font-size:1.08rem;max-width:600px;margin-bottom:15px}
+.hero-meta{font-size:.73rem}
+.hero-photo{max-width:245px;margin:0;box-shadow:8px 8px 0 #ddede5;transform:rotate(2deg)}
+.hero-photo>img{aspect-ratio:1.25}
+.photo-sticker{top:-14px;right:-17px;font-size:.6rem;padding:10px 10px 8px}
+.photo-sticker strong{font-size:.72rem}
+.photo-sticker span{font-size:.9rem;margin-top:2px}
+.hero-photo-caption{font-size:.46rem;padding:6px 2px 0}
+.intro-strip{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:18px;padding-bottom:18px}
+.intro-helper{font-size:.86rem;color:#53736b;max-width:420px;margin:0;text-align:right;line-height:1.45}
+.practice{padding-top:44px;padding-bottom:55px}
+.section-heading{margin-bottom:22px}
+.section-heading h2{font-size:clamp(2.3rem,4vw,3.3rem)}
+.unit-tab{min-height:82px;padding:13px 18px}
+.tab-icon{height:43px;width:43px;font-size:1.65rem}
+.unit-description{padding:17px 2px 22px;font-size:.95rem}
+.game-layout{display:block;max-width:1020px;margin:auto}
+.game-main{width:100%}
+.deck-head{margin-bottom:8px}
+.deck-progress{font-size:.75rem}
+.progress-track{margin:9px 0 15px;height:5px}
+.listing{border-radius:19px;overflow:hidden}
+.property-gallery{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:8px;background:#fff;padding:9px 9px 0}
+.property-gallery figure{position:relative;margin:0;min-width:0;overflow:hidden;border-radius:12px;background:#e3eeeb;height:285px}
+.property-gallery img{height:100%;width:100%;object-fit:cover}
+.property-gallery figcaption{position:absolute;bottom:10px;left:10px;right:10px;color:#fff;background:rgba(16,57,53,.79);backdrop-filter:blur(5px);font-size:.73rem;font-weight:800;letter-spacing:.06em;line-height:1.22;padding:9px 11px;border-radius:7px}
+.gallery-main figcaption{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.gallery-main figcaption span:last-child{font-size:.66rem;color:#c1e1d9}
+.listing-info{padding:19px 24px 21px}
+.listing-info h3{font-size:clamp(1.85rem,3vw,2.35rem);margin:7px 0 7px}
+.property-blurb{font-size:1.03rem;margin-bottom:0;max-width:100%;line-height:1.5}
+.price{font-size:1.08rem}
+.mission-head{margin:31px 0 15px}
+.mission-head h3{font-size:clamp(1.8rem,3vw,2.4rem)}
+.mission-note{font-size:.85rem;color:#657b75;max-width:230px;line-height:1.35}
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.role-card{display:block;border-radius:17px;padding:0;overflow:hidden}
+.role-open{display:block;text-align:left;color:inherit;background:transparent;border:0;width:100%;padding:20px;min-height:151px}
+.role-open:hover{background:rgba(255,255,255,.33)}
+.role-top{margin-bottom:12px;display:flex;align-items:center}
+.role-name{font-size:1.17rem;font-weight:800;letter-spacing:-.025em;line-height:1.18;display:block;margin-top:3px}
+.role-tagline{font-size:.99rem;line-height:1.52;font-weight:600;display:block;margin:0;color:#37615b}
+.buyer-card .role-tagline{color:#765d41}
+.open-label{margin-left:auto;font-size:.69rem;letter-spacing:.05em;font-weight:800;color:#267e70;white-space:nowrap}
+.buyer-card .open-label{color:#ab6a37}
+.open-label span{font-size:1.2rem;margin-left:5px}
+.role-open[aria-expanded="true"] .open-label{opacity:.72}
+.role-brief{background:#fff;border-top:1px solid #c5ddd4;padding:18px 21px 19px}
+.buyer-card .role-brief{border-color:#f0dfbd}
+.brief-kicker,.secret-heading{font-size:.72rem;line-height:1.3;font-weight:800;letter-spacing:.1em;color:#18776c;margin:0 0 11px}
+.buyer-card .brief-kicker,.buyer-card .secret-heading{color:#b46c3b}
+.role-tasks{font-size:.98rem;line-height:1.56;margin:0 0 20px;padding-left:21px;flex:initial}
+.role-tasks li+li{margin-top:7px}
+.secret{font-size:.94rem;line-height:1.57;background:#e8f6ef;margin:0;padding:13px 14px;border-radius:8px;border-left:3px solid #22907b;color:#2b5b52}
+.buyer-card .secret{background:#fff1d9;border-left-color:#d8894b;color:#705232}
+.twist-box{margin-top:19px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px 17px}
+.twist-main{gap:11px;align-items:center;flex:1;min-width:210px}
+.twist-icon{height:31px;flex-basis:31px;line-height:30px;font-size:1.3rem}
+.twist-title{font-size:.73rem}
+.twist-main p{font-size:.88rem;margin:3px 0 0;line-height:1.35}
+.twist-button{margin:0;font-size:.86rem;white-space:nowrap}
+.twist-content{flex:1 0 100%;margin:6px 0 0;padding:13px 4px 0}
+.language-drawer{margin-top:20px;border-radius:15px;border:1px solid #c5dfd6;background:#e9f5f0;overflow:hidden}
+.language-drawer summary{display:flex;align-items:center;gap:15px;padding:16px 20px;cursor:pointer;list-style:none;min-height:78px}
+.language-drawer summary::-webkit-details-marker{display:none}
+.language-drawer summary strong{display:block;font-size:1.15rem;letter-spacing:-.02em;color:#175e55}
+.language-drawer summary small{display:block;color:#5c8178;font-size:.85rem;margin-top:2px}
+.drawer-icon{display:grid;place-items:center;background:#176c62;color:#fff;width:43px;height:43px;border-radius:11px;font-size:1.45rem;flex-shrink:0}
+.drawer-plus{margin-left:auto;font-size:1.7rem;color:#1b776d;font-weight:500;transition:transform .15s}
+.language-drawer[open] .drawer-plus{transform:rotate(45deg)}
+.drawer-content{border-top:1px solid #c5dfd6;padding:18px;display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
+.language-card,.phrase-card{border:0;border-radius:12px;background:#fff;padding:21px;margin:0}
+.phrase-list>div:first-child{border-top:0}
+.vocab-chips{margin-top:12px}
+.vocab-chips button{font-size:.91rem;padding:9px 12px}
+.vocab-definition{font-size:.9rem;min-height:25px}
+.phrase-list p{font-size:.9rem}
+.deck-footer{margin-top:19px}
+.final-challenge,.sidebar,.steps,.feature-tags,.image-status,.image-badge{display:none!important}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr 210px;gap:23px}
+  .hero h1{font-size:clamp(3.6rem,7vw,4.8rem)}
+  .hero-photo{max-width:210px}
+  .intro-strip{align-items:start}
+  .property-gallery figure{height:245px}
+}
+@media(max-width:680px){
+  .topbar-inner{padding:10px 17px}
+  .hero{padding:28px 21px 20px;display:block}
+  .hero h1{font-size:clamp(3.5rem,12vw,4.8rem);margin:16px 0 16px}
+  .hero-sub{font-size:1.08rem;margin-bottom:15px}
+  .hero-photo{display:none}
+  .hero-meta{font-size:.73rem;gap:10px}
+  .intro-strip{padding:14px 21px;display:block}
+  .intro-title{gap:8px;font-size:.88rem}
+  .intro-helper{font-size:.82rem;text-align:left;margin-top:9px}
+  .practice{padding:32px 15px 45px}
+  .section-heading h2{font-size:2.6rem}
+  .unit-tab{padding:11px 13px;min-height:69px}
+  .unit-description{font-size:.93rem;padding:14px 1px 17px}
+  .property-gallery{grid-template-columns:1fr 1fr;gap:6px;padding:7px 7px 0}
+  .property-gallery .gallery-main{grid-column:1/-1;height:236px}
+  .property-gallery .gallery-context{height:160px}
+  .property-gallery figcaption{font-size:.71rem;left:7px;right:7px;bottom:7px;padding:8px}
+  .listing-info{padding:18px 18px 20px}
+  .listing-info h3{font-size:1.92rem;margin:7px 0}
+  .property-blurb{font-size:.95rem}
+  .mission-head{margin:27px 0 14px}
+  .mission-head h3{font-size:2.1rem}
+  .mission-note{font-size:.76rem;max-width:120px}
+  .role-grid{grid-template-columns:1fr;gap:11px}
+  .role-open{padding:18px;min-height:124px}
+  .role-tagline{font-size:.98rem}
+  .role-name{font-size:1.16rem}
+  .role-brief{padding:17px}
+  .role-tasks{font-size:.98rem}
+  .twist-box{padding:15px;gap:12px}
+  .twist-main{min-width:0}
+  .twist-button{margin-left:0}
+  .drawer-content{display:block;padding:13px}
+  .phrase-card{margin-top:11px}
+  .language-drawer summary{padding:14px 16px}
+  .deck-footer{margin-top:18px}
+}
+@media print{
+  .hero,.intro-strip,.language-drawer,.deck-footer{display:none!important}
+  .property-gallery figure{height:185px}
+  .role-grid{grid-template-columns:1fr 1fr}
+  .role-open{min-height:0}
+  .role-brief[hidden]{display:block!important}
+  .twist-content[hidden]{display:none!important}
+}
