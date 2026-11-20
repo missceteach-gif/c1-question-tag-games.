@@ -89,42 +89,97 @@
   .property-gallery figure{height:245px}
 }
 @media(max-width:680px){
-  .topbar-inner{padding:10px 17px}
-  .hero{padding:28px 21px 20px;display:block}
-  .hero h1{font-size:clamp(3.5rem,12vw,4.8rem);margin:16px 0 16px}
-  .hero-sub{font-size:1.08rem;margin-bottom:15px}
+  :root{font-size:18px}
+  body{overflow-x:hidden}
+  .topbar-inner{padding:10px 16px}
+  .brand{font-size:.84rem;letter-spacing:.08em}
+  .brand small{font-size:.63rem;letter-spacing:.13em}
+  .brand-mark{width:42px;height:42px}
+  .hero{padding:20px 18px 18px;display:block}
+  .eyebrow{font-size:.7rem;letter-spacing:.08em;gap:6px}
+  .hero h1{font-size:clamp(3.05rem,12vw,4rem);margin:10px 0 12px;line-height:.95}
+  .hero-sub{font-size:1rem;line-height:1.48;margin-bottom:12px}
   .hero-photo{display:none}
-  .hero-meta{font-size:.73rem;gap:10px}
-  .intro-strip{padding:14px 21px;display:block}
-  .intro-title{gap:8px;font-size:.88rem}
-  .intro-helper{font-size:.82rem;text-align:left;margin-top:9px}
-  .practice{padding:32px 15px 45px}
-  .section-heading h2{font-size:2.6rem}
-  .unit-tab{padding:11px 13px;min-height:69px}
-  .unit-description{font-size:.93rem;padding:14px 1px 17px}
-  .property-gallery{grid-template-columns:1fr 1fr;gap:6px;padding:7px 7px 0}
-  .property-gallery .gallery-main{grid-column:1/-1;height:236px}
-  .property-gallery .gallery-context{height:160px}
-  .property-gallery figcaption{font-size:.71rem;left:7px;right:7px;bottom:7px;padding:8px}
-  .listing-info{padding:18px 18px 20px}
-  .listing-info h3{font-size:1.92rem;margin:7px 0}
-  .property-blurb{font-size:.95rem}
-  .mission-head{margin:27px 0 14px}
-  .mission-head h3{font-size:2.1rem}
-  .mission-note{font-size:.76rem;max-width:120px}
+  .hero-meta{font-size:.8rem;gap:7px 13px}
+  .intro-strip{padding:13px 18px;display:block}
+  .intro-title{gap:9px;font-size:1rem;line-height:1.45}
+  .intro-title strong{font-size:1rem}
+  .intro-helper{font-size:.88rem;text-align:left;margin-top:8px;max-width:none}
+  .practice{padding:22px 14px 48px}
+  .section-kicker{font-size:.77rem}
+  .section-heading{margin-bottom:15px}
+  .section-heading h2{font-size:clamp(2.05rem,8vw,2.6rem)}
+  .tablist{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .unit-tab{display:block;text-align:left;min-width:0;min-height:100px;padding:13px 12px;border-radius:14px;box-shadow:0 4px 0 #e7f1ed}
+  .unit-tab.active{box-shadow:0 4px 0 #a6d7d0}
+  .tab-icon,.tab-count{display:none}
+  .tab-text{gap:8px}
+  .tab-small{font-size:.76rem;letter-spacing:.03em;line-height:1.28}
+  .tab-text strong{font-size:.98rem;line-height:1.25;overflow-wrap:anywhere}
+  .unit-description{font-size:.95rem;line-height:1.48;padding:14px 3px 17px}
+  .deck-head{gap:7px 10px;margin:0 0 9px}
+  .deck-title{font-size:.76rem}
+  .deck-tools{gap:6px}
+  .text-button{font-size:.87rem;min-height:44px;padding:10px 8px}
+  .deck-progress{font-size:.77rem;letter-spacing:.07em}
+  .progress-track{height:6px;margin:8px 0 14px}
+  .property-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:8px 8px 0}
+  .property-gallery .gallery-main{grid-column:1/-1;height:230px}
+  .property-gallery .gallery-context{height:176px}
+  .property-gallery figcaption{font-size:.74rem;letter-spacing:.015em;line-height:1.3;left:8px;right:8px;bottom:8px;padding:9px}
+  .gallery-main figcaption span:last-child{font-size:.68rem}
+  .listing-info{padding:20px 18px 23px}
+  .listing-overline{font-size:.77rem;letter-spacing:.07em}
+  .price{font-size:1rem}
+  .listing-info h3{font-size:clamp(1.8rem,7.3vw,2.2rem);line-height:1.13;margin:10px 0}
+  .property-blurb{font-size:1.02rem;line-height:1.55}
+  .mission-head{margin:28px 0 13px;align-items:start;gap:11px}
+  .mission-head h3{font-size:2.08rem}
+  .mission-note{font-size:.82rem;line-height:1.45;max-width:130px}
   .role-grid{grid-template-columns:1fr;gap:11px}
-  .role-open{padding:18px;min-height:124px}
-  .role-tagline{font-size:.98rem}
-  .role-name{font-size:1.16rem}
-  .role-brief{padding:17px}
-  .role-tasks{font-size:.98rem}
-  .twist-box{padding:15px;gap:12px}
+  .role-open{padding:18px;min-height:120px;touch-action:manipulation}
+  .role-top{display:grid;grid-template-columns:45px minmax(0,1fr);gap:6px 12px;align-items:center;margin-bottom:12px}
+  .role-avatar{grid-row:1/span 2;height:45px;width:45px}
+  .role-kicker{font-size:.77rem;letter-spacing:.08em}
+  .role-name{font-size:1.2rem;line-height:1.2}
+  .role-top .open-label{grid-column:2;justify-self:start;margin:0;background:rgba(255,255,255,.78);border-radius:7px;padding:5px 10px;font-size:.77rem}
+  .role-tagline{font-size:1rem;line-height:1.45}
+  .role-brief{padding:19px 18px}
+  .brief-kicker,.secret-heading{font-size:.78rem}
+  .role-tasks{font-size:1rem;line-height:1.63;padding-left:23px}
+  .secret{font-size:1rem;line-height:1.58;padding:15px}
+  .twist-box{padding:17px;gap:12px;display:grid;grid-template-columns:1fr}
   .twist-main{min-width:0}
-  .twist-button{margin-left:0}
-  .drawer-content{display:block;padding:13px}
-  .phrase-card{margin-top:11px}
-  .language-drawer summary{padding:14px 16px}
-  .deck-footer{margin-top:18px}
+  .twist-title{font-size:.8rem}
+  .twist-main p{font-size:.98rem;line-height:1.48}
+  .twist-button{margin:0;width:100%;min-height:50px;font-size:1rem;text-align:center}
+  .twist-content{font-size:1rem}
+  .language-drawer summary{padding:17px;gap:11px;min-height:74px}
+  .language-drawer summary strong{font-size:1.13rem}
+  .language-drawer summary small{font-size:.86rem;line-height:1.4}
+  .drawer-content{display:block;padding:12px}
+  .language-card,.phrase-card{padding:18px}
+  .phrase-card{margin-top:12px}
+  .side-eyebrow{font-size:.77rem}
+  .vocab-chips button{font-size:.96rem;padding:12px 13px;min-height:44px}
+  .vocab-definition,.phrase-list p{font-size:1rem;line-height:1.55}
+  .deck-footer{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:20px}
+  .deck-dots{grid-column:1/-1;order:-1;width:auto;margin:0;gap:4px}
+  .deck-dots button{position:relative;width:39px;height:39px;min-width:39px;background:transparent;box-shadow:none}
+  .deck-dots button::before{content:"";position:absolute;top:50%;left:50%;width:12px;height:12px;border-radius:50%;background:#cbded6;transform:translate(-50%,-50%)}
+  .deck-dots button.active{background:transparent;box-shadow:none}
+  .deck-dots button.active::before{background:#126e68;box-shadow:0 0 0 4px #d7eae5}
+  .nav-button{min-height:54px;padding:13px 10px;font-size:.93rem;justify-content:center;line-height:1.2}
+  footer{font-size:.82rem}
+  .footer-end{font-size:.72rem}
+}
+@media(max-width:360px){
+  :root{font-size:17px}
+  .hero h1{font-size:clamp(2.86rem,13vw,3.2rem)}
+  .hero-meta{gap:6px 10px}
+  .property-gallery .gallery-main{height:205px}
+  .property-gallery .gallery-context{height:155px}
+  .deck-dots button{width:35px;height:35px;min-width:35px}
 }
 @media print{
   .hero,.intro-strip,.language-drawer,.deck-footer{display:none!important}
