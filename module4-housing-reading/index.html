@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#152b34">
+  <meta name="description" content="C1.2 exam-style reading comprehension and housing vocabulary based on a Guardian opinion article by Leilani Farha.">
+  <title>Housing, Power & Democracy | C1.2 Reading Lab</title>
+  <style>
+    :root { --ink:#173039; --ink2:#37525a; --muted:#63767a; --paper:#f7f7f2; --white:#fff; --teal:#087b72; --teallight:#e8f5f1; --yellow:#eff5cc; --gold:#d7a147; --line:#dce5e2; --red:#a44842; --redlight:#fff0ec; --green:#1f7867; --shadow:0 10px 35px rgba(16,43,47,.07); --radius:20px; }
+    * {box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+    a{color:inherit}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #e3ad4c;outline-offset:3px}
+    .topbar{background:#142a33;color:#eff9f5;padding:15px clamp(19px,5vw,70px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-size:.73rem;letter-spacing:.13em;font-weight:800;text-transform:uppercase}
+    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#dcef9f;color:#18323b;font-size:.94rem;letter-spacing:0}
+    .topright{font-size:.78rem;letter-spacing:.12em;color:#b8d7d2;text-transform:uppercase}
+    .wrap{width:min(1140px,calc(100% - 40px));margin:0 auto}
+    .hero{background:linear-gradient(115deg,#17323c 0%,#234d52 67%,#215a55 100%);color:white;overflow:hidden;position:relative}
+    .hero:after{content:"";position:absolute;right:-30px;bottom:-130px;width:460px;height:410px;opacity:.15;background:repeating-linear-gradient(90deg,transparent 0,transparent 34px,#d7f4e2 35px,#d7f4e2 38px),repeating-linear-gradient(0deg,transparent 0,transparent 57px,#d7f4e2 58px,#d7f4e2 60px);transform:rotate(-12deg);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:880px;padding:clamp(42px,7vw,78px) 0 47px}
+    .eyebrow{font-weight:800;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:#d9efa8}
+    h1,h2,h3{line-height:1.12;margin:0}
+    h1{font:500 clamp(2.25rem,5.4vw,4.6rem)/1.045 Georgia,"Times New Roman",serif;letter-spacing:-.035em;margin:20px 0 18px}
+    .hero-dek{font-size:clamp(1rem,1.7vw,1.21rem);line-height:1.55;color:#dcece7;max-width:710px;margin:0 0 27px}
+    .hero-stats{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 23px}
+    .hero-chip{border:1px solid #7da19f;border-radius:999px;padding:8px 13px;color:#eff8f0;font-size:.81rem;font-weight:650;background:#ffffff0b}
+    .source-link{display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:#dceca3;color:#1a3139;border-radius:100px;padding:13px 20px;font-size:.92rem;font-weight:800;box-shadow:0 5px 14px #102c2b22}
+    .source-link:hover{background:#f1f9c4}
+    .byline{font-size:.84rem;color:#bfd9d2;margin:16px 0 0}
+    .tabs-shell{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px #17303907}
+    .tabs{display:flex;gap:6px;overflow:auto;scrollbar-width:thin;padding:10px 0}
+    .tab{appearance:none;border:0;background:transparent;color:#4e656b;padding:13px 20px;border-radius:12px;font-weight:750;white-space:nowrap;min-height:46px}
+    .tab:hover{background:#f0f5f3;color:var(--ink)}
+    .tab[aria-selected="true"]{color:#075f58;background:#e7f4ef}
+    main{padding:36px 0 60px}
+    .page{display:none}
+    .page.active{display:block}
+    .section-head{margin:0 0 24px}
+    .section-head .kicker{font-size:.76rem;text-transform:uppercase;letter-spacing:.14em;color:var(--teal);font-weight:850;margin-bottom:10px}
+    h2{font:500 clamp(1.85rem,3vw,2.55rem)/1.15 Georgia,"Times New Roman",serif;letter-spacing:-.02em}
+    .section-head p{color:var(--ink2);max-width:790px;margin:13px 0 0}
+    .original-reader{border:1px solid #b9d7cc;background:#fff;border-radius:20px;overflow:hidden;margin:0 0 24px;box-shadow:0 8px 28px #1a56450c}
+    .original-reader-top{padding:23px 25px 17px;display:flex;align-items:center;justify-content:space-between;gap:23px}
+    .original-reader-tag{font-size:.7rem;font-weight:900;letter-spacing:.12em;color:#147768;margin-bottom:9px}
+    .original-reader-info h3{font:500 clamp(1.35rem,2.8vw,1.75rem)/1.15 Georgia,serif;letter-spacing:-.02em;margin:0}
+    .original-reader-info p{color:#5e7774;font-size:.85rem;margin:7px 0 0}
+    .original-reader .source-link{white-space:nowrap;background:#dceca3;flex:0 0 auto}
+    .reader-actions{border-top:1px solid #ebf0ec;background:#f5f9f7;padding:16px 25px;display:flex;align-items:center;gap:18px}
+    .reader-help{font-size:.84rem;line-height:1.5;color:#4d6c65}
+    .original-reader-content{padding:16px 20px 23px;background:#fff;border-top:1px solid #e1eae6}
+    .reader-warning{color:#4c6861;font-size:.85rem;line-height:1.6;margin:0 0 15px}
+    .source-iframe-wrap{background:#edf3f0;border:1px solid #ceded8;border-radius:12px;overflow:hidden;min-height:520px}
+    .source-iframe-wrap iframe{height:min(72vh,800px);min-height:520px;display:block;width:100%;border:0;background:#fff}
+    .reader-bottom{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-top:15px}
+    .reader-smalllink{color:#08695f;font-size:.86rem;text-decoration:underline;text-underline-offset:3px}
+    .note{background:#f0f5e4;border-left:4px solid #739c63;padding:15px 18px;border-radius:0 13px 13px 0;color:#35503d;font-size:.95rem;margin:22px 0 27px}
+    .exam-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;align-items:start;gap:26px}
+    .task{margin-bottom:33px}
+    .task-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:19px}
+    .task-index{flex:0 0 auto;background:#e3f2ed;color:#07675e;border-radius:13px;padding:9px 12px;font-weight:850;font-size:.85rem;letter-spacing:.07em}
+    h3{font-size:1.34rem;letter-spacing:-.012em;margin:1px 0 6px}
+    .task-desc{margin:0;color:var(--muted);font-size:.93rem}
+    .question{background:white;border:1px solid var(--line);border-radius:18px;box-shadow:0 4px 13px #153c3507;padding:clamp(17px,2.5vw,24px);margin:0 0 14px;break-inside:avoid}
+    .question.correct{border-color:#a9d8c7}
+    .question.incorrect{border-color:#efc5bd}
+    .qtop{display:flex;gap:12px;align-items:flex-start;margin-bottom:15px}
+    .qnumber{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:#eaf2ee;color:#08665e;font-size:.82rem;font-weight:850}
+    .qtitle{font-size:1.01rem;line-height:1.52;font-weight:670;padding-top:3px}
+    .choices{display:grid;gap:9px}
+    .choice{position:relative;display:flex;align-items:flex-start;gap:12px;border:1.5px solid #e0e7e5;background:#fff;border-radius:12px;padding:11px 13px;cursor:pointer;line-height:1.42;transition:background .12s,border .12s;font-size:.94rem}
+    .choice:hover{background:#f3f7f4;border-color:#b3d1c9}
+    .choice:has(input:checked){background:#e8f4ef;border-color:#559b87}
+    .choice input{accent-color:var(--teal);width:19px;height:19px;flex:0 0 19px;margin:2px 0 0}
+    .choice-text{flex:1}
+    .choice-letter{color:#698179;font-size:.8rem;font-weight:800;min-width:18px;margin-top:3px}
+    .tfn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .tfn-grid .choice{justify-content:center;align-items:center;text-align:center;padding:12px 8px;font-weight:750}
+    .tfn-grid .choice input{flex:none;margin:0}
+    .option-select{width:100%;border:1.5px solid #becfca;border-radius:12px;padding:13px;background:#fff;color:var(--ink);font-size:.95rem;line-height:1.35}
+    .match-guide{background:#f1f7f5;border:1px solid #d7e6e1;border-radius:17px;padding:18px 22px;margin-bottom:17px}
+    .match-guide strong{font-size:.88rem;color:#155b55;letter-spacing:.04em}
+    .match-guide ol{list-style:none;margin:9px 0 0;padding:0;display:grid;gap:6px;font-size:.91rem}
+    .match-guide li{line-height:1.45}
+    .match-guide b{color:#087b72;margin-right:8px}
+    .feedback{display:none;margin-top:15px;border-radius:11px;padding:12px 14px;background:#f2f7f4;border:1px solid #d8e6df;font-size:.9rem;line-height:1.52}
+    .feedback.show{display:block}
+    .feedback.bad{background:var(--redlight);border-color:#f3d5cc}
+    .feedback strong{display:block;margin-bottom:5px;color:var(--ink)}
+    .sidebar{position:sticky;top:99px;display:grid;gap:16px}
+    .sidecard{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:var(--shadow)}
+    .sidetitle{font-size:.76rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#477169;margin:0 0 12px}
+    .stat-large{font:500 2.2rem/1.1 Georgia,serif;color:#143c3c}
+    .tiny{font-size:.82rem;color:#697d7d;margin-top:8px;line-height:1.45}
+    .progress-track{background:#e5efec;border-radius:999px;height:9px;overflow:hidden;margin-top:15px}
+    .progress-fill{background:linear-gradient(90deg,#0a756c,#85bc85);height:100%;width:0%;transition:width .18s}
+    .steps{font-size:.85rem;color:#45605d;padding-left:18px;margin:0;line-height:1.95}
+    .endpanel{border:1px solid #c4d9d0;background:#fff;border-radius:19px;padding:22px;margin-top:20px}
+    .action-row{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin:18px 0 0}
+    .btn{border:1px solid transparent;border-radius:11px;padding:13px 20px;min-height:48px;font-weight:800;font-size:.92rem}
+    .btn-primary{background:#09796d;color:#fff}
+    .btn-primary:hover{background:#075d54}
+    .btn-secondary{background:white;border-color:#c4d5cf;color:#245149}
+    .btn-secondary:hover{background:#eef6f1}
+    .result{display:none;background:#eaf6ec;border:1px solid #b8dcc8;border-radius:17px;padding:22px;margin-top:19px}
+    .result.show{display:block}
+    .result h3{margin-bottom:8px}
+    .result .score-big{font:500 2.9rem Georgia,serif;color:#176558}
+    .result p{margin:8px 0 0}
+    .searchbox{display:flex;gap:10px;align-items:center;background:white;border:1px solid #cbdcd5;border-radius:13px;padding:0 15px;margin:0 0 15px;max-width:700px}
+    .searchbox input{width:100%;outline:none;border:0;padding:14px 0;background:transparent;font-size:1rem;color:var(--ink)}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+    .filter{border:1px solid #c9d9d2;border-radius:100px;background:#fff;padding:9px 15px;color:#345e54;font-weight:700;font-size:.86rem}
+    .filter[aria-pressed="true"]{background:#116f66;color:#fff;border-color:#116f66}
+    .vocab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .vocab-card{background:white;border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:0 3px 12px #1d4a3708}
+    .vocab-category{font-size:.72rem;color:#0d7b71;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    .vocab-term{font-size:1.21rem;font-weight:850;margin:8px 0 6px;line-height:1.3}
+    .vocab-definition{font-size:.94rem;color:#40575c;margin:0 0 11px}
+    .vocab-usage{font-size:.86rem;color:#476962;line-height:1.4;margin:0 0 7px}
+    .vocab-example{font-size:.9rem;color:#284b46;font-style:italic;background:#f2f7ef;padding:11px 13px;border-radius:9px;margin:12px 0 0}
+    .small-label{font-style:normal;color:#677d76;font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;margin-right:5px}
+    .vocab-count{font-size:.88rem;color:var(--muted);margin-bottom:16px}
+    .empty{display:none;padding:30px;text-align:center;color:var(--muted);background:#fff;border-radius:12px}
+    .debate{margin-top:30px;background:#193e40;border-radius:19px;padding:26px;color:#fff}
+    .debate h3{font:500 1.6rem Georgia,serif;margin-bottom:9px}
+    .debate p{color:#d5ece5;margin:7px 0}
+    .debate ol{padding-left:20px;color:#e9f5ee;line-height:1.7}
+    .footer{border-top:1px solid #e0e9e5;padding:24px 0 35px;color:#728781;font-size:.8rem}
+    .footer p{margin:5px 0}
+    .hidden{display:none !important}
+    @media(max-width:820px){.exam-layout{grid-template-columns:1fr}.sidebar{position:static;grid-row:1;grid-template-columns:repeat(2,minmax(0,1fr))}.sidecard{padding:17px}.steps{line-height:1.65}.vocab-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.original-reader-top{flex-direction:column;align-items:stretch;padding:19px 18px 15px;gap:16px}.original-reader .source-link{align-self:flex-start;white-space:normal;justify-content:center}.reader-actions{flex-direction:column;align-items:stretch;gap:12px;padding:15px 18px}.reader-actions .btn{width:100%}.original-reader-content{padding:15px 12px}.reader-bottom{flex-wrap:wrap}.source-iframe-wrap,.source-iframe-wrap iframe{min-height:550px}.source-iframe-wrap iframe{height:73vh}}
+    @media(max-width:600px){body{font-size:16px}.topbar{padding:12px 18px}.brand{letter-spacing:.07em}.topright{font-size:.67rem}.wrap{width:min(100% - 28px,1140px)}.hero-inner{padding:37px 0}.hero-stats{gap:7px}.hero-chip{font-size:.75rem;padding:7px 10px}.tabs{gap:2px}.tab{font-size:.87rem;padding:11px 12px}.sidebar{grid-template-columns:1fr 1fr;gap:9px}.sidetitle{font-size:.67rem}.sidecard{padding:13px}.stat-large{font-size:1.7rem}.steps{font-size:.75rem;padding-left:15px}.question{padding:16px;border-radius:14px}.qtitle{font-size:.96rem}.choice{font-size:.91rem}.choice-letter{display:none}.tfn-grid{gap:5px}.tfn-grid .choice{font-size:.78rem;padding:9px 4px;flex-direction:column;gap:5px}.vocab-grid{grid-template-columns:1fr}.endpanel{padding:17px}main{padding-top:25px}.hero:after{right:-240px}.btn{flex:1 1 auto}.source-link{font-size:.82rem}}
+    @media print{.original-reader,.topbar,.tabs-shell,.sidebar,.action-row,.footer,.source-link,.debate,.filters,.searchbox{display:none !important}.hero{background:#fff;color:#000;padding:0}.hero-inner{padding:0}.hero-dek,.byline{color:#333}h1{font-size:28pt}.wrap{width:100%}.page{display:block !important}.page:not(#exam-page){display:none !important}.exam-layout{display:block}.question{box-shadow:none;page-break-inside:avoid}.result.show{display:block}.feedback.show{display:block}.hero:after{display:none}.task{break-before:avoid}main{padding:0}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="brand"><span class="brand-mark">CE</span><span>English Lab · Advanced</span></div><div class="topright">Housing · Unit 10 · C1.2</div></header>
+<section class="hero"><div class="wrap hero-inner"><div class="eyebrow">Reading lab / C1.2 · EOI exam-style practice</div><h1>Who really controls<br>the housing market?</h1><p class="hero-dek">A reading challenge about property, profit and the democratic right to shape the places we call home.</p><div class="hero-stats"><span class="hero-chip">22 reading questions</span><span class="hero-chip">3 exam-style tasks</span><span class="hero-chip">30–40 min</span><span class="hero-chip">Self-correcting</span></div><p class="byline">Source: Leilani Farha · The Guardian · 19 October 2026 · Opinion</p></div></section>
+<nav class="tabs-shell" aria-label="Activity sections"><div class="wrap tabs" role="tablist"><button type="button" class="tab" data-page="exam-page" role="tab" aria-selected="true">01 · Reading exam</button><button type="button" class="tab" data-page="vocab-page" role="tab" aria-selected="false">02 · Useful vocabulary</button><button type="button" class="tab" data-page="practice-page" role="tab" aria-selected="false">03 · Vocabulary challenge</button></div></nav>
+<main class="wrap">
+<section id="exam-page" class="page active" role="tabpanel" aria-label="Reading exam">
+ <div class="section-head"><div class="kicker">Read critically · Interpret precisely</div><h2>Reading comprehension</h2><p>Read the original Guardian article using the source reader below, then complete all three tasks. Your score, correct answers and explanations will appear <strong>only after submitting</strong>.</p></div>
+ <div class="original-reader" id="original-reader">
+   <div class="original-reader-top">
+     <div class="original-reader-info">
+       <div class="original-reader-tag">READING TEXT · ORIGINAL SOURCE</div>
+       <h3>The housing crisis is now global</h3>
+       <p>Leilani Farha · <em>The Guardian</em> · 19 October 2026</p>
+     </div>
+     <a class="source-link" id="original-article-link" href="https://www.theguardian.com/commentisfree/2026/oct/19/housing-crisis-global-democracy-nations-financial-sector" rel="noreferrer">↗ Open original article</a>
+   </div>
+   <div class="reader-actions">
+     <button type="button" class="btn btn-primary" id="toggle-original-reader" aria-expanded="false" aria-controls="original-reader-content">Read original on this page</button>
+     <span class="reader-help">The source button opens the exact Guardian article in this tab. Your answers are saved, so you can return with Back.</span>
+   </div>
+   <div class="original-reader-content hidden" id="original-reader-content">
+     <p class="reader-warning"><strong>Official article viewer:</strong> This area loads the original webpage from The Guardian; it is not a copied or rewritten version. Some news websites prevent other sites from embedding their pages. If it does not display, use <strong>Open original article</strong> above, then your browser’s Back button to return.</p>
+     <div class="source-iframe-wrap"><iframe id="original-article-frame" title="The Guardian original article by Leilani Farha" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://www.theguardian.com/commentisfree/2026/oct/19/housing-crisis-global-democracy-nations-financial-sector"></iframe></div>
+     <div class="reader-bottom"><button type="button" class="btn btn-secondary" id="close-original-reader">Close article viewer</button><a class="reader-smalllink" href="https://www.theguardian.com/commentisfree/2026/oct/19/housing-crisis-global-democracy-nations-financial-sector" rel="noreferrer">View on The Guardian instead</a></div>
+   </div>
+ </div>
+ <div class="note"><strong>Exam strategy:</strong> This is an <em>opinion piece</em>. Answer according to the writer's argument, even when you might personally disagree. Distinguish what is explicitly stated from what is merely plausible.</div>
+ <div class="exam-layout"><div>
+  <div class="task" id="task-mcq"><div class="task-header"><span class="task-index">TASK 01</span><div><h3>Reading between the lines</h3><p class="task-desc">Questions 1–8. Choose the best answer, A, B, C or D. Focus on argument, implication and rhetorical purpose.</p></div></div><div id="mcq-questions"></div></div>
+  <div class="task" id="task-tfn"><div class="task-header"><span class="task-index">TASK 02</span><div><h3>True, false or not stated?</h3><p class="task-desc">Questions 9–16. Choose <strong>True</strong> if the claim is supported, <strong>False</strong> if the article contradicts it, or <strong>Not stated</strong> if the article does not establish it.</p></div></div><div id="tfn-questions"></div></div>
+  <div class="task" id="task-match"><div class="task-header"><span class="task-index">TASK 03</span><div><h3>From evidence to argument</h3><p class="task-desc">Questions 17–22. Match each case in the article to the broader claim it most clearly illustrates. Use six ideas; <strong>one is extra</strong>.</p></div></div><div class="match-guide"><strong>THE IDEAS</strong><ol id="match-options"></ol></div><div id="match-questions"></div></div>
+  <div class="endpanel"><strong>Ready to check your reading?</strong><p style="margin:7px 0 0;color:var(--ink2)">Submit once you've answered the questions. Corrections will appear below each item, with an explanation pointing you back to the relevant part of the article.</p><div class="action-row"><button type="button" id="submit-reading" class="btn btn-primary">Submit & check answers</button><button type="button" id="reset-reading" class="btn btn-secondary">Start again</button><button type="button" id="print-reading" class="btn btn-secondary hidden">Print results</button></div><div id="reading-result" class="result" role="status" aria-live="polite"></div></div>
+  </div><aside class="sidebar"><div class="sidecard"><p class="sidetitle">Your progress</p><div class="stat-large"><span id="completed-count">0</span><span style="font-size:1.1rem;color:#81918a"> / 22</span></div><div class="tiny">questions answered</div><div class="progress-track" role="progressbar" aria-label="Reading completion" aria-valuemin="0" aria-valuemax="22" aria-valuenow="0" id="progressbar"><div class="progress-fill" id="progress-fill"></div></div></div><div class="sidecard"><p class="sidetitle">Your route</p><ol class="steps"><li>Read the official article</li><li>Complete 3 reading tasks</li><li>Submit for feedback</li><li>Review the vocabulary bank</li><li>Try the vocabulary challenge</li></ol></div></aside></div>
+</section>
+<section id="vocab-page" class="page" role="tabpanel" aria-label="Useful vocabulary"><div class="section-head"><div class="kicker">Vocabulary bank · C1–C2 range</div><h2>The language of housing & power</h2><p>High-value vocabulary from the article, plus a few clearly marked extension expressions. Definitions, collocations and example sentences are written for this class, not copied from the article.</p></div><div class="searchbox">⌕ <label for="vocab-search" class="hidden">Search terms</label><input id="vocab-search" type="search" placeholder="Search a word, meaning or expression…" autocomplete="off"></div><div class="filters" aria-label="Vocabulary categories"><button class="filter" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="Housing & access" aria-pressed="false">Housing & access</button><button class="filter" data-filter="Finance & policy" aria-pressed="false">Finance & policy</button><button class="filter" data-filter="Power & democracy" aria-pressed="false">Power & democracy</button></div><p class="vocab-count" id="vocab-count"></p><div id="vocab-grid" class="vocab-grid"></div><div class="empty" id="vocab-empty">No matching expressions. Try a different search.</div><div class="debate"><h3>Speak like a C1.2 student</h3><p>In pairs · 5 minutes · Choose one position and challenge it.</p><ol><li>“Treating housing as an investment is not inherently incompatible with the right to adequate housing.”</li><li>“If citizens can vote but cannot influence housing policy, democracy becomes a formality.”</li></ol><p><strong>Challenge:</strong> Use at least four expressions from the vocabulary bank, including one from <em>Power & democracy</em>.</p></div></section>
+<section id="practice-page" class="page" role="tabpanel" aria-label="Vocabulary challenge"><div class="section-head"><div class="kicker">Use it · Don't just recognise it</div><h2>Vocabulary in context</h2><p>Ten new, original scenarios. Choose the expression that best completes each sentence. This practice has a separate score and does not alter your reading result.</p></div><div id="vocab-quiz"></div><div class="endpanel"><strong>Check your command of the vocabulary.</strong><p style="margin:7px 0 0;color:var(--ink2)">Every correct answer includes a short usage note.</p><div class="action-row"><button class="btn btn-primary" id="submit-vocab" type="button">Check vocabulary</button><button class="btn btn-secondary" id="reset-vocab" type="button">Try again</button></div><div id="vocab-result" class="result" role="status" aria-live="polite"></div></div></section>
+</main>
+<footer class="footer"><div class="wrap"><p><strong>English Lab · C1.2 | Housing</strong> · Independent educational activity based on an externally linked Guardian article.</p><p>The original article is accessed directly from The Guardian, not reproduced here. Reading questions, vocabulary definitions and practice sentences are original classroom materials. Answers are saved in this browser only; no account is needed.</p></div></footer>
+<script>
+'use strict';
+const ARTICLE_URL = 'https://www.theguardian.com/commentisfree/2026/oct/19/housing-crisis-global-democracy-nations-financial-sector';
+const ANSWERS_STORAGE_KEY = 'c12-housing-guardian-reading-answers';
+function storeReadingAnswers(){
+  try { const saved=[...document.querySelectorAll('#exam-page input[type=radio]:checked')].map(el=>[el.name,el.value]);const selects=[...document.querySelectorAll('#exam-page select')].map(el=>[el.id,el.value]);localStorage.setItem(ANSWERS_STORAGE_KEY,JSON.stringify({radios:saved,selects}));} catch(e) { /* storage may be unavailable */ }
+}
+function restoreReadingAnswers(){
+  try { const saved=JSON.parse(localStorage.getItem(ANSWERS_STORAGE_KEY)||'null');if(!saved)return;
+    (saved.radios||[]).forEach(([name,value])=>{const el=[...document.querySelectorAll('#exam-page input[type=radio]')].find(x=>x.name===name&&x.value===value);if(el)el.checked=true;});
+    (saved.selects||[]).forEach(([id,value])=>{const el=document.getElementById(id);if(el)el.value=value;});
+  }catch(e){ /* malformed or unavailable storage */ }
+}
+function toggleOriginalReader(force){
+  const panel=document.getElementById('original-reader-content');const trigger=document.getElementById('toggle-original-reader');
+  const open=typeof force==='boolean'?force:panel.classList.contains('hidden');panel.classList.toggle('hidden',!open);
+  trigger.setAttribute('aria-expanded',String(open));trigger.textContent=open?'Hide original article':'Read original on this page';
+  const frame=document.getElementById('original-article-frame');if(open&&!frame.src)frame.src=frame.dataset.src;
+  if(!open)document.getElementById('original-reader').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+const mcq = [
+ {q:'What is the main purpose of the opening anecdote about a man living near newly built skyscrapers?',options:['To argue that building taller residential blocks inevitably increases homelessness.','To expose a disconnect between property development and the needs of people seeking homes.','To demonstrate that Toronto has a more serious shortage of housing than other cities.','To suggest that people experiencing homelessness oppose urban development in principle.'],answer:1,why:'In the Toronto opening, the contrast between a tent and new towers introduces the author’s central distinction: housing activity can serve investors without meeting residents’ needs.'},
+ {q:'What does Farha’s label “Housing Inc” primarily refer to?',options:['A network of financial interests and public institutions shaping housing around investment returns.','A single international corporation that buys homes on behalf of governments.','A partnership of tenant unions organising against speculative developments.','A new public agency intended to stabilise property markets.'],answer:0,why:'The term describes the alignment of financial firms with governments and banks, not one literal company or public agency.'},
+ {q:'Why does the author discuss the Danish response to the purchase of apartments by Blackstone?',options:['To show that financial firms generally welcome strict protection for tenants.','To establish that private investment stopped in Copenhagen after the law took effect.','To illustrate how pressure from property interests can dilute a proposed safeguard.','To claim that Denmark outlawed all rent rises for a decade.'],answer:2,why:'The Copenhagen passage explains that a proposed ten-year restriction was reduced to five years amid opposition from landlords and pension funds.'},
+ {q:'According to the article, why might changes of government fail to produce meaningful housing reform?',options:['Politicians from every party have identical election manifestos.','Tenants are typically legally excluded from national elections.','Voters are overwhelmingly satisfied with the existing rental market.','The financial logic guiding investment persists regardless of which party is elected.'],answer:3,why:'The author argues that governments can change while the underlying incentives that direct capital toward real estate remain in place.'},
+ {q:'What connects mortgage securitisation and favourable tax rules for real-estate investment trusts in the author’s argument?',options:['Both were publicly approved in referendums with overwhelming support.','Both exemplify consequential arrangements developed without genuine public scrutiny.','Both were introduced specifically to provide affordable council housing.','Both made private landlords legally responsible for building social housing.'],answer:1,why:'The examples are presented as decisions with major social consequences that were shaped away from public debate.'},
+ {q:'How does the article portray the evolution of short-term letting in Athens?',options:['A measure designed by residents to lower rents became a public housing programme.','Tourism initially reduced demand for local housing but later brought it back.','A means for struggling owners to generate income became a strategy for outside investors.','A government scheme originally restricted to Greek families was gradually extended to tourists.'],answer:2,why:'In the Athens section, letting to tourists first helps property owners through a crisis; later, foreign buyers acquire properties to operate them as investments.'},
+ {q:'What is the writer’s central criticism of existing opportunities for tenants to influence housing decisions?',options:['They may be nominally available but risky, time-consuming or ineffective in practice.','They allow residents to veto any housing-related decision without democratic oversight.','They tend to offer tenants excessive power over interest rates and tax policy.','They rely exclusively on online meetings, excluding people without smartphones.'],answer:0,why:'The civic engagement paragraph describes eviction risks, people holding several jobs and consultation methods unlikely to make a difference.'},
+ {q:'What is the significance of the Berlin campaign drafting its own legislation?',options:['It proves that the earlier referendum had already been made legally binding.','It reveals that campaigners have given up on public participation entirely.','It shows that corporate landlords agreed to voluntary nationalisation.','It represents an attempt to turn public demands into an enforceable policy rather than rely on promises.'],answer:3,why:'The Berlin conclusion highlights citizen-led law drafting as a way to pursue a binding outcome after a non-binding referendum failed to deliver change.'}
+];
+const tfn = [
+ {q:'The housing minister in Denmark originally sought a longer restriction on rent increases than the law ultimately provided.',answer:'T',why:'TRUE. The Copenhagen account contrasts an initial ten-year proposal with the five-year measure that was passed.'},
+ {q:'The Danish legislation permanently prohibited all landlords in Copenhagen from increasing rent for any reason.',answer:'F',why:'FALSE. The legislation described concerns new owners and renovated apartments, with a five-year restriction—not a permanent, universal freeze.'},
+ {q:'The author says that the financial investors lobbying against rent controls were all headquartered outside Europe.',answer:'N',why:'NOT STATED. The article discusses powerful financial actors and lobbying but does not establish the headquarters of every investor involved.'},
+ {q:'According to the article, some Athenian owners initially used tourist rentals to help cope with severe financial hardship.',answer:'T',why:'TRUE. The Athens section connects short-term rentals with household attempts to generate income after the financial crisis.'},
+ {q:'The article reports that the Greek government abolished its golden-visa scheme in response to protests by residents.',answer:'N',why:'NOT STATED. It describes the scheme, protests and the authorities’ response, but does not say the scheme was subsequently abolished because of the protests.'},
+ {q:'Farha presents lobbying and proximity to decision-makers as advantages available to large investors but generally unavailable to ordinary tenants.',answer:'T',why:'TRUE. The author contrasts the resources and political access of major financial interests with the limited influence of tenants.'},
+ {q:'The referendum held in Berlin in 2021 automatically compelled the city to transfer large corporate landlords’ properties into public ownership.',answer:'F',why:'FALSE. The result was non-binding, which is central to the writer’s criticism.'},
+ {q:'The author argues that tenants working several jobs can usually attend consultation meetings and meaningfully shape housing policy.',answer:'F',why:'FALSE. The discussion of civic participation makes the opposite point: such people may have neither the time nor an effective route to influence.'}
+];
+const matchOptions = [
+ ['A','New construction does not necessarily deliver homes to those most in need.'],
+ ['B','Political bargaining can weaken a measure designed to restrain property investors.'],
+ ['C','A household coping strategy can evolve into a market driven by external capital.'],
+ ['D','Public protest may force a policy response without guaranteeing that it survives.'],
+ ['E','An electoral mandate can lack the legal force needed to change ownership.'],
+ ['F','Technical financial rules can be shaped outside meaningful public deliberation.'],
+ ['G','Increasing the number of tourist beds always reduces pressure on local rents.']
+];
+const matching = [
+ {q:'A homeless resident looks up at new residential towers in Toronto and questions who benefits from them.',answer:'A',why:'The opening contrast is about who is served by development, not simply whether buildings are being constructed.'},
+ {q:'Denmark’s initial proposal on rent increases is shortened following opposition from powerful property interests.',answer:'B',why:'The shift from ten years to five exemplifies a regulatory compromise influenced by financial actors.'},
+ {q:'In Athens, short-term letting develops from a lifeline for local owners into an opportunity for international buyers.',answer:'C',why:'The author explicitly traces that shift from financial survival to outside investment.'},
+ {q:'A high-profile eviction in Madrid sparks mobilisation, but an emergency protection is subsequently voted down.',answer:'D',why:'The Madrid example contrasts public pressure and a government response with the fragility of the resulting measure.'},
+ {q:'Berliners support public ownership in a referendum, yet the outcome does not oblige governments to act.',answer:'E',why:'The result lacks binding force, so the expressed public preference does not automatically become policy.'},
+ {q:'The article discusses how mortgages are bundled and how some real-estate funds receive favourable tax treatment.',answer:'F',why:'Both mechanisms serve the argument about financial rules created with insufficient democratic scrutiny.'}
+];
+const vocabulary = [
+ {term:'to be priced out (of a market)',cat:'Housing & access',pos:'phrasal verb',definition:'To become unable to afford something because its price has risen beyond your means.',collocation:'priced out of home ownership / the rental market',example:'Many local workers have been priced out of the neighbourhood they grew up in.'},
+ {term:'to be locked out of the housing market',cat:'Housing & access',pos:'expression',definition:'To be effectively unable to enter the market, usually owing to high prices or restrictive conditions.',collocation:'young people locked out of home ownership',example:'Without inherited wealth, first-time buyers risk being locked out of the market.'},
+ {term:'rent-control legislation',cat:'Housing & access',pos:'noun phrase',definition:'Laws that restrict how and when landlords may increase rents.',collocation:'introduce / weaken / challenge rent-control legislation',example:'Campaigners fear that the proposed rent-control legislation leaves too many loopholes.'},
+ {term:'short-term letting',cat:'Housing & access',pos:'noun phrase',definition:'Renting out residential property for brief stays, often to visitors.',collocation:'restrict short-term letting in residential districts',example:'The council introduced new rules for short-term letting in the historic centre.'},
+ {term:'a rent spike',cat:'Housing & access',pos:'noun phrase',definition:'A sharp, usually rapid rise in rental prices.',collocation:'trigger / experience / curb a rent spike',example:'The area experienced a rent spike after thousands of flats switched to holiday use.'},
+ {term:'to face eviction',cat:'Housing & access',pos:'verb phrase',definition:'To be at risk of being legally required to leave a rented home.',collocation:'face eviction / prevent an eviction / an eviction notice',example:'The tenants faced eviction shortly after the building changed hands.'},
+ {term:'lease renewal',cat:'Housing & access',pos:'noun phrase',definition:'The extension of an existing rental agreement for a further period.',collocation:'automatic lease renewal / negotiate a lease renewal',example:'Residents called for automatic lease renewal to reduce the threat of displacement.'},
+ {term:'adequate housing',cat:'Housing & access',pos:'noun phrase',definition:'Housing that meets essential needs such as security, suitability and habitability.',collocation:'the right to adequate housing / access to adequate housing',example:'The campaign argues that access to adequate housing should guide urban policy.'},
+ {term:'private equity',cat:'Finance & policy',pos:'noun',definition:'Investment capital managed by firms that acquire stakes in privately held companies or assets.',collocation:'private-equity firm / private-equity investment',example:'A private-equity firm acquired several apartment buildings in the same district.'},
+ {term:'a real-estate investment trust (REIT)',cat:'Finance & policy',pos:'noun phrase',definition:'An investment vehicle that owns or finances income-producing property and is subject to specific legal and tax rules.',collocation:'invest through a REIT / tax treatment of REITs',example:'The REIT reported a rise in income from its residential portfolio.'},
+ {term:'investment returns',cat:'Finance & policy',pos:'noun phrase',definition:'The gains investors receive from an asset, such as rent, dividends or capital appreciation.',collocation:'maximise / generate / prioritise investment returns',example:'The fund prioritised investment returns over affordable long-term tenancies.'},
+ {term:'foreign capital',cat:'Finance & policy',pos:'noun phrase',definition:'Money invested in a country by individuals, firms or institutions based abroad.',collocation:'attract / channel / rely on foreign capital',example:'The influx of foreign capital changed the dynamics of the city’s property market.'},
+ {term:'a tax exemption',cat:'Finance & policy',pos:'noun phrase',definition:'A legal provision removing an obligation to pay a particular tax.',collocation:'grant / qualify for / abolish a tax exemption',example:'Critics questioned whether the tax exemption primarily benefited large property funds.'},
+ {term:'mortgage-backed securities',cat:'Finance & policy',pos:'noun phrase · concept explained in article',definition:'Tradeable financial products assembled from pools of mortgage debt.',collocation:'bundle mortgages into securities',example:'The documentary examined the risks associated with mortgage-backed securities.'},
+ {term:'a golden-visa scheme',cat:'Finance & policy',pos:'noun phrase',definition:'A programme offering residency rights to qualifying foreign investors, sometimes through property purchases.',collocation:'introduce / tighten / end a golden-visa scheme',example:'The eligibility rules of the golden-visa scheme became the subject of political debate.'},
+ {term:'financialisation',cat:'Finance & policy',pos:'noun · extension',definition:'The increasing dominance of financial motives, markets and institutions in the organisation of economic and social life.',collocation:'the financialisation of housing / resist financialisation',example:'Researchers linked the financialisation of housing to a shift in the priorities of property ownership.'},
+ {term:'to make ends meet',cat:'Finance & policy',pos:'idiom',definition:'To have just enough income to cover basic living expenses.',collocation:'struggle to make ends meet',example:'Even with two incomes, the household struggled to make ends meet.'},
+ {term:'civic engagement',cat:'Power & democracy',pos:'noun phrase',definition:'Participation by members of the public in decisions and activities that affect their community.',collocation:'meaningful civic engagement / barriers to civic engagement',example:'The consultation was criticised for offering little meaningful civic engagement.'},
+ {term:'to squash a proposal',cat:'Power & democracy',pos:'verb phrase',definition:'To suppress or defeat an idea, plan or initiative, often through pressure.',collocation:'squash a bill / squash opposition / squash a proposal',example:'Industry representatives tried to squash the proposed restrictions before the vote.'},
+ {term:'to steamroller dissent',cat:'Power & democracy',pos:'verb phrase',definition:'To force through a decision while disregarding strong objections.',collocation:'steamroller dissent / steamroller a reform through',example:'Residents accused the council of trying to steamroller dissent at the planning meeting.'},
+ {term:'to defang',cat:'Power & democracy',pos:'verb · figurative',definition:'To deprive a law, organisation or process of its power to have a real effect.',collocation:'defang a watchdog / a defanged consultation process',example:'The amendments effectively defanged the new tenant-protection measures.'},
+ {term:'a non-binding referendum',cat:'Power & democracy',pos:'noun phrase',definition:'A public vote that indicates a preference but does not legally oblige authorities to act on the result.',collocation:'hold / disregard / follow up on a non-binding referendum',example:'The non-binding referendum showed strong public support without forcing legislative change.'},
+ {term:'to reclaim democratic control',cat:'Power & democracy',pos:'verb phrase',definition:'To restore meaningful decision-making power to the public and its accountable institutions.',collocation:'reclaim democratic control over housing policy',example:'The coalition sought to reclaim democratic control over large-scale redevelopment.'},
+ {term:'to be tethered to',cat:'Power & democracy',pos:'verb phrase · figurative',definition:'To remain closely connected to, limited by or responsive to something.',collocation:'policies tethered to actual housing needs',example:'Public spending should remain tethered to the needs of local communities.'},
+ {term:'to adhere to',cat:'Power & democracy',pos:'phrasal verb',definition:'To continue following a principle, policy or set of rules.',collocation:'adhere to a policy / strictly adhere to a principle',example:'Successive administrations adhered to the same investment-led strategy.'},
+ {term:'to water down',cat:'Power & democracy',pos:'phrasal verb · extension',definition:'To make a rule, proposal or statement less strong, demanding or effective.',collocation:'water down legislation / water down a pledge',example:'The original bill was watered down to secure enough votes in parliament.'},
+ {term:'regulatory capture',cat:'Power & democracy',pos:'noun phrase · extension',definition:'A situation where the organisations meant to regulate an industry become unduly influenced by that industry.',collocation:'prevent / expose regulatory capture',example:'The inquiry raised concerns about regulatory capture in the property sector.'},
+ {term:'a power imbalance',cat:'Power & democracy',pos:'noun phrase · extension',definition:'A situation in which one side has considerably more influence, resources or bargaining power than another.',collocation:'a structural power imbalance / address a power imbalance',example:'The negotiations revealed a substantial power imbalance between tenants and landlords.'}
+];
+const vocabQuiz = [
+ {q:'When even well-paid young professionals can no longer afford to buy in their own city, they have effectively been ______.',opts:['priced out of the market','granted a tax exemption','bound by a referendum','tethered to investment returns'],answer:0,why:'“Priced out of the market” is the idiomatic way to express affordability becoming a barrier to entry.'},
+ {q:'Although residents were invited to comment, the committee had no obligation to act. Critics described the process as ______.',opts:['adequately housed','defanged','rent-controlled','mortgage-backed'],answer:1,why:'“Defanged” describes a process deprived of effective influence or power.'},
+ {q:'Following pressure from industry groups, the original tenant-protection bill was ______ before the final vote.',opts:['priced out','made ends meet','watered down','locked out'],answer:2,why:'To “water down” a proposal is to weaken its original provisions.'},
+ {q:'Campaigners wanted a ______ vote so that a favourable result would require legal follow-through.',opts:['non-binding','private-equity','golden-visa','binding'],answer:3,why:'A “binding” decision has legal force; a non-binding vote may be ignored.'},
+ {q:'A large ______ firm acquired the buildings using money raised from institutional investors.',opts:['private-equity','lease-renewal','rent-control','civic-engagement'],answer:0,why:'A “private-equity firm” manages investment capital used to acquire companies or assets.'},
+ {q:'Local residents accused the authorities of trying to ______ by approving the project despite sustained objections.',opts:['make ends meet','steamroller dissent','renew a lease','qualify for a tax exemption'],answer:1,why:'To “steamroller dissent” means to override or disregard vocal opposition.'},
+ {q:'The tenants’ association called for genuine ______ rather than surveys whose findings were never considered.',opts:['mortgage securitisation','investment returns','civic engagement','foreign capital'],answer:2,why:'“Civic engagement” concerns real public involvement in collective decisions.'},
+ {q:'Holiday rentals were attractive to the fund because they promised significantly higher ______ than long-term leases.',opts:['lease renewals','rent-control laws','eviction notices','investment returns'],answer:3,why:'“Investment returns” are the gains obtained from an asset or investment.'},
+ {q:'As rents rose faster than wages, many families were struggling to ______ even while working full-time.',opts:['make ends meet','reclaim a referendum','defang a market','squash their leases'],answer:0,why:'“Make ends meet” means cover essential expenses with available income.'},
+ {q:'A regulator that consistently favours the companies it is supposed to oversee may be experiencing ______.',opts:['automatic lease renewal','regulatory capture','short-term letting','adequate housing'],answer:1,why:'“Regulatory capture” describes excessive industry influence over a regulatory authority. This is an extension concept.'}
+];
+const $ = id => document.getElementById(id);
+const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const choiceLabels = ['A','B','C','D'];
+let readingSubmitted = false, vocabSubmitted = false, vocabFilter = 'all';
+function renderMCQ(){ $('mcq-questions').innerHTML = mcq.map((item,i)=>`<div class="question" id="read-q-${i}"><div class="qtop"><span class="qnumber">${i+1}</span><div class="qtitle">${escapeHtml(item.q)}</div></div><div class="choices">${item.options.map((op,j)=>`<label class="choice"><input type="radio" name="mcq-${i}" value="${j}"><span class="choice-letter">${choiceLabels[j]}.</span><span class="choice-text">${escapeHtml(op)}</span></label>`).join('')}</div><div class="feedback" id="read-feedback-${i}"></div></div>`).join('');}
+function renderTFN(){ $('tfn-questions').innerHTML = tfn.map((item,i)=>`<div class="question" id="read-q-${i+8}"><div class="qtop"><span class="qnumber">${i+9}</span><div class="qtitle">${escapeHtml(item.q)}</div></div><div class="tfn-grid">${[['T','True'],['F','False'],['N','Not stated']].map(([code,label])=>`<label class="choice"><input type="radio" name="tfn-${i}" value="${code}"><span>${label}</span></label>`).join('')}</div><div class="feedback" id="read-feedback-${i+8}"></div></div>`).join('');}
+function renderMatch(){ $('match-options').innerHTML=matchOptions.map(([letter,desc])=>`<li><b>${letter}</b> ${escapeHtml(desc)}</li>`).join(''); $('match-questions').innerHTML=matching.map((item,i)=>`<div class="question" id="read-q-${i+16}"><div class="qtop"><span class="qnumber">${i+17}</span><div class="qtitle">${escapeHtml(item.q)}</div></div><label><span class="hidden">Choose the matching idea for question ${i+17}</span><select class="option-select" id="match-${i}"><option value="">Select an idea (A–G)…</option>${matchOptions.map(([letter,desc])=>`<option value="${letter}">${letter} — ${escapeHtml(desc)}</option>`).join('')}</select></label><div class="feedback" id="read-feedback-${i+16}"></div></div>`).join('');}
+function selected(name){const x=document.querySelector(`input[name="${name}"]:checked`);return x?x.value:'';}
+function collectReading(){ return [...mcq.map((x,i)=>selected(`mcq-${i}`)),...tfn.map((x,i)=>selected(`tfn-${i}`)),...matching.map((x,i)=>$(`match-${i}`).value)];}
+function updateProgress(){const n=collectReading().filter(Boolean).length;$('completed-count').textContent=n;$('progress-fill').style.width=(100*n/22)+'%';$('progressbar').setAttribute('aria-valuenow',String(n));}
+function feedback(node,correct,label,why){ node.classList.add(correct?'correct':'incorrect'); const f=node.querySelector('.feedback');f.classList.add('show');if(!correct)f.classList.add('bad');f.innerHTML=`<strong>${correct?'✓ Correct':`✕ Correct answer: ${escapeHtml(label)}`}</strong>${escapeHtml(why)}`;}
+function submitReading(){if(readingSubmitted)return;const vals=collectReading();let count=0;const all=[...mcq,...tfn,...matching];all.forEach((item,i)=>{const correct=i<8?vals[i]===String(item.answer):vals[i]===item.answer;if(correct)count++;const answer=i<8?choiceLabels[item.answer]+' — '+item.options[item.answer]:i<16?({'T':'True','F':'False','N':'Not stated'}[item.answer]):item.answer+' — '+matchOptions.find(m=>m[0]===item.answer)[1];feedback($(`read-q-${i}`),correct,answer,item.why);});document.querySelectorAll('#exam-page input,#exam-page select').forEach(x=>x.disabled=true); readingSubmitted=true;const pct=Math.round(count/22*100);$('reading-result').innerHTML=`<h3>Your reading result</h3><div class="score-big">${count} / 22 <span style="font:700 1rem system-ui;color:#47766c">· ${pct}%</span></div><p>${pct>=85?'Excellent reading precision. Review any subtle distinctions you missed.':pct>=65?'Solid foundation. Focus on the explanations for the questions you missed.':'Use the explanations to revisit the writer’s argument, especially the difference between False and Not stated.'}</p><p style="font-size:.85rem;color:#4a7165">This is classroom practice, not an official EOI grade.</p>`;$('reading-result').classList.add('show');$('submit-reading').disabled=true;$('submit-reading').textContent='Answers checked';$('print-reading').classList.remove('hidden');$('reading-result').scrollIntoView({behavior:'smooth',block:'center'});}
+function resetReading(){readingSubmitted=false;document.querySelectorAll('#exam-page input').forEach(x=>{x.disabled=false;x.checked=false});document.querySelectorAll('#exam-page select').forEach(x=>{x.disabled=false;x.selectedIndex=0});document.querySelectorAll('#exam-page .question').forEach(x=>{x.classList.remove('correct','incorrect');const f=x.querySelector('.feedback');f.classList.remove('show','bad');f.innerHTML='';});$('reading-result').classList.remove('show');$('reading-result').innerHTML='';$('submit-reading').disabled=false;$('submit-reading').textContent='Submit & check answers';$('print-reading').classList.add('hidden');try{localStorage.removeItem(ANSWERS_STORAGE_KEY)}catch(e){}updateProgress();$('task-mcq').scrollIntoView({behavior:'smooth',block:'start'});}
+function renderVocabulary(){const q=$('vocab-search').value.trim().toLowerCase();const filtered=vocabulary.filter(v=>(vocabFilter==='all'||v.cat===vocabFilter)&&[v.term,v.definition,v.collocation,v.example].some(x=>x.toLowerCase().includes(q)));$('vocab-grid').innerHTML=filtered.map(v=>`<article class="vocab-card"><div class="vocab-category">${escapeHtml(v.cat)} · ${escapeHtml(v.pos)}</div><div class="vocab-term">${escapeHtml(v.term)}</div><p class="vocab-definition">${escapeHtml(v.definition)}</p><p class="vocab-usage"><span class="small-label">Collocation</span>${escapeHtml(v.collocation)}</p><p class="vocab-example"><span class="small-label">Example</span> ${escapeHtml(v.example)}</p></article>`).join('');$('vocab-count').textContent=`Showing ${filtered.length} of ${vocabulary.length} expressions`;$('vocab-empty').style.display=filtered.length?'none':'block';}
+function renderVocabQuiz(){ $('vocab-quiz').innerHTML=vocabQuiz.map((item,i)=>`<div class="question" id="vocab-q-${i}"><div class="qtop"><span class="qnumber">${i+1}</span><div class="qtitle">${escapeHtml(item.q)}</div></div><div class="choices">${item.opts.map((op,j)=>`<label class="choice"><input type="radio" name="vocab-${i}" value="${j}"><span class="choice-letter">${choiceLabels[j]}.</span><span class="choice-text">${escapeHtml(op)}</span></label>`).join('')}</div><div class="feedback"></div></div>`).join('');}
+function submitVocab(){if(vocabSubmitted)return;let score=0;vocabQuiz.forEach((q,i)=>{const val=selected(`vocab-${i}`),correct=val===String(q.answer);if(correct)score++;feedback($(`vocab-q-${i}`),correct,choiceLabels[q.answer]+' — '+q.opts[q.answer],q.why);});document.querySelectorAll('#practice-page input').forEach(x=>x.disabled=true);vocabSubmitted=true;$('vocab-result').innerHTML=`<h3>Vocabulary result</h3><div class="score-big">${score} / 10</div><p>${score>=8?'Well done. Try using five of these expressions in your next speaking task.':'Review the highlighted expressions in the vocabulary bank, then try again.'}</p>`;$('vocab-result').classList.add('show');$('submit-vocab').disabled=true;$('submit-vocab').textContent='Answers checked';$('vocab-result').scrollIntoView({behavior:'smooth',block:'center'});}
+function resetVocab(){vocabSubmitted=false;document.querySelectorAll('#practice-page input').forEach(x=>{x.disabled=false;x.checked=false});document.querySelectorAll('#practice-page .question').forEach(x=>{x.classList.remove('correct','incorrect');const f=x.querySelector('.feedback');f.classList.remove('show','bad');f.innerHTML='';});$('vocab-result').classList.remove('show');$('vocab-result').innerHTML='';$('submit-vocab').disabled=false;$('submit-vocab').textContent='Check vocabulary';$('vocab-quiz').scrollIntoView({behavior:'smooth'});}
+function switchPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.page===id)));window.scrollTo({top:0,behavior:'smooth'});}
+function setup(){renderMCQ();renderTFN();renderMatch();renderVocabulary();renderVocabQuiz();restoreReadingAnswers();updateProgress();$('toggle-original-reader').addEventListener('click',()=>toggleOriginalReader());$('close-original-reader').addEventListener('click',()=>toggleOriginalReader(false));document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>switchPage(t.dataset.page)));$('exam-page').addEventListener('change',()=>{updateProgress();storeReadingAnswers()});$('submit-reading').addEventListener('click',submitReading);$('reset-reading').addEventListener('click',resetReading);$('print-reading').addEventListener('click',()=>window.print());$('vocab-search').addEventListener('input',renderVocabulary);document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{vocabFilter=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderVocabulary();}));$('submit-vocab').addEventListener('click',submitVocab);$('reset-vocab').addEventListener('click',resetVocab);}
+setup();
+</script>
+</body>
+</html>
